@@ -22,5 +22,12 @@ dependencies = [
     "uvicorn[standard]==0.34.0",
 ]
 
+[tool.black]
+line-length = 88
+target-version = ["py311", "py312"]
+
 [tool.isort]
 profile = "black"
+line_length = 88
+known_first_party = ["churnguard"]
+src_paths = ["src", "tests", "scripts"]

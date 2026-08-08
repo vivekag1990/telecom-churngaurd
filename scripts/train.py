@@ -17,6 +17,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from churnguard.config import SETTINGS
 from churnguard.data.ingestion import CsvDataSource, DataIngestor
+from churnguard.data.validation import (
+    DataValidator,
+    load_reference_profile,
+    write_reference_profile,
+)
 from churnguard.logging_config import configure_logging
 from churnguard.models.trainer import ChurnModelTrainer
 
@@ -41,14 +46,17 @@ def main() -> int:
     ingestor = DataIngestor(CsvDataSource(args.data))
     raw = ingestor.load_raw()
 
-    # ---- 2. Validate (hard gate) ----------------------------------------
-    # Skipped data validation for now as it's not requested yet in this scope
-    # report = DataValidator().validate(raw)
-    # if not report.passed and not args.skip_gates:
-    #     logger.error("Aborting: dataset failed validation -> %s", report.errors)
-    #     return 1
+    # ---- 2. Validate (hard gate, drift included if a prior profile exists)
+    previous_profile = load_reference_profile(SETTINGS.paths.reference_profile)
+    report = DataValidator().validate(raw, reference_profile=previous_profile)
+    if not report.passed and not args.skip_gates:
+        logger.error("Aborting: dataset failed validation -> %s", report.errors)
+        return 1
 
     split = ingestor.split(raw)
+
+    # ---- 2b. Refresh the reference profile from this run's training split -
+    write_reference_profile(split.x_train, SETTINGS.paths.reference_profile)
 
     # ---- 3. Train --------------------------------------------------------
     trainer = ChurnModelTrainer()
@@ -74,7 +82,7 @@ def main() -> int:
     trainer.write_metrics_report(
         metrics,
         SETTINGS.paths.metrics_report,
-        extra={**cv_result},
+        extra={**cv_result, "data_quality": report.to_dict()},
     )
 
     logger.info("-" * 78)

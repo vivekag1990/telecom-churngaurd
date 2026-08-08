@@ -61,7 +61,8 @@ venv.bak/
 /data/
 /artifacts/
 /logs/
-/reports/
+/reports/*
+!/reports/lint_demo/
 *.csv
 *.parquet
 *.pkl
