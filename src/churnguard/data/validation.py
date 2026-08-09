@@ -73,6 +73,7 @@ class ValidationReport:
 def population_stability_index(
     reference: np.ndarray, current: np.ndarray, n_bins: int = 10
 ) -> float:
+    """Return PSI for two numeric samples using reference quantile bins."""
     reference = np.asarray(reference, dtype=float)
     current = np.asarray(current, dtype=float)
     reference = reference[~np.isnan(reference)]
@@ -88,6 +89,7 @@ def population_stability_index(
 
     ref_pct = np.histogram(reference, bins=edges)[0] / reference.size
     cur_pct = np.histogram(current, bins=edges)[0] / current.size
+    # Clipping prevents division by zero when a bin is empty in one sample.
     eps = 1e-6
     ref_pct = np.clip(ref_pct, eps, None)
     cur_pct = np.clip(cur_pct, eps, None)
@@ -188,6 +190,7 @@ class DataValidator:
 
 
 def write_reference_profile(frame: pd.DataFrame, path: Path) -> dict[str, list[float]]:
+    """Save numeric training values used by later drift checks."""
     profile = {
         column: frame[column].dropna().astype(float).tolist()
         for column in SETTINGS.model.numeric_features
@@ -200,6 +203,7 @@ def write_reference_profile(frame: pd.DataFrame, path: Path) -> dict[str, list[f
 
 
 def load_reference_profile(path: Path) -> dict[str, list[float]]:
+    """Load a drift reference profile when one is available."""
     if not path.exists():
         logger.warning("Reference profile %s not found; drift checks skipped", path)
         return {}

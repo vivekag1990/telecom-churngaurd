@@ -54,14 +54,14 @@ class CustomerFeatures(BaseModel):
     @field_validator("customer_id")
     @classmethod
     def reject_control_characters(cls, value: str | None) -> str | None:
-        """Defensive: block control characters that could poison downstream logs."""
+        """Reject control characters before values reach application logs."""
         if value is not None and any(ord(ch) < 32 for ch in value):
             raise ValueError("customer_id must not contain control characters")
         return value
 
 
 class BatchPredictionRequest(BaseModel):
-    """A bounded batch. The upper bound protects the service from memory blow-ups."""
+    """Bound request size to protect service memory."""
 
     model_config = ConfigDict(extra="forbid")
     customers: Annotated[list[CustomerFeatures], Field(min_length=1, max_length=MAX_BATCH_SIZE)]
@@ -89,6 +89,8 @@ class BatchPredictionResponse(BaseModel):
 
 
 class HealthResponse(BaseModel):
+    """Service liveness and readiness response."""
+
     status: Literal["ok", "degraded"]
     model_loaded: bool
     model_version: str
@@ -96,6 +98,8 @@ class HealthResponse(BaseModel):
 
 
 class ModelInfoResponse(BaseModel):
+    """Metadata for the active model artefact."""
+
     model_config = ConfigDict(protected_namespaces=())
     model_version: str
     trained_at_utc: str | None = None
@@ -106,7 +110,7 @@ class ModelInfoResponse(BaseModel):
 
 
 class ErrorResponse(BaseModel):
-    """Uniform error envelope so clients parse one shape for every failure."""
+    """Domain error response."""
 
     error: str
     detail: str

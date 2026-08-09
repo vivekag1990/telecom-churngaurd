@@ -8,9 +8,7 @@ import sys
 import tempfile
 from pathlib import Path
 
-os.environ.setdefault(
-    "MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "churnguard-matplotlib")
-)
+os.environ.setdefault("MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "churnguard-matplotlib"))
 
 import matplotlib
 
@@ -197,6 +195,7 @@ def _risk_bands(predictor: ChurnPredictor, split) -> None:
 
 
 def main() -> None:
+    """Regenerate all report figures from the holdout set."""
     plt.rcParams.update({"font.size": 10, "axes.edgecolor": "#8894a3"})
     split = DataIngestor(CsvDataSource(SETTINGS.paths.raw_data)).split()
     predictor = ChurnPredictor().load()

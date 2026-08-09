@@ -40,11 +40,10 @@ def main() -> int:
     logger.info("ChurnGuard training run starting")
     logger.info("=" * 78)
 
-    # ---- 1. Ingest -------------------------------------------------------
+    # Load and validate the training data.
     ingestor = DataIngestor(CsvDataSource(args.data))
     raw = ingestor.load_raw()
 
-    # ---- 2. Validate (hard gate, drift included if a prior profile exists)
     previous_profile = load_reference_profile(SETTINGS.paths.reference_profile)
     report = DataValidator().validate(raw, reference_profile=previous_profile)
     if not report.passed and not args.skip_gates:
@@ -53,17 +52,16 @@ def main() -> int:
 
     split = ingestor.split(raw)
 
-    # ---- 2b. Refresh the reference profile from this run's training split -
+    # Refresh the reference distribution after validation succeeds.
     write_reference_profile(split.x_train, SETTINGS.paths.reference_profile)
 
-    # ---- 3. Train --------------------------------------------------------
+    # Train and evaluate the full pipeline.
     trainer = ChurnModelTrainer()
     cv_result = {}
     if args.cv:
         cv_result = trainer.cross_validate(split.x_train, split.y_train, folds=args.cv)
     trainer.train(split.x_train, split.y_train)
 
-    # ---- 4. Evaluate + gate ---------------------------------------------
     metrics = trainer.evaluate(split.x_test, split.y_test)
     passed, failures = metrics.passes_gates()
     if not passed:
@@ -73,7 +71,7 @@ def main() -> int:
     else:
         logger.info("All model quality gates passed")
 
-    # ---- 5. Persist ------------------------------------------------------
+    # Save artefacts only after all release gates pass.
     trainer.save(SETTINGS.paths.model_artifact, metrics, extra={**cv_result, **split.summary()})
     trainer.write_metrics_report(
         metrics,

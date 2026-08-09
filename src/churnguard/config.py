@@ -64,10 +64,7 @@ class ModelConfig:
     max_depth: int = 12
     min_samples_leaf: int = 8
     class_weight: str = "balanced"
-    #: Tuned on the validation split (see reports/threshold_sweep.csv). 0.50 is NOT
-    #: the right default here: losing a customer costs ~18x the price of a retention
-    #: discount, so the threshold is deliberately pushed down to buy recall. F1 peaks
-    #: at 0.34-0.35 on held-out data.
+    # Selected from the holdout threshold sweep to favour recall at acceptable precision.
     decision_threshold: float = _env_float("CHURN_DECISION_THRESHOLD", 0.35)
 
 

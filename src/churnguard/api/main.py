@@ -57,6 +57,7 @@ app = FastAPI(
 # --------------------------------------------------------------- middleware
 @app.middleware("http")
 async def add_timing_header(request: Request, call_next):
+    """Record request latency in logs and a response header."""
     started = time.perf_counter()
     response: Response = await call_next(request)
     elapsed_ms = (time.perf_counter() - started) * 1000
@@ -118,6 +119,7 @@ async def handle_generic_domain_error(request: Request, exc: ChurnGuardError) ->
 # ------------------------------------------------------------------ routes
 @app.get("/health", response_model=HealthResponse, tags=["operations"])
 async def health() -> HealthResponse:
+    """Return liveness and model-readiness state."""
     return HealthResponse(
         status="ok" if predictor.is_loaded else "degraded",
         model_loaded=predictor.is_loaded,
@@ -132,6 +134,7 @@ async def health() -> HealthResponse:
     tags=["model"],
 )
 async def model_info() -> ModelInfoResponse:
+    """Return metadata for the loaded model."""
     if not predictor.is_loaded:
         raise ModelNotLoadedError("No model loaded")
     metadata = predictor.metadata
@@ -162,6 +165,7 @@ async def model_info() -> ModelInfoResponse:
     },
 )
 async def predict(customer: CustomerFeatures) -> PredictionResponse:
+    """Score one customer."""
     if not predictor.is_loaded:
         raise ModelNotLoadedError("No model loaded")
     result = predictor.predict_one(customer.model_dump())
@@ -180,6 +184,7 @@ async def predict(customer: CustomerFeatures) -> PredictionResponse:
     },
 )
 async def predict_batch(request: BatchPredictionRequest) -> BatchPredictionResponse:
+    """Score a validated batch of customers."""
     if not predictor.is_loaded:
         raise ModelNotLoadedError("No model loaded")
     results = predictor.predict([c.model_dump() for c in request.customers])

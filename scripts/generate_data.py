@@ -29,6 +29,7 @@ def build_dataset(n_rows: int = 5000, seed: int = RNG_SEED) -> pd.DataFrame:
     tech_support = rng.choice(["Yes", "No"], size=n_rows, p=[0.38, 0.62])
     paperless = rng.choice(["Yes", "No"], size=n_rows, p=[0.60, 0.40])
 
+    # Charges and usage depend on the selected service plan.
     base_charge = np.where(internet == "Fiber optic", 78.0, np.where(internet == "DSL", 52.0, 21.0))
     monthly = np.clip(base_charge + rng.normal(0, 9.0, n_rows), 18.5, 125.0)
     total = np.round(monthly * tenure * rng.uniform(0.94, 1.06, n_rows), 2)
@@ -43,6 +44,7 @@ def build_dataset(n_rows: int = 5000, seed: int = RNG_SEED) -> pd.DataFrame:
         90.0,
     )
 
+    # Coefficients encode the expected direction of the main churn drivers.
     logit = (
         -1.95
         - 0.045 * tenure
@@ -75,6 +77,7 @@ def build_dataset(n_rows: int = 5000, seed: int = RNG_SEED) -> pd.DataFrame:
         }
     )
 
+    # Missing values stay below the configured 5% quality gate.
     for column, fraction in (
         ("total_charges", 0.012),
         ("avg_monthly_gb", 0.006),

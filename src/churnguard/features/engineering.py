@@ -60,6 +60,7 @@ DERIVED_FEATURES: Mapping[str, FeatureFn] = {
 def apply_derived_features(
     frame: pd.DataFrame, registry: Mapping[str, FeatureFn] = DERIVED_FEATURES
 ) -> pd.DataFrame:
+    """Append registered features without modifying the input frame."""
     out = frame.copy()
     for name, fn in registry.items():
         try:
@@ -74,6 +75,8 @@ def apply_derived_features(
 
 
 class ChurnFeatureEngineer(BaseEstimator, TransformerMixin):
+    """Expose feature functions through the scikit-learn transformer API."""
+
     def __init__(self, registry: Mapping[str, FeatureFn] | None = None) -> None:
         self.registry = registry or DERIVED_FEATURES
 
@@ -81,6 +84,7 @@ class ChurnFeatureEngineer(BaseEstimator, TransformerMixin):
         if not isinstance(X, pd.DataFrame):
             raise FeatureEngineeringError("ChurnFeatureEngineer expects a pandas DataFrame")
         self.feature_names_in_ = list(X.columns)
+        # Store output order so request-column order cannot affect inference.
         self.output_columns_ = list(apply_derived_features(X.head(2), self.registry).columns)
         logger.info(
             "ChurnFeatureEngineer fitted: %d in -> %d out",
@@ -104,6 +108,7 @@ class ChurnFeatureEngineer(BaseEstimator, TransformerMixin):
 
 
 def build_preprocessor() -> ColumnTransformer:
+    """Build numeric and categorical preprocessing pipelines."""
     numeric_columns = list(SETTINGS.model.numeric_features) + [
         "avg_spend_per_month",
         "tickets_per_year",

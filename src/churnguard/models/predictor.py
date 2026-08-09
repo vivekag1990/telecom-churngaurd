@@ -25,6 +25,8 @@ RISK_BANDS: tuple[tuple[float, str, str], ...] = (
 
 @dataclass(frozen=True)
 class Prediction:
+    """Hold a scored customer and its retention action."""
+
     customer_id: str | None
     churn_probability: float
     churn_prediction: int
@@ -38,6 +40,7 @@ class Prediction:
 
 
 def assign_risk_band(probability: float) -> tuple[str, str]:
+    """Map churn probability to a retention action."""
     for upper, band, action in RISK_BANDS:
         if probability < upper:
             return band, action
@@ -45,6 +48,8 @@ def assign_risk_band(probability: float) -> tuple[str, str]:
 
 
 class ChurnPredictor:
+    """Load a saved pipeline and serve batch or single predictions."""
+
     def __init__(self, artifact_path: Path | None = None, threshold: float | None = None) -> None:
         self.artifact_path = artifact_path or SETTINGS.paths.model_artifact
         self.threshold = SETTINGS.model.decision_threshold if threshold is None else threshold
@@ -69,6 +74,7 @@ class ChurnPredictor:
         return str(self._metadata.get("code_version", "unknown"))
 
     def load(self) -> ChurnPredictor:
+        """Load and validate the saved artefact envelope."""
         logger.info("Loading model artefact from %s", self.artifact_path)
         if not Path(self.artifact_path).exists():
             logger.error("Model artefact not found at %s", self.artifact_path)
@@ -95,6 +101,7 @@ class ChurnPredictor:
         return self._pipeline
 
     def predict_proba(self, frame: pd.DataFrame) -> np.ndarray:
+        """Return churn probabilities for a validated feature frame."""
         pipeline = self._require_model()
         if frame.empty:
             raise InferenceError("Received an empty batch")
@@ -103,6 +110,7 @@ class ChurnPredictor:
             logger.error("Inference payload missing features: %s", missing)
             raise InferenceError(f"Missing required features: {missing}")
         try:
+            # Fixed feature order prevents request-column order from changing scores.
             probabilities = pipeline.predict_proba(frame[SETTINGS.all_features])[:, 1]
         except Exception as exc:
             logger.exception("Inference failed for a batch of %d rows", len(frame))
@@ -114,6 +122,7 @@ class ChurnPredictor:
         return probabilities
 
     def predict(self, records: pd.DataFrame | list[dict]) -> list[Prediction]:
+        """Return business-facing predictions for all records."""
         frame = pd.DataFrame(records) if not isinstance(records, pd.DataFrame) else records
         probabilities = self.predict_proba(frame)
         ids = (
@@ -144,4 +153,5 @@ class ChurnPredictor:
         return predictions
 
     def predict_one(self, record: dict) -> Prediction:
+        """Return one business-facing prediction."""
         return self.predict([record])[0]

@@ -6,6 +6,7 @@ RUN pip install --no-cache-dir --prefix=/install -r requirements.txt
 
 # ---- Stage 2: runtime -----------------------------------------------------
 FROM python:3.12-slim
+# Limit filesystem and process privileges in the runtime image.
 RUN useradd --create-home --shell /bin/bash appuser
 WORKDIR /app
 

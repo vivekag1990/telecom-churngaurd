@@ -23,6 +23,8 @@ logger = logging.getLogger(__name__)
 
 @dataclass
 class ModelMetrics:
+    """Serializable discrimination and calibration metrics."""
+
     accuracy: float
     precision: float
     recall: float
@@ -38,6 +40,7 @@ class ModelMetrics:
         return asdict(self)
 
     def passes_gates(self) -> tuple[bool, list[str]]:
+        """Return release-gate status and failure messages."""
         gates = SETTINGS.gates
         failures: list[str] = []
         if self.roc_auc < gates.min_roc_auc:
@@ -50,6 +53,7 @@ class ModelMetrics:
 
 
 def expected_calibration_error(y_true: np.ndarray, y_prob: np.ndarray, n_bins: int = 10) -> float:
+    """Return weighted calibration error across probability bins."""
     y_true = np.asarray(y_true, dtype=float)
     y_prob = np.asarray(y_prob, dtype=float)
     edges = np.linspace(0.0, 1.0, n_bins + 1)
@@ -85,6 +89,7 @@ def reliability_curve(
 def evaluate(
     y_true: np.ndarray, y_prob: np.ndarray, threshold: float | None = None
 ) -> ModelMetrics:
+    """Compute holdout classification and calibration metrics."""
     threshold = SETTINGS.model.decision_threshold if threshold is None else threshold
     y_true = np.asarray(y_true).astype(int)
     y_prob = np.asarray(y_prob, dtype=float)
