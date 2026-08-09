@@ -57,6 +57,7 @@ app = FastAPI(
 # --------------------------------------------------------------- middleware
 @app.middleware("http")
 async def add_timing_header(request: Request, call_next):
+    """Record request latency in logs and a response header."""
     started = time.perf_counter()
     response: Response = await call_next(request)
     elapsed_ms = (time.perf_counter() - started) * 1000
@@ -73,25 +74,19 @@ async def add_timing_header(request: Request, call_next):
 
 # ---------------------------------------------------------- error handlers
 @app.exception_handler(ModelNotLoadedError)
-async def handle_model_not_loaded(
-    request: Request, exc: ModelNotLoadedError
-) -> JSONResponse:
+async def handle_model_not_loaded(request: Request, exc: ModelNotLoadedError) -> JSONResponse:
     logger.error("503 on %s -- model unavailable: %s", request.url.path, exc)
     return JSONResponse(
         status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
         content=ErrorResponse(
             error="model_unavailable",
-            detail=(
-                "The model artefact is not loaded. Retry after the service is ready."
-            ),
+            detail=("The model artefact is not loaded. Retry after the service is ready."),
         ).model_dump(),
     )
 
 
 @app.exception_handler(SchemaValidationError)
-async def handle_schema_error(
-    request: Request, exc: SchemaValidationError
-) -> JSONResponse:
+async def handle_schema_error(request: Request, exc: SchemaValidationError) -> JSONResponse:
     logger.warning("400 on %s -- contract breach: %s", request.url.path, exc)
     return JSONResponse(
         status_code=status.HTTP_400_BAD_REQUEST,
@@ -111,9 +106,7 @@ async def handle_inference_error(request: Request, exc: InferenceError) -> JSONR
 
 
 @app.exception_handler(ChurnGuardError)
-async def handle_generic_domain_error(
-    request: Request, exc: ChurnGuardError
-) -> JSONResponse:
+async def handle_generic_domain_error(request: Request, exc: ChurnGuardError) -> JSONResponse:
     logger.exception("500 on %s", request.url.path)
     return JSONResponse(
         status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
@@ -126,6 +119,7 @@ async def handle_generic_domain_error(
 # ------------------------------------------------------------------ routes
 @app.get("/health", response_model=HealthResponse, tags=["operations"])
 async def health() -> HealthResponse:
+    """Return liveness and model-readiness state."""
     return HealthResponse(
         status="ok" if predictor.is_loaded else "degraded",
         model_loaded=predictor.is_loaded,
@@ -140,21 +134,18 @@ async def health() -> HealthResponse:
     tags=["model"],
 )
 async def model_info() -> ModelInfoResponse:
+    """Return metadata for the loaded model."""
     if not predictor.is_loaded:
         raise ModelNotLoadedError("No model loaded")
     metadata = predictor.metadata
     return ModelInfoResponse(
         model_version=predictor.model_version,
         trained_at_utc=metadata.get("trained_at_utc"),
-        decision_threshold=float(
-            metadata.get("decision_threshold", predictor.threshold)
-        ),
+        decision_threshold=float(metadata.get("decision_threshold", predictor.threshold)),
         input_features=list(metadata.get("input_features", SETTINGS.all_features)),
         hyperparameters=metadata.get("hyperparameters", {}),
         test_metrics={
-            k: v
-            for k, v in predictor.metrics.items()
-            if k not in {"confusion", "n_samples"}
+            k: v for k, v in predictor.metrics.items() if k not in {"confusion", "n_samples"}
         },
     )
 
@@ -174,6 +165,7 @@ async def model_info() -> ModelInfoResponse:
     },
 )
 async def predict(customer: CustomerFeatures) -> PredictionResponse:
+    """Score one customer."""
     if not predictor.is_loaded:
         raise ModelNotLoadedError("No model loaded")
     result = predictor.predict_one(customer.model_dump())
@@ -192,6 +184,7 @@ async def predict(customer: CustomerFeatures) -> PredictionResponse:
     },
 )
 async def predict_batch(request: BatchPredictionRequest) -> BatchPredictionResponse:
+    """Score a validated batch of customers."""
     if not predictor.is_loaded:
         raise ModelNotLoadedError("No model loaded")
     results = predictor.predict([c.model_dump() for c in request.customers])

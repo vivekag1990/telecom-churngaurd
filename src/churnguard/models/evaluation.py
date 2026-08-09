@@ -23,6 +23,8 @@ logger = logging.getLogger(__name__)
 
 @dataclass
 class ModelMetrics:
+    """Serializable discrimination and calibration metrics."""
+
     accuracy: float
     precision: float
     recall: float
@@ -38,6 +40,7 @@ class ModelMetrics:
         return asdict(self)
 
     def passes_gates(self) -> tuple[bool, list[str]]:
+        """Return release-gate status and failure messages."""
         gates = SETTINGS.gates
         failures: list[str] = []
         if self.roc_auc < gates.min_roc_auc:
@@ -49,9 +52,8 @@ class ModelMetrics:
         return (not failures), failures
 
 
-def expected_calibration_error(
-    y_true: np.ndarray, y_prob: np.ndarray, n_bins: int = 10
-) -> float:
+def expected_calibration_error(y_true: np.ndarray, y_prob: np.ndarray, n_bins: int = 10) -> float:
+    """Return weighted calibration error across probability bins."""
     y_true = np.asarray(y_true, dtype=float)
     y_prob = np.asarray(y_prob, dtype=float)
     edges = np.linspace(0.0, 1.0, n_bins + 1)
@@ -65,50 +67,49 @@ def expected_calibration_error(
     return float(error)
 
 
+def reliability_curve(
+    y_true: np.ndarray, y_prob: np.ndarray, n_bins: int = 10
+) -> tuple[np.ndarray, np.ndarray]:
+    """Return mean predicted and observed probabilities for populated bins."""
+    y_true = np.asarray(y_true, dtype=float)
+    y_prob = np.asarray(y_prob, dtype=float)
+    edges = np.linspace(0.0, 1.0, n_bins + 1)
+    bin_ids = np.clip(np.digitize(y_prob, edges[1:-1], right=True), 0, n_bins - 1)
+    predicted: list[float] = []
+    observed: list[float] = []
+    for bin_index in range(n_bins):
+        mask = bin_ids == bin_index
+        if mask.sum() < 5:
+            continue
+        predicted.append(float(y_prob[mask].mean()))
+        observed.append(float(y_true[mask].mean()))
+    return np.asarray(predicted), np.asarray(observed)
+
+
 def evaluate(
     y_true: np.ndarray, y_prob: np.ndarray, threshold: float | None = None
 ) -> ModelMetrics:
+    """Compute holdout classification and calibration metrics."""
     threshold = SETTINGS.model.decision_threshold if threshold is None else threshold
     y_true = np.asarray(y_true).astype(int)
     y_prob = np.asarray(y_prob, dtype=float)
     if y_true.shape != y_prob.shape:
-        raise ValueError(
-            f"Shape mismatch: y_true {y_true.shape} vs y_prob {y_prob.shape}"
-        )
+        raise ValueError(f"Shape mismatch: y_true {y_true.shape} vs y_prob {y_prob.shape}")
 
     y_pred = (y_prob >= threshold).astype(int)
 
-    # Handle edge case where only one class is present or no predictions
-    try:
-        metrics = ModelMetrics(
-            accuracy=float(accuracy_score(y_true, y_pred)),
-            precision=float(precision_score(y_true, y_pred, zero_division=0)),
-            recall=float(recall_score(y_true, y_pred, zero_division=0)),
-            f1=float(f1_score(y_true, y_pred, zero_division=0)),
-            roc_auc=(
-                float(roc_auc_score(y_true, y_prob))
-                if len(np.unique(y_true)) > 1
-                else 0.5
-            ),
-            brier=float(brier_score_loss(y_true, y_prob)),
-            ece=expected_calibration_error(y_true, y_prob),
-            threshold=float(threshold),
-            n_samples=int(y_true.size),
-            confusion=confusion_matrix(y_true, y_pred).tolist(),
-        )
-    except ValueError:
-        metrics = ModelMetrics(
-            accuracy=0.0,
-            precision=0.0,
-            recall=0.0,
-            f1=0.0,
-            roc_auc=0.5,
-            brier=0.0,
-            ece=0.0,
-            threshold=threshold,
-            n_samples=int(y_true.size),
-            confusion=[],
-        )
+    metrics = ModelMetrics(
+        accuracy=float(accuracy_score(y_true, y_pred)),
+        precision=float(precision_score(y_true, y_pred, zero_division=0)),
+        recall=float(recall_score(y_true, y_pred, zero_division=0)),
+        f1=float(f1_score(y_true, y_pred, zero_division=0)),
+        roc_auc=float(roc_auc_score(y_true, y_prob)),
+        brier=float(brier_score_loss(y_true, y_prob)),
+        ece=expected_calibration_error(y_true, y_prob),
+        threshold=float(threshold),
+        n_samples=int(y_true.size),
+        confusion=confusion_matrix(y_true, y_pred).tolist(),
+    )
 
     logger.info(
         "Evaluation @thr=%.2f | AUC=%.4f F1=%.4f acc=%.4f Brier=%.4f ECE=%.4f",

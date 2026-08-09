@@ -42,7 +42,6 @@ def run(title: str, fn) -> None:
 def main() -> None:
     configure_logging(force=True)
     raw = pd.read_csv(SETTINGS.paths.raw_data)
-    raw["TotalCharges"] = pd.to_numeric(raw["TotalCharges"], errors="coerce")
 
     # 1. Ingestion -- missing file
     def missing_file():
@@ -60,7 +59,7 @@ def main() -> None:
 
     # 3. Ingestion -- missing required columns
     def missing_columns():
-        broken = raw.drop(columns=["Contract", "InternetService"])
+        broken = raw.drop(columns=["contract_type", "internet_service"])
         DataIngestor(InMemoryDataSource(broken, "missing-cols")).load_raw()
 
     run("Ingestion: missing required columns -> DataIngestionError", missing_columns)
@@ -68,7 +67,7 @@ def main() -> None:
     # 4. Ingestion -- single-class target (cannot split)
     def single_class_target():
         single = raw.copy()
-        single["Churn"] = "No"
+        single["churn"] = 0
         DataIngestor(InMemoryDataSource(single, "single-class")).split(single)
 
     run("Ingestion: single-class target -> DataIngestionError", single_class_target)
@@ -76,9 +75,9 @@ def main() -> None:
     # 5. Validation -- schema breach (bad category level + out-of-range + nulls)
     def schema_breach():
         broken = raw.copy()
-        broken.loc[0, "Contract"] = "Lifetime"  # unexpected category level
-        broken.loc[1, "MonthlyCharges"] = -50.0  # out of contracted range
-        broken.loc[2:400, "TotalCharges"] = None  # push nulls past the 5% gate
+        broken.loc[0, "contract_type"] = "Lifetime"
+        broken.loc[1, "monthly_charges"] = -50.0
+        broken.loc[2:400, "total_charges"] = None
         report = DataValidator().validate(broken)
         report.raise_for_status()
 
@@ -91,7 +90,7 @@ def main() -> None:
     def training_single_class():
         trainer = ChurnModelTrainer()
         x = raw[SETTINGS.all_features].head(50)
-        y = pd.Series(["No"] * 50)
+        y = pd.Series([0] * 50)
         trainer.train(x, y)
 
     run("Training: single-class target -> ModelTrainingError", training_single_class)
@@ -100,7 +99,7 @@ def main() -> None:
     def training_mismatch():
         trainer = ChurnModelTrainer()
         x = raw[SETTINGS.all_features].head(50)
-        y = raw["Churn"].head(30)
+        y = raw["churn"].head(30)
         trainer.train(x, y)
 
     run("Training: X/y row mismatch -> ModelTrainingError", training_mismatch)
@@ -115,7 +114,7 @@ def main() -> None:
     # 9. Inference -- missing required features in payload
     def inference_missing_features():
         predictor = ChurnPredictor().load()
-        bad_payload = {"customerID": "X", "tenure": 5}  # most features missing
+        bad_payload = {"customer_id": "X", "tenure_months": 5}
         predictor.predict_one(bad_payload)
 
     run(

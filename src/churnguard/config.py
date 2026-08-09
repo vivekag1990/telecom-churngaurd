@@ -31,9 +31,7 @@ class Paths:
     """Filesystem layout. All paths are absolute and derived from PROJECT_ROOT."""
 
     root: Path = PROJECT_ROOT
-    raw_data: Path = (
-        PROJECT_ROOT / "data" / "raw" / "WA_Fn-UseC_-Telco-Customer-Churn.csv"
-    )
+    raw_data: Path = PROJECT_ROOT / "data" / "raw" / "telco_churn.csv"
     reference_profile: Path = PROJECT_ROOT / "artifacts" / "reference_profile.json"
     model_artifact: Path = PROJECT_ROOT / "artifacts" / "churn_model.joblib"
     metrics_report: Path = PROJECT_ROOT / "reports" / "model_metrics.json"
@@ -44,30 +42,21 @@ class Paths:
 class ModelConfig:
     """Hyper-parameters and the target/feature contract."""
 
-    target: str = "Churn"
-    id_column: str = "customerID"
+    target: str = "churn"
+    id_column: str = "customer_id"
     numeric_features: tuple[str, ...] = (
-        "tenure",
-        "MonthlyCharges",
-        "TotalCharges",
+        "tenure_months",
+        "monthly_charges",
+        "total_charges",
+        "support_tickets_6m",
+        "avg_monthly_gb",
     )
     categorical_features: tuple[str, ...] = (
-        "gender",
-        "SeniorCitizen",
-        "Partner",
-        "Dependents",
-        "PhoneService",
-        "MultipleLines",
-        "InternetService",
-        "OnlineSecurity",
-        "OnlineBackup",
-        "DeviceProtection",
-        "TechSupport",
-        "StreamingTV",
-        "StreamingMovies",
-        "Contract",
-        "PaperlessBilling",
-        "PaymentMethod",
+        "contract_type",
+        "internet_service",
+        "payment_method",
+        "tech_support",
+        "paperless_billing",
     )
     test_size: float = 0.2
     random_state: int = 42
@@ -75,10 +64,7 @@ class ModelConfig:
     max_depth: int = 12
     min_samples_leaf: int = 8
     class_weight: str = "balanced"
-    #: Tuned on the validation split (see reports/threshold_sweep.csv). 0.50 is NOT
-    #: the right default here: losing a customer costs ~18x the price of a retention
-    #: discount, so the threshold is deliberately pushed down to buy recall. F1 peaks
-    #: at 0.34-0.35 on held-out data.
+    # Selected from the holdout threshold sweep to favour recall at acceptable precision.
     decision_threshold: float = _env_float("CHURN_DECISION_THRESHOLD", 0.35)
 
 

@@ -1,0 +1,40 @@
+name: ChurnGuard CI
+
+on: [push, pull_request]
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # Gate 1: formatting and static analysis.
+      - name: Lint (isort / black / flake8)
+        run: |
+          isort --check-only src tests scripts
+          black --check src tests scripts
+          flake8 src tests scripts
+
+      # Gate 2: unit, data, ML, and API tests.
+      - name: Test
+        run: pytest -v --cov=src/churnguard --cov-report=term-missing
+
+      # Gate 3: data and model quality thresholds.
+      - name: Train and enforce model quality gates
+        run: |
+          python scripts/generate_data.py
+          python scripts/train.py --cv 3
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: model-and-reports
+          path: |
+            artifacts/
+            reports/

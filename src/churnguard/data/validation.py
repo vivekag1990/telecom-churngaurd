@@ -16,33 +16,24 @@ from churnguard.exceptions import SchemaValidationError
 logger = logging.getLogger(__name__)
 
 NUMERIC_CONTRACT: dict[str, tuple[float, float]] = {
-    "tenure": (0.0, 120.0),
-    "MonthlyCharges": (0.0, 500.0),
-    "TotalCharges": (0.0, 60_000.0),
+    "tenure_months": (0.0, 120.0),
+    "monthly_charges": (0.0, 500.0),
+    "total_charges": (0.0, 60_000.0),
+    "support_tickets_6m": (0.0, 60.0),
+    "avg_monthly_gb": (0.0, 1_000.0),
 }
 
 CATEGORICAL_CONTRACT: dict[str, set[str]] = {
-    "gender": {"Male", "Female"},
-    "SeniorCitizen": {0, 1, "0", "1"},
-    "Partner": {"Yes", "No"},
-    "Dependents": {"Yes", "No"},
-    "PhoneService": {"Yes", "No"},
-    "MultipleLines": {"Yes", "No", "No phone service"},
-    "InternetService": {"Fiber optic", "DSL", "No"},
-    "OnlineSecurity": {"Yes", "No", "No internet service"},
-    "OnlineBackup": {"Yes", "No", "No internet service"},
-    "DeviceProtection": {"Yes", "No", "No internet service"},
-    "TechSupport": {"Yes", "No", "No internet service"},
-    "StreamingTV": {"Yes", "No", "No internet service"},
-    "StreamingMovies": {"Yes", "No", "No internet service"},
-    "Contract": {"Month-to-month", "One year", "Two year"},
-    "PaperlessBilling": {"Yes", "No"},
-    "PaymentMethod": {
+    "contract_type": {"Month-to-month", "One year", "Two year"},
+    "internet_service": {"Fiber optic", "DSL", "No"},
+    "payment_method": {
         "Electronic check",
         "Mailed check",
-        "Bank transfer (automatic)",
-        "Credit card (automatic)",
+        "Bank transfer",
+        "Credit card",
     },
+    "tech_support": {"Yes", "No"},
+    "paperless_billing": {"Yes", "No"},
 }
 
 
@@ -82,6 +73,7 @@ class ValidationReport:
 def population_stability_index(
     reference: np.ndarray, current: np.ndarray, n_bins: int = 10
 ) -> float:
+    """Return PSI for two numeric samples using reference quantile bins."""
     reference = np.asarray(reference, dtype=float)
     current = np.asarray(current, dtype=float)
     reference = reference[~np.isnan(reference)]
@@ -97,6 +89,7 @@ def population_stability_index(
 
     ref_pct = np.histogram(reference, bins=edges)[0] / reference.size
     cur_pct = np.histogram(current, bins=edges)[0] / current.size
+    # Clipping prevents division by zero when a bin is empty in one sample.
     eps = 1e-6
     ref_pct = np.clip(ref_pct, eps, None)
     cur_pct = np.clip(cur_pct, eps, None)
@@ -118,20 +111,14 @@ class DataValidator:
             if column not in frame.columns:
                 report.add_error(f"Missing required column '{column}'")
         for column in NUMERIC_CONTRACT:
-            if column in frame.columns and not pd.api.types.is_numeric_dtype(
-                frame[column]
-            ):
-                report.add_error(
-                    f"Column '{column}' must be numeric, got {frame[column].dtype}"
-                )
+            if column in frame.columns and not pd.api.types.is_numeric_dtype(frame[column]):
+                report.add_error(f"Column '{column}' must be numeric, got {frame[column].dtype}")
         for column, levels in CATEGORICAL_CONTRACT.items():
             if column not in frame.columns:
                 continue
             unexpected = set(frame[column].dropna().unique()) - levels
             if unexpected:
-                report.add_error(
-                    f"Column '{column}' has unexpected levels {sorted(unexpected)}"
-                )
+                report.add_error(f"Column '{column}' has unexpected levels {sorted(unexpected)}")
 
     def validate_missing(self, frame: pd.DataFrame, report: ValidationReport) -> None:
         overall = float(
@@ -149,22 +136,17 @@ class DataValidator:
                     f"(limit {self.max_missing_fraction:.0%})"
                 )
             elif fraction > 0:
-                report.add_warning(
-                    f"Column '{column}' has {fraction:.2%} nulls (imputed)"
-                )
+                report.add_warning(f"Column '{column}' has {fraction:.2%} nulls (imputed)")
 
     def validate_ranges(self, frame: pd.DataFrame, report: ValidationReport) -> None:
         for column, (low, high) in NUMERIC_CONTRACT.items():
-            if column not in frame.columns or not pd.api.types.is_numeric_dtype(
-                frame[column]
-            ):
+            if column not in frame.columns or not pd.api.types.is_numeric_dtype(frame[column]):
                 continue
             series = frame[column].dropna()
             out_of_range = int(((series < low) | (series > high)).sum())
             if out_of_range:
                 report.add_error(
-                    f"Column '{column}' has {out_of_range} "
-                    f"value(s) outside [{low}, {high}]"
+                    f"Column '{column}' has {out_of_range} " f"value(s) outside [{low}, {high}]"
                 )
 
     def validate_drift(
@@ -178,18 +160,12 @@ class DataValidator:
         for column, reference_values in reference_profile.items():
             if column not in frame.columns:
                 continue
-            psi = population_stability_index(
-                np.asarray(reference_values), frame[column].to_numpy()
-            )
+            psi = population_stability_index(np.asarray(reference_values), frame[column].to_numpy())
             report.metrics[f"psi__{column}"] = round(psi, 4)
             if psi > limit:
-                report.add_error(
-                    f"Feature '{column}' drifted: PSI={psi:.3f} > {limit:.2f}"
-                )
+                report.add_error(f"Feature '{column}' drifted: PSI={psi:.3f} > {limit:.2f}")
             elif psi > 0.10:
-                report.add_warning(
-                    f"Feature '{column}' moderately shifted: PSI={psi:.3f}"
-                )
+                report.add_warning(f"Feature '{column}' moderately shifted: PSI={psi:.3f}")
 
     def validate(
         self,
@@ -214,6 +190,7 @@ class DataValidator:
 
 
 def write_reference_profile(frame: pd.DataFrame, path: Path) -> dict[str, list[float]]:
+    """Save numeric training values used by later drift checks."""
     profile = {
         column: frame[column].dropna().astype(float).tolist()
         for column in SETTINGS.model.numeric_features
@@ -226,6 +203,7 @@ def write_reference_profile(frame: pd.DataFrame, path: Path) -> dict[str, list[f
 
 
 def load_reference_profile(path: Path) -> dict[str, list[float]]:
+    """Load a drift reference profile when one is available."""
     if not path.exists():
         logger.warning("Reference profile %s not found; drift checks skipped", path)
         return {}

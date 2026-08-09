@@ -121,27 +121,16 @@ class DataIngestor:
 
     def load_raw(self) -> pd.DataFrame:
         frame = self.source.load()
-        if "TotalCharges" in frame.columns:
-            frame["TotalCharges"] = pd.to_numeric(
-                frame["TotalCharges"], errors="coerce"
-            )
-
         missing = [
-            c
-            for c in (*SETTINGS.all_features, self.config.target)
-            if c not in frame.columns
+            c for c in (*SETTINGS.all_features, self.config.target) if c not in frame.columns
         ]
         if missing:
-            logger.error(
-                "Source %s is missing required columns: %s", self.source.name, missing
-            )
+            logger.error("Source %s is missing required columns: %s", self.source.name, missing)
             raise DataIngestionError(f"Missing required columns: {missing}")
 
         duplicates = int(frame.duplicated(subset=[self.config.id_column]).sum())
         if duplicates:
-            logger.warning(
-                "Dropping %d duplicate %s rows", duplicates, self.config.id_column
-            )
+            logger.warning("Dropping %d duplicate %s rows", duplicates, self.config.id_column)
             frame = frame.drop_duplicates(subset=[self.config.id_column], keep="first")
         return frame
 
@@ -150,17 +139,13 @@ class DataIngestor:
         target = frame[self.config.target]
 
         if target.nunique() < 2:
-            logger.error(
-                "Target '%s' has a single class -- cannot train", self.config.target
-            )
+            logger.error("Target '%s' has a single class -- cannot train", self.config.target)
             raise DataIngestionError("Target column must contain at least two classes")
 
         minority = int(target.value_counts().min())
         stratify = target if minority >= 2 else None
         if stratify is None:
-            logger.warning(
-                "Minority class has %d row(s); stratification disabled", minority
-            )
+            logger.warning("Minority class has %d row(s); stratification disabled", minority)
 
         x_train, x_test, y_train, y_test = train_test_split(
             frame[SETTINGS.all_features],

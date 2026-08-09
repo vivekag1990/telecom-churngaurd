@@ -68,3 +68,5 @@ venv.bak/
 *.pkl
 *.h5
 *.model
+
+tmp/
