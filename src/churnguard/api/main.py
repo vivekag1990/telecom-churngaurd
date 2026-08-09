@@ -73,25 +73,19 @@ async def add_timing_header(request: Request, call_next):
 
 # ---------------------------------------------------------- error handlers
 @app.exception_handler(ModelNotLoadedError)
-async def handle_model_not_loaded(
-    request: Request, exc: ModelNotLoadedError
-) -> JSONResponse:
+async def handle_model_not_loaded(request: Request, exc: ModelNotLoadedError) -> JSONResponse:
     logger.error("503 on %s -- model unavailable: %s", request.url.path, exc)
     return JSONResponse(
         status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
         content=ErrorResponse(
             error="model_unavailable",
-            detail=(
-                "The model artefact is not loaded. Retry after the service is ready."
-            ),
+            detail=("The model artefact is not loaded. Retry after the service is ready."),
         ).model_dump(),
     )
 
 
 @app.exception_handler(SchemaValidationError)
-async def handle_schema_error(
-    request: Request, exc: SchemaValidationError
-) -> JSONResponse:
+async def handle_schema_error(request: Request, exc: SchemaValidationError) -> JSONResponse:
     logger.warning("400 on %s -- contract breach: %s", request.url.path, exc)
     return JSONResponse(
         status_code=status.HTTP_400_BAD_REQUEST,
@@ -111,9 +105,7 @@ async def handle_inference_error(request: Request, exc: InferenceError) -> JSONR
 
 
 @app.exception_handler(ChurnGuardError)
-async def handle_generic_domain_error(
-    request: Request, exc: ChurnGuardError
-) -> JSONResponse:
+async def handle_generic_domain_error(request: Request, exc: ChurnGuardError) -> JSONResponse:
     logger.exception("500 on %s", request.url.path)
     return JSONResponse(
         status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
@@ -146,15 +138,11 @@ async def model_info() -> ModelInfoResponse:
     return ModelInfoResponse(
         model_version=predictor.model_version,
         trained_at_utc=metadata.get("trained_at_utc"),
-        decision_threshold=float(
-            metadata.get("decision_threshold", predictor.threshold)
-        ),
+        decision_threshold=float(metadata.get("decision_threshold", predictor.threshold)),
         input_features=list(metadata.get("input_features", SETTINGS.all_features)),
         hyperparameters=metadata.get("hyperparameters", {}),
         test_metrics={
-            k: v
-            for k, v in predictor.metrics.items()
-            if k not in {"confusion", "n_samples"}
+            k: v for k, v in predictor.metrics.items() if k not in {"confusion", "n_samples"}
         },
     )
 

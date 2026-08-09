@@ -32,9 +32,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Train the ChurnGuard model.")
     parser.add_argument("--data", type=Path, default=SETTINGS.paths.raw_data)
     parser.add_argument("--cv", type=int, default=5, help="CV folds; 0 to skip")
-    parser.add_argument(
-        "--skip-gates", action="store_true", help="train even if gates fail"
-    )
+    parser.add_argument("--skip-gates", action="store_true", help="train even if gates fail")
     args = parser.parse_args()
 
     configure_logging()
@@ -76,9 +74,7 @@ def main() -> int:
         logger.info("All model quality gates passed")
 
     # ---- 5. Persist ------------------------------------------------------
-    trainer.save(
-        SETTINGS.paths.model_artifact, metrics, extra={**cv_result, **split.summary()}
-    )
+    trainer.save(SETTINGS.paths.model_artifact, metrics, extra={**cv_result, **split.summary()})
     trainer.write_metrics_report(
         metrics,
         SETTINGS.paths.metrics_report,

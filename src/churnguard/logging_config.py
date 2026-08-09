@@ -19,9 +19,7 @@ from pathlib import Path
 from churnguard.config import SETTINGS
 
 _CONSOLE_FORMAT = "%(asctime)s | %(levelname)-8s | %(name)-38s | %(message)s"
-_FILE_FORMAT = (
-    "%(asctime)s | %(levelname)-8s | %(name)s | %(funcName)s:%(lineno)d | %(message)s"
-)
+_FILE_FORMAT = "%(asctime)s | %(levelname)-8s | %(name)s | %(funcName)s:%(lineno)d | %(message)s"
 _configured = False
 
 

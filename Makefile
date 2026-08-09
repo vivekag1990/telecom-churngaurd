@@ -1,4 +1,4 @@
-.PHONY: help setup install ingest test train predict lint format serve figures all clean
+.PHONY: help setup install data test train predict lint format serve figures all clean
 
 help:           ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN{FS=":.*?## "}{printf " \033[36m%-10s\033[0m %s\n", $$1, $$2}'
@@ -10,14 +10,14 @@ setup:          ## Create a virtual environment and install dependencies using u
 install:        ## Install dependencies using uv
 	uv sync
 
-ingest:         ## Run data ingestion script
-	uv run python test_ingestion.py
+data:           ## Generate the deterministic dataset
+	uv run python scripts/generate_data.py
 
 train:          ## Run the full training pipeline
 	uv run python scripts/train.py --cv 5
 
-test:           ## Run the test suite
-	uv run pytest -v
+test:           ## Run tests with coverage
+	uv run pytest -v --cov=src/churnguard --cov-report=term-missing
 
 predict:        ## Run prediction / demo
 	uv run python scripts/api_demo.py
@@ -32,7 +32,7 @@ format:         ## Auto-format the codebase
 	uv run black src tests scripts
 
 serve:          ## Start the inference API locally
-	uv run uvicorn churnguard.api.main:app --reload --port 8000
+	PYTHONPATH=src uv run uvicorn churnguard.api.main:app --reload --port 8000
 
 figures:        ## Regenerate report figures
 	uv run python scripts/make_figures.py

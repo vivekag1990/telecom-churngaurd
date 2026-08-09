@@ -45,13 +45,9 @@ def assign_risk_band(probability: float) -> tuple[str, str]:
 
 
 class ChurnPredictor:
-    def __init__(
-        self, artifact_path: Path | None = None, threshold: float | None = None
-    ) -> None:
+    def __init__(self, artifact_path: Path | None = None, threshold: float | None = None) -> None:
         self.artifact_path = artifact_path or SETTINGS.paths.model_artifact
-        self.threshold = (
-            SETTINGS.model.decision_threshold if threshold is None else threshold
-        )
+        self.threshold = SETTINGS.model.decision_threshold if threshold is None else threshold
         self._pipeline = None
         self._metadata: dict = {}
         self._metrics: dict = {}
@@ -113,16 +109,12 @@ class ChurnPredictor:
             raise InferenceError(f"Inference failed: {exc}") from exc
 
         if not np.all((probabilities >= 0.0) & (probabilities <= 1.0)):
-            logger.error(
-                "Model returned out-of-range probabilities -- refusing to serve"
-            )
+            logger.error("Model returned out-of-range probabilities -- refusing to serve")
             raise InferenceError("Model produced probabilities outside [0, 1]")
         return probabilities
 
     def predict(self, records: pd.DataFrame | list[dict]) -> list[Prediction]:
-        frame = (
-            pd.DataFrame(records) if not isinstance(records, pd.DataFrame) else records
-        )
+        frame = pd.DataFrame(records) if not isinstance(records, pd.DataFrame) else records
         probabilities = self.predict_proba(frame)
         ids = (
             frame[SETTINGS.model.id_column].astype(str).tolist()

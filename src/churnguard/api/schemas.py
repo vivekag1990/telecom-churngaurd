@@ -6,6 +6,9 @@ from typing import Annotated, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
+ContractType = Literal["Month-to-month", "One year", "Two year"]
+InternetService = Literal["Fiber optic", "DSL", "No"]
+PaymentMethod = Literal["Electronic check", "Mailed check", "Bank transfer", "Credit card"]
 YesNo = Literal["Yes", "No"]
 MAX_BATCH_SIZE = 500
 
@@ -17,66 +20,43 @@ class CustomerFeatures(BaseModel):
         extra="forbid",
         json_schema_extra={
             "example": {
-                "customerID": "CUST-004821",
-                "gender": "Female",
-                "SeniorCitizen": 0,
-                "Partner": "Yes",
-                "Dependents": "No",
-                "tenure": 3,
-                "PhoneService": "Yes",
-                "MultipleLines": "No",
-                "InternetService": "Fiber optic",
-                "OnlineSecurity": "No",
-                "OnlineBackup": "No",
-                "DeviceProtection": "No",
-                "TechSupport": "No",
-                "StreamingTV": "Yes",
-                "StreamingMovies": "No",
-                "Contract": "Month-to-month",
-                "PaperlessBilling": "Yes",
-                "PaymentMethod": "Electronic check",
-                "MonthlyCharges": 88.4,
-                "TotalCharges": 265.2,
+                "customer_id": "CUST-004821",
+                "tenure_months": 3,
+                "monthly_charges": 88.4,
+                "total_charges": 265.2,
+                "support_tickets_6m": 4,
+                "avg_monthly_gb": 41.5,
+                "contract_type": "Month-to-month",
+                "internet_service": "Fiber optic",
+                "payment_method": "Electronic check",
+                "tech_support": "No",
+                "paperless_billing": "Yes",
             }
         },
     )
 
-    customerID: str | None = Field(
+    customer_id: str | None = Field(
         default=None,
         max_length=64,
         description="Opaque customer reference, echoed back.",
     )
-    gender: Literal["Male", "Female"]
-    SeniorCitizen: int = Field(ge=0, le=1)
-    Partner: YesNo
-    Dependents: YesNo
-    tenure: Annotated[int, Field(ge=0, le=120)]
-    PhoneService: YesNo
-    MultipleLines: Literal["Yes", "No", "No phone service"]
-    InternetService: Literal["Fiber optic", "DSL", "No"]
-    OnlineSecurity: Literal["Yes", "No", "No internet service"]
-    OnlineBackup: Literal["Yes", "No", "No internet service"]
-    DeviceProtection: Literal["Yes", "No", "No internet service"]
-    TechSupport: Literal["Yes", "No", "No internet service"]
-    StreamingTV: Literal["Yes", "No", "No internet service"]
-    StreamingMovies: Literal["Yes", "No", "No internet service"]
-    Contract: Literal["Month-to-month", "One year", "Two year"]
-    PaperlessBilling: YesNo
-    PaymentMethod: Literal[
-        "Electronic check",
-        "Mailed check",
-        "Bank transfer (automatic)",
-        "Credit card (automatic)",
-    ]
-    MonthlyCharges: Annotated[float, Field(ge=0.0, le=500.0)]
-    TotalCharges: Annotated[float | None, Field(ge=0.0, le=60_000.0)] = None
+    tenure_months: Annotated[int, Field(ge=0, le=120)]
+    monthly_charges: Annotated[float, Field(ge=0.0, le=500.0)]
+    total_charges: Annotated[float | None, Field(ge=0.0, le=60_000.0)] = None
+    support_tickets_6m: Annotated[int, Field(ge=0, le=60)]
+    avg_monthly_gb: Annotated[float | None, Field(ge=0, le=1_000)] = None
+    contract_type: ContractType
+    internet_service: InternetService
+    payment_method: PaymentMethod
+    tech_support: YesNo
+    paperless_billing: YesNo
 
-    @field_validator("customerID")
+    @field_validator("customer_id")
     @classmethod
     def reject_control_characters(cls, value: str | None) -> str | None:
         """Defensive: block control characters that could poison downstream logs."""
         if value is not None and any(ord(ch) < 32 for ch in value):
-            raise ValueError("customerID must not contain control characters")
+            raise ValueError("customer_id must not contain control characters")
         return value
 
 
@@ -84,9 +64,7 @@ class BatchPredictionRequest(BaseModel):
     """A bounded batch. The upper bound protects the service from memory blow-ups."""
 
     model_config = ConfigDict(extra="forbid")
-    customers: Annotated[
-        list[CustomerFeatures], Field(min_length=1, max_length=MAX_BATCH_SIZE)
-    ]
+    customers: Annotated[list[CustomerFeatures], Field(min_length=1, max_length=MAX_BATCH_SIZE)]
 
 
 class PredictionResponse(BaseModel):

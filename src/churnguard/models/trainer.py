@@ -54,16 +54,13 @@ class ChurnModelTrainer:
                 ("classifier", classifier),
             ]
         )
-        logger.info(
-            "Pipeline built with steps: %s", [name for name, _ in pipeline.steps]
-        )
+        logger.info("Pipeline built with steps: %s", [name for name, _ in pipeline.steps])
         return pipeline
 
     def train(self, x_train: pd.DataFrame, y_train: pd.Series) -> Pipeline:
         if len(x_train) != len(y_train):
             raise ModelTrainingError(
-                f"X has {len(x_train)} rows but y has {len(y_train)} "
-                "-- refusing to train"
+                f"X has {len(x_train)} rows but y has {len(y_train)} " "-- refusing to train"
             )
 
         # Handle string y_train
@@ -74,9 +71,7 @@ class ChurnModelTrainer:
             logger.error("Training target contains a single class")
             raise ModelTrainingError("Training requires at least two target classes")
 
-        logger.info(
-            "Training on %d rows (churn rate %.3f)", len(x_train), float(y_train.mean())
-        )
+        logger.info("Training on %d rows (churn rate %.3f)", len(x_train), float(y_train.mean()))
         self.pipeline = self.build_pipeline()
         try:
             self.pipeline.fit(x_train, y_train)
@@ -86,18 +81,12 @@ class ChurnModelTrainer:
         logger.info("Training complete")
         return self.pipeline
 
-    def cross_validate(
-        self, x: pd.DataFrame, y: pd.Series, folds: int = 5
-    ) -> dict[str, float]:
+    def cross_validate(self, x: pd.DataFrame, y: pd.Series, folds: int = 5) -> dict[str, float]:
         if pd.api.types.is_string_dtype(y):
             y = (y == "Yes").astype(int)
 
-        cv = StratifiedKFold(
-            n_splits=folds, shuffle=True, random_state=self.config.random_state
-        )
-        scores = cross_val_score(
-            self.build_pipeline(), x, y, cv=cv, scoring="roc_auc", n_jobs=-1
-        )
+        cv = StratifiedKFold(n_splits=folds, shuffle=True, random_state=self.config.random_state)
+        scores = cross_val_score(self.build_pipeline(), x, y, cv=cv, scoring="roc_auc", n_jobs=1)
         result = {
             "cv_folds": folds,
             "cv_roc_auc_mean": float(np.mean(scores)),
@@ -119,13 +108,9 @@ class ChurnModelTrainer:
             y_test = (y_test == "Yes").astype(int)
 
         probabilities = self.pipeline.predict_proba(x_test)[:, 1]
-        return evaluate(
-            y_test.to_numpy(), probabilities, self.config.decision_threshold
-        )
+        return evaluate(y_test.to_numpy(), probabilities, self.config.decision_threshold)
 
-    def save(
-        self, path: Path, metrics: ModelMetrics, extra: dict | None = None
-    ) -> Path:
+    def save(self, path: Path, metrics: ModelMetrics, extra: dict | None = None) -> Path:
         if self.pipeline is None:
             raise ModelTrainingError("save() called before train()")
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -134,9 +119,7 @@ class ChurnModelTrainer:
             "metrics": metrics.to_dict(),
             "metadata": {
                 "code_version": __version__,
-                "trained_at_utc": datetime.now(timezone.utc).isoformat(
-                    timespec="seconds"
-                ),
+                "trained_at_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
                 "sklearn_pipeline_steps": [name for name, _ in self.pipeline.steps],
                 "input_features": SETTINGS.all_features,
                 "decision_threshold": self.config.decision_threshold,
@@ -155,9 +138,7 @@ class ChurnModelTrainer:
         return path
 
     @staticmethod
-    def write_metrics_report(
-        metrics: ModelMetrics, path: Path, extra: dict | None = None
-    ) -> None:
+    def write_metrics_report(metrics: ModelMetrics, path: Path, extra: dict | None = None) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps({**metrics.to_dict(), **(extra or {})}, indent=2))
         logger.info("Metrics report written to %s", path)
