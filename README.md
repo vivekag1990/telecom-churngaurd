@@ -5,6 +5,15 @@ AIMLCZG546 Software Engineering for Machine Learning assignment. It includes a
 reproducible data generator, validation gates, a scikit-learn training pipeline,
 model-quality metrics, a FastAPI service, and automated tests.
 
+## Group 49
+
+| BITS ID | Member | Contribution | Quantitative |
+|---|---|---|---:|
+| 2025aa05877 | Vivek Kumar Aggarwal | Architecture and modularisation | 100% |
+| 2025ab05013 | Nishant Choudhary | Reliability and code quality | 100% |
+| 2025aa05544 | Sumanth T P | API and deployment readiness | 100% |
+| 2025aa05974 | Ravi Raj Ladha | Quality assurance and model metrics | 100% |
+
 ## Requirements
 
 - Python 3.11 or newer
@@ -35,6 +44,19 @@ Training writes:
 - `artifacts/reference_profile.json` - numeric training distributions
 - `reports/model_metrics.json` - holdout and cross-validation metrics
 - `logs/churnguard.log` - training and validation logs
+
+## Run the assignment notebook
+
+Register the locked project environment as a Jupyter kernel, then execute the
+Group 49 notebook:
+
+```bash
+make notebook
+```
+
+The command saves the cell outputs in the notebook and returns a non-zero exit
+status if any cell fails. When opening the notebook interactively, select
+`Python 3.11 (ChurnGuard)` as the kernel.
 
 ## Test and lint
 
@@ -131,7 +153,9 @@ therefore use the same fitted transformations.
 
 ## Assignment evidence
 
+- `notebooks/49.ipynb` is the group-named implementation notebook.
 - `notebooks/01_research_prototype.ipynb` preserves the research-code version.
+- `output/pdf/49.pdf` is the final group-named assignment report.
 - `reports/lint_demo/` contains the linting before/after example.
 - `scripts/demo_failure_paths.py` exercises logged failure paths.
 - `scripts/api_demo.py` prints successful and rejected API requests.

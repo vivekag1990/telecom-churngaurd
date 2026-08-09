@@ -1,4 +1,4 @@
-.PHONY: help setup install data test train predict lint format serve figures all clean
+.PHONY: help setup install data test train predict lint format serve figures notebook-kernel notebook all clean
 
 help:           ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN{FS=":.*?## "}{printf " \033[36m%-10s\033[0m %s\n", $$1, $$2}'
@@ -36,6 +36,12 @@ serve:          ## Start the inference API locally
 
 figures:        ## Regenerate report figures
 	uv run python scripts/make_figures.py
+
+notebook-kernel: ## Register the project environment with Jupyter
+	uv run python -m ipykernel install --user --name churnguard --display-name "Python 3.11 (ChurnGuard)"
+
+notebook: notebook-kernel ## Execute the Group 49 notebook
+	uv run jupyter nbconvert --to notebook --execute --inplace notebooks/49.ipynb --ExecutePreprocessor.kernel_name=churnguard
 
 all: format lint test train   ## Format, lint, test and train
 
