@@ -153,9 +153,8 @@ therefore use the same fitted transformations.
 
 ## Assignment evidence
 
-- `notebooks/49.ipynb` is the group-named implementation notebook.
-- `notebooks/01_research_prototype.ipynb` preserves the research-code version.
-- `output/pdf/49.pdf` is the final group-named assignment report.
+- `notebooks/49.ipynb` contains the research comparison and production evaluation.
+- `output/docx/49.docx` is the final Group 49 assignment report.
 - `reports/lint_demo/` contains the linting before/after example.
 - `scripts/demo_failure_paths.py` exercises logged failure paths.
 - `scripts/api_demo.py` prints successful and rejected API requests.

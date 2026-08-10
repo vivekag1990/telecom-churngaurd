@@ -1,0 +1,1251 @@
+2026-08-10 00:19:05,924 | ERROR    | churnguard.models.predictor | load:74 | Model artefact not found at /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-0/test_predict_returns_503_when_0/absent.joblib
+2026-08-10 00:19:05,924 | ERROR    | churnguard.api.main | lifespan:44 | Startup completed WITHOUT a model: Model artefact not found: /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-0/test_predict_returns_503_when_0/absent.joblib
+2026-08-10 00:19:05,926 | ERROR    | churnguard.api.main | handle_model_not_loaded:77 | 503 on /v1/predict -- model unavailable: No model loaded
+2026-08-10 00:19:05,940 | ERROR    | churnguard.data.ingestion | load:80 | Data file not found: /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-0/test_missing_file_raises_domai0/nope.csv
+2026-08-10 00:19:05,941 | ERROR    | churnguard.data.ingestion | load:85 | Data file /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-0/test_empty_file_raises0/empty.csv is empty
+2026-08-10 00:19:05,942 | ERROR    | churnguard.data.ingestion | load:92 | Data file /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-0/test_header_only_file_raises0/header.csv parsed to zero rows
+2026-08-10 00:19:05,944 | ERROR    | churnguard.data.ingestion | load_raw:128 | Source memory://in-memory is missing required columns: ['contract_type']
+2026-08-10 00:19:05,945 | WARNING  | churnguard.data.ingestion | load_raw:133 | Dropping 10 duplicate customer_id rows
+2026-08-10 00:19:05,952 | ERROR    | churnguard.data.ingestion | split:142 | Target 'churn' has a single class -- cannot train
+2026-08-10 00:19:05,955 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:19:05,955 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:19:05,957 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Missing required column 'tenure_months'
+2026-08-10 00:19:05,959 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:19:05,959 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:19:05,961 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' must be numeric, got str
+2026-08-10 00:19:05,963 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:19:05,963 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:19:05,965 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'contract_type' has unexpected levels ['Lifetime']
+2026-08-10 00:19:05,966 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:19:05,967 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:19:05,970 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:19:05,970 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:19:05,973 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' is 24.00% null (limit 5%)
+2026-08-10 00:19:05,974 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:19:05,974 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:19:05,977 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:19:05,977 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:19:05,980 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:19:05,981 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:19:05,981 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' has 1 value(s) outside [0.0, 500.0]
+2026-08-10 00:19:05,984 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:19:05,984 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:19:05,985 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' has 2500 value(s) outside [0.0, 500.0]
+2026-08-10 00:19:05,992 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:19:05,992 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:19:05,994 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Feature 'tenure_months' drifted: PSI=9.029 > 0.20
+2026-08-10 00:19:05,998 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 0.96% nulls (imputed)
+2026-08-10 00:19:05,999 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.72% nulls (imputed)
+2026-08-10 00:19:06,001 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | boom
+2026-08-10 00:19:06,013 | ERROR    | churnguard.features.engineering | apply_derived_features:68 | Cannot compute 'avg_spend_per_month': missing input column 'total_charges'
+2026-08-10 00:19:09,574 | ERROR    | churnguard.models.predictor | predict_proba:103 | Inference payload missing features: ['contract_type']
+2026-08-10 00:19:09,746 | ERROR    | churnguard.models.trainer | train:71 | Training target contains a single class
+2026-08-10 00:19:27,939 | INFO     | churnguard.train | main:39 | ==============================================================================
+2026-08-10 00:19:27,939 | INFO     | churnguard.train | main:40 | ChurnGuard training run starting
+2026-08-10 00:19:27,940 | INFO     | churnguard.train | main:41 | ==============================================================================
+2026-08-10 00:19:27,940 | INFO     | churnguard.data.ingestion | load:78 | Loading data from csv:///Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/data/raw/telco_churn.csv
+2026-08-10 00:19:27,944 | INFO     | churnguard.data.ingestion | load:95 | Loaded 5000 rows x 12 columns
+2026-08-10 00:19:27,944 | WARNING  | churnguard.data.validation | load_reference_profile:204 | Reference profile /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/reference_profile.json not found; drift checks skipped
+2026-08-10 00:19:27,945 | INFO     | churnguard.data.validation | validate:173 | Validating dataset: 5000 rows x 12 columns
+2026-08-10 00:19:27,950 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:19:27,951 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:19:27,953 | INFO     | churnguard.data.validation | validate:181 | Validation PASSED | 0 error(s), 2 warning(s)
+2026-08-10 00:19:27,957 | INFO     | churnguard.data.ingestion | split:158 | Split complete: {'n_train': 4000, 'n_test': 1000, 'n_features': 10, 'train_churn_rate': 0.2665, 'test_churn_rate': 0.267}
+2026-08-10 00:19:27,962 | INFO     | churnguard.data.validation | write_reference_profile:198 | Reference profile with 5 features written to /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/reference_profile.json
+2026-08-10 00:19:27,963 | INFO     | churnguard.models.trainer | build_pipeline:57 | Pipeline built with steps: ['features', 'preprocess', 'classifier']
+2026-08-10 00:19:45,394 | INFO     | churnguard.train | main:39 | ==============================================================================
+2026-08-10 00:19:45,394 | INFO     | churnguard.train | main:40 | ChurnGuard training run starting
+2026-08-10 00:19:45,395 | INFO     | churnguard.train | main:41 | ==============================================================================
+2026-08-10 00:19:45,395 | INFO     | churnguard.data.ingestion | load:78 | Loading data from csv:///Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/data/raw/telco_churn.csv
+2026-08-10 00:19:45,399 | INFO     | churnguard.data.ingestion | load:95 | Loaded 5000 rows x 12 columns
+2026-08-10 00:19:45,400 | INFO     | churnguard.data.validation | validate:173 | Validating dataset: 5000 rows x 12 columns
+2026-08-10 00:19:45,402 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:19:45,402 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:19:45,405 | INFO     | churnguard.data.validation | validate:181 | Validation PASSED | 0 error(s), 2 warning(s)
+2026-08-10 00:19:45,407 | INFO     | churnguard.data.ingestion | split:158 | Split complete: {'n_train': 4000, 'n_test': 1000, 'n_features': 10, 'train_churn_rate': 0.2665, 'test_churn_rate': 0.267}
+2026-08-10 00:19:45,409 | INFO     | churnguard.data.validation | write_reference_profile:198 | Reference profile with 5 features written to /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/reference_profile.json
+2026-08-10 00:19:45,410 | INFO     | churnguard.models.trainer | build_pipeline:57 | Pipeline built with steps: ['features', 'preprocess', 'classifier']
+2026-08-10 00:19:45,413 | INFO     | churnguard.features.engineering | fit:85 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 00:19:46,024 | INFO     | churnguard.features.engineering | fit:85 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 00:19:46,649 | INFO     | churnguard.features.engineering | fit:85 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 00:19:47,253 | INFO     | churnguard.features.engineering | fit:85 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 00:19:47,867 | INFO     | churnguard.features.engineering | fit:85 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 00:19:48,465 | INFO     | churnguard.models.trainer | cross_validate:95 | Cross-validation ROC-AUC = 0.7917 (+/- 0.0152) over 5 folds
+2026-08-10 00:19:48,465 | INFO     | churnguard.models.trainer | train:74 | Training on 4000 rows (churn rate 0.267)
+2026-08-10 00:19:48,466 | INFO     | churnguard.models.trainer | build_pipeline:57 | Pipeline built with steps: ['features', 'preprocess', 'classifier']
+2026-08-10 00:19:48,467 | INFO     | churnguard.features.engineering | fit:85 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 00:19:48,986 | INFO     | churnguard.models.trainer | train:81 | Training complete
+2026-08-10 00:19:49,071 | INFO     | churnguard.models.evaluation | evaluate:109 | Evaluation @thr=0.35 | AUC=0.7893 F1=0.5616 acc=0.7580 Brier=0.1518 ECE=0.0185
+2026-08-10 00:19:49,071 | INFO     | churnguard.train | main:74 | All model quality gates passed
+2026-08-10 00:19:49,142 | INFO     | churnguard.models.trainer | save:137 | Artefact saved to /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib (19281.0 KB)
+2026-08-10 00:19:49,142 | INFO     | churnguard.models.trainer | write_metrics_report:144 | Metrics report written to /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/reports/model_metrics.json
+2026-08-10 00:19:49,143 | INFO     | churnguard.train | main:84 | ------------------------------------------------------------------------------
+2026-08-10 00:19:49,143 | INFO     | churnguard.train | main:85 | DONE | ROC-AUC=0.7893  F1=0.5616  Accuracy=0.7580  Brier=0.1518  ECE=0.0185
+2026-08-10 00:19:49,143 | INFO     | churnguard.train | main:93 | ------------------------------------------------------------------------------
+2026-08-10 00:20:47,045 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 00:20:47,045 | INFO     | churnguard.demo | banner:31 | ### Ingestion: file not found -> DataIngestionError ###
+2026-08-10 00:20:47,046 | INFO     | churnguard.data.ingestion | load:78 | Loading data from csv://data/raw/does_not_exist.csv
+2026-08-10 00:20:47,046 | ERROR    | churnguard.data.ingestion | load:80 | Data file not found: data/raw/does_not_exist.csv
+2026-08-10 00:20:47,046 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Data file not found: data/raw/does_not_exist.csv
+2026-08-10 00:20:47,046 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 00:20:47,047 | INFO     | churnguard.demo | banner:31 | ### Ingestion: empty file -> DataIngestionError ###
+2026-08-10 00:20:47,047 | INFO     | churnguard.data.ingestion | load:78 | Loading data from csv:///tmp/empty_churn.csv
+2026-08-10 00:20:47,047 | ERROR    | churnguard.data.ingestion | load:85 | Data file /tmp/empty_churn.csv is empty
+2026-08-10 00:20:47,048 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Data file is empty: /tmp/empty_churn.csv
+2026-08-10 00:20:47,048 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 00:20:47,048 | INFO     | churnguard.demo | banner:31 | ### Ingestion: missing required columns -> DataIngestionError ###
+2026-08-10 00:20:47,049 | INFO     | churnguard.data.ingestion | load:111 | Using memory://missing-cols (5000 rows)
+2026-08-10 00:20:47,049 | ERROR    | churnguard.data.ingestion | load_raw:128 | Source memory://missing-cols is missing required columns: ['contract_type', 'internet_service']
+2026-08-10 00:20:47,049 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Missing required columns: ['contract_type', 'internet_service']
+2026-08-10 00:20:47,050 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 00:20:47,050 | INFO     | churnguard.demo | banner:31 | ### Ingestion: single-class target -> DataIngestionError ###
+2026-08-10 00:20:47,051 | ERROR    | churnguard.data.ingestion | split:142 | Target 'churn' has a single class -- cannot train
+2026-08-10 00:20:47,051 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Target column must contain at least two classes
+2026-08-10 00:20:47,051 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 00:20:47,051 | INFO     | churnguard.demo | banner:31 | ### Validation: schema/range/missing breach -> SchemaValidationError ###
+2026-08-10 00:20:47,052 | INFO     | churnguard.data.validation | validate:173 | Validating dataset: 5000 rows x 12 columns
+2026-08-10 00:20:47,052 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'contract_type' has unexpected levels ['Lifetime']
+2026-08-10 00:20:47,054 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'total_charges' is 9.06% null (limit 5%)
+2026-08-10 00:20:47,055 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:20:47,055 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' has 1 value(s) outside [0.0, 500.0]
+2026-08-10 00:20:47,056 | INFO     | churnguard.data.validation | validate:181 | Validation FAILED | 3 error(s), 1 warning(s)
+2026-08-10 00:20:47,056 | INFO     | churnguard.demo | run:39 | Caught SchemaValidationError: Data validation failed with 3 error(s)
+2026-08-10 00:20:47,057 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 00:20:47,057 | INFO     | churnguard.demo | banner:31 | ### Training: single-class target -> ModelTrainingError ###
+2026-08-10 00:20:47,057 | ERROR    | churnguard.models.trainer | train:71 | Training target contains a single class
+2026-08-10 00:20:47,058 | INFO     | churnguard.demo | run:39 | Caught ModelTrainingError: Training requires at least two target classes
+2026-08-10 00:20:47,058 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 00:20:47,058 | INFO     | churnguard.demo | banner:31 | ### Training: X/y row mismatch -> ModelTrainingError ###
+2026-08-10 00:20:47,059 | INFO     | churnguard.demo | run:39 | Caught ModelTrainingError: X has 50 rows but y has 30 -- refusing to train
+2026-08-10 00:20:47,059 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 00:20:47,059 | INFO     | churnguard.demo | banner:31 | ### Inference: artefact missing -> ModelNotLoadedError ###
+2026-08-10 00:20:47,060 | INFO     | churnguard.demo | run:39 | Caught ModelNotLoadedError: Model is not loaded. Call load() first.
+2026-08-10 00:20:47,060 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 00:20:47,060 | INFO     | churnguard.demo | banner:31 | ### Inference: payload missing features -> InferenceError ###
+2026-08-10 00:20:47,060 | INFO     | churnguard.models.predictor | load:72 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 00:20:47,109 | INFO     | churnguard.models.predictor | load:85 | Model v1.0.0 loaded (trained 2026-08-09T18:49:49+00:00)
+2026-08-10 00:20:47,110 | ERROR    | churnguard.models.predictor | predict_proba:103 | Inference payload missing features: ['monthly_charges', 'total_charges', 'support_tickets_6m', 'avg_monthly_gb', 'contract_type', 'internet_service', 'payment_method', 'tech_support', 'paperless_billing']
+2026-08-10 00:20:47,110 | INFO     | churnguard.demo | run:39 | Caught InferenceError: Missing required features: ['monthly_charges', 'total_charges', 'support_tickets_6m', 'avg_monthly_gb', 'contract_type', 'internet_service', 'payment_method', 'tech_support', 'paperless_billing']
+2026-08-10 00:20:47,110 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 00:20:47,111 | INFO     | churnguard.demo | banner:31 | ### Demo complete ###
+2026-08-10 00:24:58,271 | ERROR    | churnguard.models.predictor | load:80 | Model artefact not found at /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-1/test_predict_returns_503_when_0/absent.joblib
+2026-08-10 00:24:58,274 | ERROR    | churnguard.api.main | lifespan:44 | Startup completed WITHOUT a model: Model artefact not found: /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-1/test_predict_returns_503_when_0/absent.joblib
+2026-08-10 00:24:58,276 | ERROR    | churnguard.api.main | handle_model_not_loaded:78 | 503 on /v1/predict -- model unavailable: No model loaded
+2026-08-10 00:24:58,298 | ERROR    | churnguard.data.ingestion | load:80 | Data file not found: /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-1/test_missing_file_raises_domai0/nope.csv
+2026-08-10 00:24:58,300 | ERROR    | churnguard.data.ingestion | load:85 | Data file /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-1/test_empty_file_raises0/empty.csv is empty
+2026-08-10 00:24:58,303 | ERROR    | churnguard.data.ingestion | load:92 | Data file /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-1/test_header_only_file_raises0/header.csv parsed to zero rows
+2026-08-10 00:24:58,306 | ERROR    | churnguard.data.ingestion | load_raw:128 | Source memory://in-memory is missing required columns: ['contract_type']
+2026-08-10 00:24:58,308 | WARNING  | churnguard.data.ingestion | load_raw:133 | Dropping 10 duplicate customer_id rows
+2026-08-10 00:24:58,315 | ERROR    | churnguard.data.ingestion | split:142 | Target 'churn' has a single class -- cannot train
+2026-08-10 00:24:58,318 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:24:58,319 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:24:58,321 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Missing required column 'tenure_months'
+2026-08-10 00:24:58,323 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:24:58,323 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:24:58,325 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' must be numeric, got str
+2026-08-10 00:24:58,331 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:24:58,331 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:24:58,333 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'contract_type' has unexpected levels ['Lifetime']
+2026-08-10 00:24:58,334 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:24:58,335 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:24:58,338 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:24:58,339 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:24:58,342 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' is 24.00% null (limit 5%)
+2026-08-10 00:24:58,343 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:24:58,343 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:24:58,346 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:24:58,347 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:24:58,350 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:24:58,350 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:24:58,351 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' has 1 value(s) outside [0.0, 500.0]
+2026-08-10 00:24:58,354 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:24:58,354 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:24:58,355 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' has 2500 value(s) outside [0.0, 500.0]
+2026-08-10 00:24:58,362 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:24:58,362 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:24:58,364 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Feature 'tenure_months' drifted: PSI=9.029 > 0.20
+2026-08-10 00:24:58,369 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 0.96% nulls (imputed)
+2026-08-10 00:24:58,370 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.72% nulls (imputed)
+2026-08-10 00:24:58,372 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | boom
+2026-08-10 00:24:58,385 | ERROR    | churnguard.features.engineering | apply_derived_features:69 | Cannot compute 'avg_spend_per_month': missing input column 'total_charges'
+2026-08-10 00:25:01,926 | ERROR    | churnguard.models.predictor | predict_proba:110 | Inference payload missing features: ['contract_type']
+2026-08-10 00:25:02,108 | ERROR    | churnguard.models.trainer | train:78 | Training target contains a single class
+2026-08-10 00:29:17,063 | INFO     | churnguard.train | main:39 | ==============================================================================
+2026-08-10 00:29:17,064 | INFO     | churnguard.train | main:40 | ChurnGuard training run starting
+2026-08-10 00:29:17,064 | INFO     | churnguard.train | main:41 | ==============================================================================
+2026-08-10 00:29:17,064 | INFO     | churnguard.data.ingestion | load:78 | Loading data from csv:///Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/data/raw/telco_churn.csv
+2026-08-10 00:29:17,068 | INFO     | churnguard.data.ingestion | load:95 | Loaded 5000 rows x 12 columns
+2026-08-10 00:29:17,069 | INFO     | churnguard.data.validation | validate:175 | Validating dataset: 5000 rows x 12 columns
+2026-08-10 00:29:17,071 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:29:17,071 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:29:17,074 | INFO     | churnguard.data.validation | validate:183 | Validation PASSED | 0 error(s), 2 warning(s)
+2026-08-10 00:29:17,076 | INFO     | churnguard.data.ingestion | split:158 | Split complete: {'n_train': 4000, 'n_test': 1000, 'n_features': 10, 'train_churn_rate': 0.2665, 'test_churn_rate': 0.267}
+2026-08-10 00:29:17,078 | INFO     | churnguard.data.validation | write_reference_profile:201 | Reference profile with 5 features written to /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/reference_profile.json
+2026-08-10 00:29:17,078 | INFO     | churnguard.models.trainer | build_pipeline:63 | Pipeline built with steps: ['features', 'preprocess', 'classifier']
+2026-08-10 00:29:17,081 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 00:29:17,709 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 00:29:18,305 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 00:29:18,916 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 00:29:19,526 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 00:29:20,127 | INFO     | churnguard.models.trainer | cross_validate:104 | Cross-validation ROC-AUC = 0.7917 (+/- 0.0152) over 5 folds
+2026-08-10 00:29:20,128 | INFO     | churnguard.models.trainer | train:81 | Training on 4000 rows (churn rate 0.267)
+2026-08-10 00:29:20,128 | INFO     | churnguard.models.trainer | build_pipeline:63 | Pipeline built with steps: ['features', 'preprocess', 'classifier']
+2026-08-10 00:29:20,129 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 00:29:20,674 | INFO     | churnguard.models.trainer | train:88 | Training complete
+2026-08-10 00:29:20,757 | INFO     | churnguard.models.evaluation | evaluate:114 | Evaluation @thr=0.35 | AUC=0.7893 F1=0.5616 acc=0.7580 Brier=0.1518 ECE=0.0185
+2026-08-10 00:29:20,757 | INFO     | churnguard.train | main:72 | All model quality gates passed
+2026-08-10 00:29:20,825 | INFO     | churnguard.models.trainer | save:148 | Artefact saved to /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib (19281.0 KB)
+2026-08-10 00:29:20,825 | INFO     | churnguard.models.trainer | write_metrics_report:156 | Metrics report written to /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/reports/model_metrics.json
+2026-08-10 00:29:20,825 | INFO     | churnguard.train | main:82 | ------------------------------------------------------------------------------
+2026-08-10 00:29:20,825 | INFO     | churnguard.train | main:83 | DONE | ROC-AUC=0.7893  F1=0.5616  Accuracy=0.7580  Brier=0.1518  ECE=0.0185
+2026-08-10 00:29:20,825 | INFO     | churnguard.train | main:91 | ------------------------------------------------------------------------------
+2026-08-10 00:29:30,889 | ERROR    | churnguard.models.predictor | load:80 | Model artefact not found at /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-2/test_predict_returns_503_when_0/absent.joblib
+2026-08-10 00:29:30,889 | ERROR    | churnguard.api.main | lifespan:44 | Startup completed WITHOUT a model: Model artefact not found: /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-2/test_predict_returns_503_when_0/absent.joblib
+2026-08-10 00:29:30,891 | ERROR    | churnguard.api.main | handle_model_not_loaded:78 | 503 on /v1/predict -- model unavailable: No model loaded
+2026-08-10 00:29:30,901 | ERROR    | churnguard.data.ingestion | load:80 | Data file not found: /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-2/test_missing_file_raises_domai0/nope.csv
+2026-08-10 00:29:30,902 | ERROR    | churnguard.data.ingestion | load:85 | Data file /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-2/test_empty_file_raises0/empty.csv is empty
+2026-08-10 00:29:30,903 | ERROR    | churnguard.data.ingestion | load:92 | Data file /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-2/test_header_only_file_raises0/header.csv parsed to zero rows
+2026-08-10 00:29:30,905 | ERROR    | churnguard.data.ingestion | load_raw:128 | Source memory://in-memory is missing required columns: ['contract_type']
+2026-08-10 00:29:30,906 | WARNING  | churnguard.data.ingestion | load_raw:133 | Dropping 10 duplicate customer_id rows
+2026-08-10 00:29:30,913 | ERROR    | churnguard.data.ingestion | split:142 | Target 'churn' has a single class -- cannot train
+2026-08-10 00:29:30,916 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:29:30,916 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:29:30,917 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Missing required column 'tenure_months'
+2026-08-10 00:29:30,919 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:29:30,919 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:29:30,921 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' must be numeric, got str
+2026-08-10 00:29:30,922 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:29:30,923 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:29:30,925 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'contract_type' has unexpected levels ['Lifetime']
+2026-08-10 00:29:30,926 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:29:30,926 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:29:30,929 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:29:30,929 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:29:30,932 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' is 24.00% null (limit 5%)
+2026-08-10 00:29:30,933 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:29:30,933 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:29:30,935 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:29:30,936 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:29:30,939 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:29:30,939 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:29:30,940 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' has 1 value(s) outside [0.0, 500.0]
+2026-08-10 00:29:30,942 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:29:30,942 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:29:30,943 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' has 2500 value(s) outside [0.0, 500.0]
+2026-08-10 00:29:30,950 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:29:30,950 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:29:30,951 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Feature 'tenure_months' drifted: PSI=9.029 > 0.20
+2026-08-10 00:29:30,956 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 0.96% nulls (imputed)
+2026-08-10 00:29:30,956 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.72% nulls (imputed)
+2026-08-10 00:29:30,959 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | boom
+2026-08-10 00:29:30,971 | ERROR    | churnguard.features.engineering | apply_derived_features:69 | Cannot compute 'avg_spend_per_month': missing input column 'total_charges'
+2026-08-10 00:29:34,541 | ERROR    | churnguard.models.predictor | predict_proba:110 | Inference payload missing features: ['contract_type']
+2026-08-10 00:29:34,726 | ERROR    | churnguard.models.trainer | train:78 | Training target contains a single class
+2026-08-10 00:30:41,287 | INFO     | churnguard.api.main | lifespan:40 | API starting up -- loading model
+2026-08-10 00:30:41,287 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 00:30:41,890 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-09T18:59:20+00:00)
+2026-08-10 00:30:47,733 | INFO     | churnguard.api.main | add_timing_header:65 | GET / -> 404 in 0.32 ms
+2026-08-10 00:30:47,925 | INFO     | churnguard.api.main | add_timing_header:65 | GET /favicon.ico -> 404 in 0.21 ms
+2026-08-10 00:31:06,331 | INFO     | churnguard.api.main | add_timing_header:65 | GET /docs -> 200 in 0.67 ms
+2026-08-10 00:31:06,810 | INFO     | churnguard.api.main | add_timing_header:65 | GET /openapi.json -> 200 in 11.92 ms
+2026-08-10 00:31:13,474 | INFO     | churnguard.api.main | add_timing_header:65 | GET /health -> 200 in 1.25 ms
+2026-08-10 00:31:18,489 | INFO     | churnguard.api.main | add_timing_header:65 | GET /health -> 200 in 0.41 ms
+2026-08-10 00:31:33,271 | INFO     | churnguard.api.main | add_timing_header:65 | GET /v1/model/info -> 200 in 0.90 ms
+2026-08-10 00:32:50,369 | ERROR    | churnguard.models.predictor | load:80 | Model artefact not found at /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-3/test_predict_returns_503_when_0/absent.joblib
+2026-08-10 00:32:50,372 | ERROR    | churnguard.api.main | lifespan:44 | Startup completed WITHOUT a model: Model artefact not found: /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-3/test_predict_returns_503_when_0/absent.joblib
+2026-08-10 00:32:50,373 | ERROR    | churnguard.api.main | handle_model_not_loaded:78 | 503 on /v1/predict -- model unavailable: No model loaded
+2026-08-10 00:32:50,384 | ERROR    | churnguard.data.ingestion | load:80 | Data file not found: /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-3/test_missing_file_raises_domai0/nope.csv
+2026-08-10 00:32:50,385 | ERROR    | churnguard.data.ingestion | load:85 | Data file /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-3/test_empty_file_raises0/empty.csv is empty
+2026-08-10 00:32:50,386 | ERROR    | churnguard.data.ingestion | load:92 | Data file /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-3/test_header_only_file_raises0/header.csv parsed to zero rows
+2026-08-10 00:32:50,387 | ERROR    | churnguard.data.ingestion | load_raw:128 | Source memory://in-memory is missing required columns: ['contract_type']
+2026-08-10 00:32:50,389 | WARNING  | churnguard.data.ingestion | load_raw:133 | Dropping 10 duplicate customer_id rows
+2026-08-10 00:32:50,395 | ERROR    | churnguard.data.ingestion | split:142 | Target 'churn' has a single class -- cannot train
+2026-08-10 00:32:50,398 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:32:50,398 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:32:50,400 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Missing required column 'tenure_months'
+2026-08-10 00:32:50,401 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:32:50,401 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:32:50,404 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' must be numeric, got str
+2026-08-10 00:32:50,405 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:32:50,405 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:32:50,407 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'contract_type' has unexpected levels ['Lifetime']
+2026-08-10 00:32:50,408 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:32:50,408 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:32:50,411 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:32:50,411 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:32:50,415 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' is 24.00% null (limit 5%)
+2026-08-10 00:32:50,415 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:32:50,415 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:32:50,418 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:32:50,418 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:32:50,422 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:32:50,422 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:32:50,422 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' has 1 value(s) outside [0.0, 500.0]
+2026-08-10 00:32:50,425 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:32:50,425 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:32:50,425 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' has 2500 value(s) outside [0.0, 500.0]
+2026-08-10 00:32:50,432 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:32:50,433 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:32:50,434 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Feature 'tenure_months' drifted: PSI=9.029 > 0.20
+2026-08-10 00:32:50,439 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 0.96% nulls (imputed)
+2026-08-10 00:32:50,439 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.72% nulls (imputed)
+2026-08-10 00:32:50,442 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | boom
+2026-08-10 00:32:50,465 | ERROR    | churnguard.features.engineering | apply_derived_features:69 | Cannot compute 'avg_spend_per_month': missing input column 'total_charges'
+2026-08-10 00:32:53,976 | ERROR    | churnguard.models.predictor | predict_proba:110 | Inference payload missing features: ['contract_type']
+2026-08-10 00:32:54,154 | ERROR    | churnguard.models.trainer | train:78 | Training target contains a single class
+2026-08-10 00:32:59,551 | INFO     | churnguard.train | main:39 | ==============================================================================
+2026-08-10 00:32:59,551 | INFO     | churnguard.train | main:40 | ChurnGuard training run starting
+2026-08-10 00:32:59,551 | INFO     | churnguard.train | main:41 | ==============================================================================
+2026-08-10 00:32:59,551 | INFO     | churnguard.data.ingestion | load:78 | Loading data from csv:///Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/data/raw/telco_churn.csv
+2026-08-10 00:32:59,558 | INFO     | churnguard.data.ingestion | load:95 | Loaded 5000 rows x 12 columns
+2026-08-10 00:32:59,559 | INFO     | churnguard.data.validation | validate:175 | Validating dataset: 5000 rows x 12 columns
+2026-08-10 00:32:59,561 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:32:59,561 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:32:59,564 | INFO     | churnguard.data.validation | validate:183 | Validation PASSED | 0 error(s), 2 warning(s)
+2026-08-10 00:32:59,566 | INFO     | churnguard.data.ingestion | split:158 | Split complete: {'n_train': 4000, 'n_test': 1000, 'n_features': 10, 'train_churn_rate': 0.2665, 'test_churn_rate': 0.267}
+2026-08-10 00:32:59,568 | INFO     | churnguard.data.validation | write_reference_profile:201 | Reference profile with 5 features written to /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/reference_profile.json
+2026-08-10 00:32:59,568 | INFO     | churnguard.models.trainer | build_pipeline:63 | Pipeline built with steps: ['features', 'preprocess', 'classifier']
+2026-08-10 00:32:59,571 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 00:33:00,178 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 00:33:00,777 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 00:33:01,378 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 00:33:01,991 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 00:33:02,583 | INFO     | churnguard.models.trainer | cross_validate:104 | Cross-validation ROC-AUC = 0.7917 (+/- 0.0152) over 5 folds
+2026-08-10 00:33:02,583 | INFO     | churnguard.models.trainer | train:81 | Training on 4000 rows (churn rate 0.267)
+2026-08-10 00:33:02,583 | INFO     | churnguard.models.trainer | build_pipeline:63 | Pipeline built with steps: ['features', 'preprocess', 'classifier']
+2026-08-10 00:33:02,584 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 00:33:03,102 | INFO     | churnguard.models.trainer | train:88 | Training complete
+2026-08-10 00:33:03,185 | INFO     | churnguard.models.evaluation | evaluate:114 | Evaluation @thr=0.35 | AUC=0.7893 F1=0.5616 acc=0.7580 Brier=0.1518 ECE=0.0185
+2026-08-10 00:33:03,186 | INFO     | churnguard.train | main:72 | All model quality gates passed
+2026-08-10 00:33:03,251 | INFO     | churnguard.models.trainer | save:148 | Artefact saved to /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib (19281.0 KB)
+2026-08-10 00:33:03,251 | INFO     | churnguard.models.trainer | write_metrics_report:156 | Metrics report written to /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/reports/model_metrics.json
+2026-08-10 00:33:03,251 | INFO     | churnguard.train | main:82 | ------------------------------------------------------------------------------
+2026-08-10 00:33:03,251 | INFO     | churnguard.train | main:83 | DONE | ROC-AUC=0.7893  F1=0.5616  Accuracy=0.7580  Brier=0.1518  ECE=0.0185
+2026-08-10 00:33:03,251 | INFO     | churnguard.train | main:91 | ------------------------------------------------------------------------------
+2026-08-10 00:33:18,028 | INFO     | churnguard.api.main | lifespan:46 | API shutting down
+2026-08-10 00:47:25,977 | INFO     | churnguard.api.main | lifespan:40 | API starting up -- loading model
+2026-08-10 00:47:25,977 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 00:47:46,116 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-09T19:03:03+00:00)
+2026-08-10 00:47:47,359 | ERROR    | churnguard.models.predictor | load:80 | Model artefact not found at /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-4/test_predict_returns_503_when_0/absent.joblib
+2026-08-10 00:47:47,360 | ERROR    | churnguard.api.main | lifespan:44 | Startup completed WITHOUT a model: Model artefact not found: /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-4/test_predict_returns_503_when_0/absent.joblib
+2026-08-10 00:47:47,361 | ERROR    | churnguard.api.main | handle_model_not_loaded:78 | 503 on /v1/predict -- model unavailable: No model loaded
+2026-08-10 00:47:47,372 | ERROR    | churnguard.data.ingestion | load:80 | Data file not found: /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-4/test_missing_file_raises_domai0/nope.csv
+2026-08-10 00:47:47,373 | ERROR    | churnguard.data.ingestion | load:85 | Data file /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-4/test_empty_file_raises0/empty.csv is empty
+2026-08-10 00:47:47,374 | ERROR    | churnguard.data.ingestion | load:92 | Data file /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-4/test_header_only_file_raises0/header.csv parsed to zero rows
+2026-08-10 00:47:47,375 | ERROR    | churnguard.data.ingestion | load_raw:128 | Source memory://in-memory is missing required columns: ['contract_type']
+2026-08-10 00:47:47,375 | WARNING  | churnguard.data.ingestion | load_raw:133 | Dropping 10 duplicate customer_id rows
+2026-08-10 00:47:47,380 | ERROR    | churnguard.data.ingestion | split:142 | Target 'churn' has a single class -- cannot train
+2026-08-10 00:47:47,382 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:47:47,382 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:47:47,383 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Missing required column 'tenure_months'
+2026-08-10 00:47:47,384 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:47:47,384 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:47:47,385 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' must be numeric, got str
+2026-08-10 00:47:47,386 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:47:47,386 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:47:47,387 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'contract_type' has unexpected levels ['Lifetime']
+2026-08-10 00:47:47,388 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:47:47,388 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:47:47,390 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:47:47,390 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:47:47,392 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' is 24.00% null (limit 5%)
+2026-08-10 00:47:47,392 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:47:47,392 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:47:47,394 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:47:47,394 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:47:47,396 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:47:47,396 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:47:47,397 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' has 1 value(s) outside [0.0, 500.0]
+2026-08-10 00:47:47,398 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:47:47,398 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:47:47,399 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' has 2500 value(s) outside [0.0, 500.0]
+2026-08-10 00:47:47,404 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:47:47,404 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:47:47,404 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Feature 'tenure_months' drifted: PSI=9.029 > 0.20
+2026-08-10 00:47:47,408 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 0.96% nulls (imputed)
+2026-08-10 00:47:47,408 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.72% nulls (imputed)
+2026-08-10 00:47:47,410 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | boom
+2026-08-10 00:47:47,416 | ERROR    | churnguard.features.engineering | apply_derived_features:69 | Cannot compute 'avg_spend_per_month': missing input column 'total_charges'
+2026-08-10 00:47:49,388 | ERROR    | churnguard.models.predictor | predict_proba:110 | Inference payload missing features: ['contract_type']
+2026-08-10 00:47:49,482 | ERROR    | churnguard.models.trainer | train:78 | Training target contains a single class
+2026-08-10 00:48:07,431 | INFO     | churnguard.api.main | lifespan:46 | API shutting down
+2026-08-10 00:48:07,869 | INFO     | churnguard.api.main | lifespan:40 | API starting up -- loading model
+2026-08-10 00:48:07,869 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 00:48:08,522 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-09T19:03:03+00:00)
+2026-08-10 00:52:16,634 | INFO     | churnguard.api.main | lifespan:46 | API shutting down
+2026-08-10 00:52:17,208 | INFO     | churnguard.api.main | lifespan:40 | API starting up -- loading model
+2026-08-10 00:52:17,208 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 00:52:18,180 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-09T19:03:03+00:00)
+2026-08-10 00:52:18,414 | INFO     | churnguard.api.main | lifespan:40 | API starting up -- loading model
+2026-08-10 00:52:18,414 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 00:52:18,967 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-09T19:03:03+00:00)
+2026-08-10 00:53:40,759 | ERROR    | churnguard.models.predictor | load:80 | Model artefact not found at /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-5/test_predict_returns_503_when_0/absent.joblib
+2026-08-10 00:53:40,759 | ERROR    | churnguard.api.main | lifespan:44 | Startup completed WITHOUT a model: Model artefact not found: /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-5/test_predict_returns_503_when_0/absent.joblib
+2026-08-10 00:53:40,760 | ERROR    | churnguard.api.main | handle_model_not_loaded:78 | 503 on /v1/predict -- model unavailable: No model loaded
+2026-08-10 00:53:40,770 | ERROR    | churnguard.data.ingestion | load:80 | Data file not found: /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-5/test_missing_file_raises_domai0/nope.csv
+2026-08-10 00:53:40,771 | ERROR    | churnguard.data.ingestion | load:85 | Data file /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-5/test_empty_file_raises0/empty.csv is empty
+2026-08-10 00:53:40,771 | ERROR    | churnguard.data.ingestion | load:92 | Data file /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-5/test_header_only_file_raises0/header.csv parsed to zero rows
+2026-08-10 00:53:40,772 | ERROR    | churnguard.data.ingestion | load_raw:128 | Source memory://in-memory is missing required columns: ['contract_type']
+2026-08-10 00:53:40,773 | WARNING  | churnguard.data.ingestion | load_raw:133 | Dropping 10 duplicate customer_id rows
+2026-08-10 00:53:40,778 | ERROR    | churnguard.data.ingestion | split:142 | Target 'churn' has a single class -- cannot train
+2026-08-10 00:53:40,779 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:53:40,779 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:53:40,780 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Missing required column 'tenure_months'
+2026-08-10 00:53:40,781 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:53:40,782 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:53:40,783 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' must be numeric, got str
+2026-08-10 00:53:40,784 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:53:40,784 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:53:40,785 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'contract_type' has unexpected levels ['Lifetime']
+2026-08-10 00:53:40,786 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:53:40,786 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:53:40,788 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:53:40,788 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:53:40,790 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' is 24.00% null (limit 5%)
+2026-08-10 00:53:40,790 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:53:40,790 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:53:40,792 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:53:40,792 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:53:40,794 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:53:40,794 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:53:40,794 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' has 1 value(s) outside [0.0, 500.0]
+2026-08-10 00:53:40,796 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:53:40,796 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:53:40,796 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' has 2500 value(s) outside [0.0, 500.0]
+2026-08-10 00:53:40,801 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:53:40,801 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:53:40,802 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Feature 'tenure_months' drifted: PSI=9.029 > 0.20
+2026-08-10 00:53:40,806 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 0.96% nulls (imputed)
+2026-08-10 00:53:40,806 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.72% nulls (imputed)
+2026-08-10 00:53:40,808 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | boom
+2026-08-10 00:53:40,814 | ERROR    | churnguard.features.engineering | apply_derived_features:69 | Cannot compute 'avg_spend_per_month': missing input column 'total_charges'
+2026-08-10 00:53:42,655 | ERROR    | churnguard.models.predictor | predict_proba:110 | Inference payload missing features: ['contract_type']
+2026-08-10 00:53:42,742 | ERROR    | churnguard.models.trainer | train:78 | Training target contains a single class
+2026-08-10 00:54:40,248 | ERROR    | churnguard.models.predictor | load:80 | Model artefact not found at /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-6/test_predict_returns_503_when_0/absent.joblib
+2026-08-10 00:54:40,249 | ERROR    | churnguard.api.main | lifespan:44 | Startup completed WITHOUT a model: Model artefact not found: /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-6/test_predict_returns_503_when_0/absent.joblib
+2026-08-10 00:54:40,250 | ERROR    | churnguard.api.main | handle_model_not_loaded:78 | 503 on /v1/predict -- model unavailable: No model loaded
+2026-08-10 00:54:40,258 | ERROR    | churnguard.data.ingestion | load:80 | Data file not found: /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-6/test_missing_file_raises_domai0/nope.csv
+2026-08-10 00:54:40,258 | ERROR    | churnguard.data.ingestion | load:85 | Data file /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-6/test_empty_file_raises0/empty.csv is empty
+2026-08-10 00:54:40,259 | ERROR    | churnguard.data.ingestion | load:92 | Data file /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-6/test_header_only_file_raises0/header.csv parsed to zero rows
+2026-08-10 00:54:40,260 | ERROR    | churnguard.data.ingestion | load_raw:128 | Source memory://in-memory is missing required columns: ['contract_type']
+2026-08-10 00:54:40,261 | WARNING  | churnguard.data.ingestion | load_raw:133 | Dropping 10 duplicate customer_id rows
+2026-08-10 00:54:40,266 | ERROR    | churnguard.data.ingestion | split:142 | Target 'churn' has a single class -- cannot train
+2026-08-10 00:54:40,267 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:54:40,267 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:54:40,268 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Missing required column 'tenure_months'
+2026-08-10 00:54:40,269 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:54:40,269 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:54:40,270 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' must be numeric, got str
+2026-08-10 00:54:40,271 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:54:40,272 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:54:40,273 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'contract_type' has unexpected levels ['Lifetime']
+2026-08-10 00:54:40,274 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:54:40,274 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:54:40,275 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:54:40,276 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:54:40,277 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' is 24.00% null (limit 5%)
+2026-08-10 00:54:40,278 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:54:40,278 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:54:40,279 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:54:40,280 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:54:40,281 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:54:40,281 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:54:40,282 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' has 1 value(s) outside [0.0, 500.0]
+2026-08-10 00:54:40,283 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:54:40,283 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:54:40,284 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' has 2500 value(s) outside [0.0, 500.0]
+2026-08-10 00:54:40,288 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 00:54:40,288 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 00:54:40,289 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Feature 'tenure_months' drifted: PSI=9.029 > 0.20
+2026-08-10 00:54:40,293 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 0.96% nulls (imputed)
+2026-08-10 00:54:40,293 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.72% nulls (imputed)
+2026-08-10 00:54:40,295 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | boom
+2026-08-10 00:54:40,301 | ERROR    | churnguard.features.engineering | apply_derived_features:69 | Cannot compute 'avg_spend_per_month': missing input column 'total_charges'
+2026-08-10 00:54:42,148 | ERROR    | churnguard.models.predictor | predict_proba:110 | Inference payload missing features: ['contract_type']
+2026-08-10 00:54:42,238 | ERROR    | churnguard.models.trainer | train:78 | Training target contains a single class
+2026-08-10 01:12:43,560 | ERROR    | churnguard.models.predictor | load:80 | Model artefact not found at /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-7/test_predict_returns_503_when_0/absent.joblib
+2026-08-10 01:12:43,563 | ERROR    | churnguard.api.main | lifespan:44 | Startup completed WITHOUT a model: Model artefact not found: /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-7/test_predict_returns_503_when_0/absent.joblib
+2026-08-10 01:12:43,564 | ERROR    | churnguard.api.main | handle_model_not_loaded:78 | 503 on /v1/predict -- model unavailable: No model loaded
+2026-08-10 01:12:43,574 | ERROR    | churnguard.data.ingestion | load:80 | Data file not found: /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-7/test_missing_file_raises_domai0/nope.csv
+2026-08-10 01:12:43,574 | ERROR    | churnguard.data.ingestion | load:85 | Data file /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-7/test_empty_file_raises0/empty.csv is empty
+2026-08-10 01:12:43,575 | ERROR    | churnguard.data.ingestion | load:92 | Data file /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-7/test_header_only_file_raises0/header.csv parsed to zero rows
+2026-08-10 01:12:43,577 | ERROR    | churnguard.data.ingestion | load_raw:128 | Source memory://in-memory is missing required columns: ['contract_type']
+2026-08-10 01:12:43,578 | WARNING  | churnguard.data.ingestion | load_raw:133 | Dropping 10 duplicate customer_id rows
+2026-08-10 01:12:43,584 | ERROR    | churnguard.data.ingestion | split:142 | Target 'churn' has a single class -- cannot train
+2026-08-10 01:12:43,586 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 01:12:43,586 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 01:12:43,588 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Missing required column 'tenure_months'
+2026-08-10 01:12:43,589 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 01:12:43,589 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 01:12:43,591 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' must be numeric, got str
+2026-08-10 01:12:43,592 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 01:12:43,593 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 01:12:43,594 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'contract_type' has unexpected levels ['Lifetime']
+2026-08-10 01:12:43,595 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 01:12:43,595 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 01:12:43,598 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 01:12:43,598 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 01:12:43,601 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' is 24.00% null (limit 5%)
+2026-08-10 01:12:43,601 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 01:12:43,601 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 01:12:43,604 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 01:12:43,604 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 01:12:43,607 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 01:12:43,607 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 01:12:43,608 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' has 1 value(s) outside [0.0, 500.0]
+2026-08-10 01:12:43,610 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 01:12:43,610 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 01:12:43,611 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' has 2500 value(s) outside [0.0, 500.0]
+2026-08-10 01:12:43,617 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 01:12:43,617 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 01:12:43,618 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Feature 'tenure_months' drifted: PSI=9.029 > 0.20
+2026-08-10 01:12:43,622 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 0.96% nulls (imputed)
+2026-08-10 01:12:43,623 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.72% nulls (imputed)
+2026-08-10 01:12:43,625 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | boom
+2026-08-10 01:12:43,635 | ERROR    | churnguard.features.engineering | apply_derived_features:69 | Cannot compute 'avg_spend_per_month': missing input column 'total_charges'
+2026-08-10 01:12:47,149 | ERROR    | churnguard.models.predictor | predict_proba:110 | Inference payload missing features: ['contract_type']
+2026-08-10 01:12:47,325 | ERROR    | churnguard.models.trainer | train:78 | Training target contains a single class
+2026-08-10 01:13:03,846 | INFO     | churnguard.train | main:39 | ==============================================================================
+2026-08-10 01:13:03,846 | INFO     | churnguard.train | main:40 | ChurnGuard training run starting
+2026-08-10 01:13:03,846 | INFO     | churnguard.train | main:41 | ==============================================================================
+2026-08-10 01:13:03,846 | INFO     | churnguard.data.ingestion | load:78 | Loading data from csv:///Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/data/raw/telco_churn.csv
+2026-08-10 01:13:03,850 | INFO     | churnguard.data.ingestion | load:95 | Loaded 5000 rows x 12 columns
+2026-08-10 01:13:03,851 | INFO     | churnguard.data.validation | validate:175 | Validating dataset: 5000 rows x 12 columns
+2026-08-10 01:13:03,853 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 01:13:03,853 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 01:13:03,855 | INFO     | churnguard.data.validation | validate:183 | Validation PASSED | 0 error(s), 2 warning(s)
+2026-08-10 01:13:03,857 | INFO     | churnguard.data.ingestion | split:158 | Split complete: {'n_train': 4000, 'n_test': 1000, 'n_features': 10, 'train_churn_rate': 0.2665, 'test_churn_rate': 0.267}
+2026-08-10 01:13:03,859 | INFO     | churnguard.data.validation | write_reference_profile:201 | Reference profile with 5 features written to /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/reference_profile.json
+2026-08-10 01:13:03,859 | INFO     | churnguard.models.trainer | build_pipeline:63 | Pipeline built with steps: ['features', 'preprocess', 'classifier']
+2026-08-10 01:13:03,861 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 01:13:04,470 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 01:13:05,070 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 01:13:05,669 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 01:13:06,282 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 01:13:06,882 | INFO     | churnguard.models.trainer | cross_validate:104 | Cross-validation ROC-AUC = 0.7917 (+/- 0.0152) over 5 folds
+2026-08-10 01:13:06,882 | INFO     | churnguard.models.trainer | train:81 | Training on 4000 rows (churn rate 0.267)
+2026-08-10 01:13:06,882 | INFO     | churnguard.models.trainer | build_pipeline:63 | Pipeline built with steps: ['features', 'preprocess', 'classifier']
+2026-08-10 01:13:06,883 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 01:13:07,411 | INFO     | churnguard.models.trainer | train:88 | Training complete
+2026-08-10 01:13:07,495 | INFO     | churnguard.models.evaluation | evaluate:114 | Evaluation @thr=0.35 | AUC=0.7893 F1=0.5616 acc=0.7580 Brier=0.1518 ECE=0.0185
+2026-08-10 01:13:07,495 | INFO     | churnguard.train | main:72 | All model quality gates passed
+2026-08-10 01:13:07,565 | INFO     | churnguard.models.trainer | save:148 | Artefact saved to /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib (19281.0 KB)
+2026-08-10 01:13:07,565 | INFO     | churnguard.models.trainer | write_metrics_report:156 | Metrics report written to /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/reports/model_metrics.json
+2026-08-10 01:13:07,565 | INFO     | churnguard.train | main:82 | ------------------------------------------------------------------------------
+2026-08-10 01:13:07,565 | INFO     | churnguard.train | main:83 | DONE | ROC-AUC=0.7893  F1=0.5616  Accuracy=0.7580  Brier=0.1518  ECE=0.0185
+2026-08-10 01:13:07,565 | INFO     | churnguard.train | main:91 | ------------------------------------------------------------------------------
+2026-08-10 01:13:24,415 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 01:13:24,415 | INFO     | churnguard.demo | banner:31 | ### Ingestion: file not found -> DataIngestionError ###
+2026-08-10 01:13:24,416 | INFO     | churnguard.data.ingestion | load:78 | Loading data from csv://data/raw/does_not_exist.csv
+2026-08-10 01:13:24,416 | ERROR    | churnguard.data.ingestion | load:80 | Data file not found: data/raw/does_not_exist.csv
+2026-08-10 01:13:24,416 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Data file not found: data/raw/does_not_exist.csv
+2026-08-10 01:13:24,416 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 01:13:24,416 | INFO     | churnguard.demo | banner:31 | ### Ingestion: empty file -> DataIngestionError ###
+2026-08-10 01:13:24,418 | INFO     | churnguard.data.ingestion | load:78 | Loading data from csv:///tmp/empty_churn.csv
+2026-08-10 01:13:24,418 | ERROR    | churnguard.data.ingestion | load:85 | Data file /tmp/empty_churn.csv is empty
+2026-08-10 01:13:24,418 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Data file is empty: /tmp/empty_churn.csv
+2026-08-10 01:13:24,418 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 01:13:24,418 | INFO     | churnguard.demo | banner:31 | ### Ingestion: missing required columns -> DataIngestionError ###
+2026-08-10 01:13:24,419 | INFO     | churnguard.data.ingestion | load:111 | Using memory://missing-cols (5000 rows)
+2026-08-10 01:13:24,419 | ERROR    | churnguard.data.ingestion | load_raw:128 | Source memory://missing-cols is missing required columns: ['contract_type', 'internet_service']
+2026-08-10 01:13:24,419 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Missing required columns: ['contract_type', 'internet_service']
+2026-08-10 01:13:24,419 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 01:13:24,419 | INFO     | churnguard.demo | banner:31 | ### Ingestion: single-class target -> DataIngestionError ###
+2026-08-10 01:13:24,420 | ERROR    | churnguard.data.ingestion | split:142 | Target 'churn' has a single class -- cannot train
+2026-08-10 01:13:24,420 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Target column must contain at least two classes
+2026-08-10 01:13:24,420 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 01:13:24,420 | INFO     | churnguard.demo | banner:31 | ### Validation: schema/range/missing breach -> SchemaValidationError ###
+2026-08-10 01:13:24,420 | INFO     | churnguard.data.validation | validate:175 | Validating dataset: 5000 rows x 12 columns
+2026-08-10 01:13:24,421 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'contract_type' has unexpected levels ['Lifetime']
+2026-08-10 01:13:24,422 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'total_charges' is 9.06% null (limit 5%)
+2026-08-10 01:13:24,422 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 01:13:24,423 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' has 1 value(s) outside [0.0, 500.0]
+2026-08-10 01:13:24,423 | INFO     | churnguard.data.validation | validate:183 | Validation FAILED | 3 error(s), 1 warning(s)
+2026-08-10 01:13:24,423 | INFO     | churnguard.demo | run:39 | Caught SchemaValidationError: Data validation failed with 3 error(s)
+2026-08-10 01:13:24,423 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 01:13:24,423 | INFO     | churnguard.demo | banner:31 | ### Training: single-class target -> ModelTrainingError ###
+2026-08-10 01:13:24,424 | ERROR    | churnguard.models.trainer | train:78 | Training target contains a single class
+2026-08-10 01:13:24,424 | INFO     | churnguard.demo | run:39 | Caught ModelTrainingError: Training requires at least two target classes
+2026-08-10 01:13:24,424 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 01:13:24,424 | INFO     | churnguard.demo | banner:31 | ### Training: X/y row mismatch -> ModelTrainingError ###
+2026-08-10 01:13:24,424 | INFO     | churnguard.demo | run:39 | Caught ModelTrainingError: X has 50 rows but y has 30 -- refusing to train
+2026-08-10 01:13:24,424 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 01:13:24,424 | INFO     | churnguard.demo | banner:31 | ### Inference: artefact missing -> ModelNotLoadedError ###
+2026-08-10 01:13:24,425 | INFO     | churnguard.demo | run:39 | Caught ModelNotLoadedError: Model is not loaded. Call load() first.
+2026-08-10 01:13:24,425 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 01:13:24,425 | INFO     | churnguard.demo | banner:31 | ### Inference: payload missing features -> InferenceError ###
+2026-08-10 01:13:24,425 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 01:13:24,477 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-09T19:43:07+00:00)
+2026-08-10 01:13:24,478 | ERROR    | churnguard.models.predictor | predict_proba:110 | Inference payload missing features: ['monthly_charges', 'total_charges', 'support_tickets_6m', 'avg_monthly_gb', 'contract_type', 'internet_service', 'payment_method', 'tech_support', 'paperless_billing']
+2026-08-10 01:13:24,478 | INFO     | churnguard.demo | run:39 | Caught InferenceError: Missing required features: ['monthly_charges', 'total_charges', 'support_tickets_6m', 'avg_monthly_gb', 'contract_type', 'internet_service', 'payment_method', 'tech_support', 'paperless_billing']
+2026-08-10 01:13:24,478 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 01:13:24,479 | INFO     | churnguard.demo | banner:31 | ### Demo complete ###
+2026-08-10 01:14:55,691 | INFO     | churnguard.api.main | lifespan:46 | API shutting down
+2026-08-10 01:14:56,057 | INFO     | churnguard.api.main | lifespan:40 | API starting up -- loading model
+2026-08-10 01:14:56,057 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 01:14:56,657 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-09T19:43:07+00:00)
+2026-08-10 01:16:55,058 | INFO     | churnguard.api.main | lifespan:46 | API shutting down
+2026-08-10 01:16:55,437 | INFO     | churnguard.api.main | lifespan:40 | API starting up -- loading model
+2026-08-10 01:16:55,437 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 01:16:56,075 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-09T19:43:07+00:00)
+2026-08-10 01:21:45,032 | INFO     | churnguard.api.main | lifespan:46 | API shutting down
+2026-08-10 01:21:45,378 | INFO     | churnguard.api.main | lifespan:40 | API starting up -- loading model
+2026-08-10 01:21:45,378 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 01:21:45,970 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-09T19:43:07+00:00)
+2026-08-10 01:23:15,080 | INFO     | churnguard.api.main | lifespan:46 | API shutting down
+2026-08-10 01:23:15,460 | INFO     | churnguard.api.main | lifespan:40 | API starting up -- loading model
+2026-08-10 01:23:15,460 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 01:23:16,171 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-09T19:43:07+00:00)
+2026-08-10 01:29:21,198 | INFO     | churnguard.api.main | lifespan:46 | API shutting down
+2026-08-10 01:29:21,616 | INFO     | churnguard.api.main | lifespan:40 | API starting up -- loading model
+2026-08-10 01:29:21,616 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 01:29:22,342 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-09T19:43:07+00:00)
+2026-08-10 09:26:52,501 | INFO     | churnguard.api.main | lifespan:46 | API shutting down
+2026-08-10 09:26:53,020 | INFO     | churnguard.api.main | lifespan:40 | API starting up -- loading model
+2026-08-10 09:26:53,020 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 09:26:53,776 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-09T19:43:07+00:00)
+2026-08-10 09:26:59,035 | INFO     | churnguard.api.main | lifespan:46 | API shutting down
+2026-08-10 09:26:59,312 | INFO     | churnguard.api.main | lifespan:40 | API starting up -- loading model
+2026-08-10 09:26:59,312 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 09:26:59,863 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-09T19:43:07+00:00)
+2026-08-10 09:32:30,936 | INFO     | churnguard.api.main | lifespan:46 | API shutting down
+2026-08-10 09:32:31,289 | INFO     | churnguard.api.main | lifespan:40 | API starting up -- loading model
+2026-08-10 09:32:31,289 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 09:32:31,946 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-09T19:43:07+00:00)
+2026-08-10 09:34:27,033 | INFO     | churnguard.api.main | lifespan:46 | API shutting down
+2026-08-10 09:34:27,411 | INFO     | churnguard.api.main | lifespan:40 | API starting up -- loading model
+2026-08-10 09:34:27,411 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 09:34:28,068 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-09T19:43:07+00:00)
+2026-08-10 09:36:12,341 | INFO     | churnguard.api.main | lifespan:46 | API shutting down
+2026-08-10 09:36:12,705 | INFO     | churnguard.api.main | lifespan:40 | API starting up -- loading model
+2026-08-10 09:36:12,705 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 09:36:13,321 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-09T19:43:07+00:00)
+2026-08-10 09:45:22,110 | INFO     | churnguard.api.main | lifespan:46 | API shutting down
+2026-08-10 09:45:22,457 | INFO     | churnguard.api.main | lifespan:40 | API starting up -- loading model
+2026-08-10 09:45:22,457 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 09:45:23,077 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-09T19:43:07+00:00)
+2026-08-10 09:46:53,069 | INFO     | churnguard.api.main | lifespan:46 | API shutting down
+2026-08-10 09:46:53,402 | INFO     | churnguard.api.main | lifespan:40 | API starting up -- loading model
+2026-08-10 09:46:53,402 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 09:46:54,023 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-09T19:43:07+00:00)
+2026-08-10 09:48:44,914 | INFO     | churnguard.api.main | lifespan:46 | API shutting down
+2026-08-10 09:48:45,267 | INFO     | churnguard.api.main | lifespan:40 | API starting up -- loading model
+2026-08-10 09:48:45,267 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 09:48:45,877 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-09T19:43:07+00:00)
+2026-08-10 11:03:03,927 | INFO     | churnguard.api.main | lifespan:46 | API shutting down
+2026-08-10 11:03:04,307 | INFO     | churnguard.api.main | lifespan:40 | API starting up -- loading model
+2026-08-10 11:03:04,307 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 11:03:04,992 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-09T19:43:07+00:00)
+2026-08-10 11:03:38,421 | INFO     | churnguard.api.main | lifespan:46 | API shutting down
+2026-08-10 11:03:38,765 | INFO     | churnguard.api.main | lifespan:40 | API starting up -- loading model
+2026-08-10 11:03:38,765 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 11:03:39,450 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-09T19:43:07+00:00)
+2026-08-10 11:10:06,802 | ERROR    | churnguard.models.predictor | load:80 | Model artefact not found at /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-8/test_predict_returns_503_when_0/absent.joblib
+2026-08-10 11:10:06,806 | ERROR    | churnguard.api.main | lifespan:44 | Startup completed WITHOUT a model: Model artefact not found: /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-8/test_predict_returns_503_when_0/absent.joblib
+2026-08-10 11:10:06,807 | ERROR    | churnguard.api.main | handle_model_not_loaded:78 | 503 on /v1/predict -- model unavailable: No model loaded
+2026-08-10 11:10:06,817 | ERROR    | churnguard.data.ingestion | load:80 | Data file not found: /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-8/test_missing_file_raises_domai0/nope.csv
+2026-08-10 11:10:06,818 | ERROR    | churnguard.data.ingestion | load:85 | Data file /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-8/test_empty_file_raises0/empty.csv is empty
+2026-08-10 11:10:06,819 | ERROR    | churnguard.data.ingestion | load:92 | Data file /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-8/test_header_only_file_raises0/header.csv parsed to zero rows
+2026-08-10 11:10:06,820 | ERROR    | churnguard.data.ingestion | load_raw:128 | Source memory://in-memory is missing required columns: ['contract_type']
+2026-08-10 11:10:06,821 | WARNING  | churnguard.data.ingestion | load_raw:133 | Dropping 10 duplicate customer_id rows
+2026-08-10 11:10:06,828 | ERROR    | churnguard.data.ingestion | split:142 | Target 'churn' has a single class -- cannot train
+2026-08-10 11:10:06,831 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:10:06,831 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:10:06,832 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Missing required column 'tenure_months'
+2026-08-10 11:10:06,834 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:10:06,834 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:10:06,836 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' must be numeric, got str
+2026-08-10 11:10:06,837 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:10:06,837 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:10:06,839 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'contract_type' has unexpected levels ['Lifetime']
+2026-08-10 11:10:06,840 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:10:06,840 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:10:06,843 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:10:06,843 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:10:06,846 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' is 24.00% null (limit 5%)
+2026-08-10 11:10:06,846 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:10:06,846 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:10:06,849 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:10:06,849 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:10:06,852 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:10:06,852 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:10:06,853 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' has 1 value(s) outside [0.0, 500.0]
+2026-08-10 11:10:06,855 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:10:06,855 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:10:06,856 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' has 2500 value(s) outside [0.0, 500.0]
+2026-08-10 11:10:06,863 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:10:06,863 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:10:06,864 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Feature 'tenure_months' drifted: PSI=9.029 > 0.20
+2026-08-10 11:10:06,868 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 0.96% nulls (imputed)
+2026-08-10 11:10:06,869 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.72% nulls (imputed)
+2026-08-10 11:10:06,871 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | boom
+2026-08-10 11:10:06,882 | ERROR    | churnguard.features.engineering | apply_derived_features:69 | Cannot compute 'avg_spend_per_month': missing input column 'total_charges'
+2026-08-10 11:10:10,442 | ERROR    | churnguard.models.predictor | predict_proba:110 | Inference payload missing features: ['contract_type']
+2026-08-10 11:10:10,626 | ERROR    | churnguard.models.trainer | train:78 | Training target contains a single class
+2026-08-10 11:10:20,485 | INFO     | churnguard.train | main:39 | ==============================================================================
+2026-08-10 11:10:20,485 | INFO     | churnguard.train | main:40 | ChurnGuard training run starting
+2026-08-10 11:10:20,485 | INFO     | churnguard.train | main:41 | ==============================================================================
+2026-08-10 11:10:20,485 | INFO     | churnguard.data.ingestion | load:78 | Loading data from csv:///Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/data/raw/telco_churn.csv
+2026-08-10 11:10:20,488 | INFO     | churnguard.data.ingestion | load:95 | Loaded 5000 rows x 12 columns
+2026-08-10 11:10:20,490 | INFO     | churnguard.data.validation | validate:175 | Validating dataset: 5000 rows x 12 columns
+2026-08-10 11:10:20,491 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:10:20,491 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:10:20,494 | INFO     | churnguard.data.validation | validate:183 | Validation PASSED | 0 error(s), 2 warning(s)
+2026-08-10 11:10:20,496 | INFO     | churnguard.data.ingestion | split:158 | Split complete: {'n_train': 4000, 'n_test': 1000, 'n_features': 10, 'train_churn_rate': 0.2665, 'test_churn_rate': 0.267}
+2026-08-10 11:10:20,498 | INFO     | churnguard.data.validation | write_reference_profile:201 | Reference profile with 5 features written to /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/reference_profile.json
+2026-08-10 11:10:20,498 | INFO     | churnguard.models.trainer | build_pipeline:63 | Pipeline built with steps: ['features', 'preprocess', 'classifier']
+2026-08-10 11:10:20,500 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 11:10:21,120 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 11:10:21,725 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 11:10:22,324 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 11:10:22,937 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 11:10:23,527 | INFO     | churnguard.models.trainer | cross_validate:104 | Cross-validation ROC-AUC = 0.7917 (+/- 0.0152) over 5 folds
+2026-08-10 11:10:23,527 | INFO     | churnguard.models.trainer | train:81 | Training on 4000 rows (churn rate 0.267)
+2026-08-10 11:10:23,527 | INFO     | churnguard.models.trainer | build_pipeline:63 | Pipeline built with steps: ['features', 'preprocess', 'classifier']
+2026-08-10 11:10:23,528 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 11:10:24,081 | INFO     | churnguard.models.trainer | train:88 | Training complete
+2026-08-10 11:10:24,165 | INFO     | churnguard.models.evaluation | evaluate:114 | Evaluation @thr=0.35 | AUC=0.7893 F1=0.5616 acc=0.7580 Brier=0.1518 ECE=0.0185
+2026-08-10 11:10:24,165 | INFO     | churnguard.train | main:72 | All model quality gates passed
+2026-08-10 11:10:24,233 | INFO     | churnguard.models.trainer | save:148 | Artefact saved to /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib (19281.0 KB)
+2026-08-10 11:10:24,233 | INFO     | churnguard.models.trainer | write_metrics_report:156 | Metrics report written to /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/reports/model_metrics.json
+2026-08-10 11:10:24,234 | INFO     | churnguard.train | main:82 | ------------------------------------------------------------------------------
+2026-08-10 11:10:24,234 | INFO     | churnguard.train | main:83 | DONE | ROC-AUC=0.7893  F1=0.5616  Accuracy=0.7580  Brier=0.1518  ECE=0.0185
+2026-08-10 11:10:24,234 | INFO     | churnguard.train | main:91 | ------------------------------------------------------------------------------
+2026-08-10 11:10:33,729 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:10:33,729 | INFO     | churnguard.demo | banner:31 | ### Ingestion: file not found -> DataIngestionError ###
+2026-08-10 11:10:33,729 | INFO     | churnguard.data.ingestion | load:78 | Loading data from csv://data/raw/does_not_exist.csv
+2026-08-10 11:10:33,729 | ERROR    | churnguard.data.ingestion | load:80 | Data file not found: data/raw/does_not_exist.csv
+2026-08-10 11:10:33,729 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Data file not found: data/raw/does_not_exist.csv
+2026-08-10 11:10:33,729 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:10:33,729 | INFO     | churnguard.demo | banner:31 | ### Ingestion: empty file -> DataIngestionError ###
+2026-08-10 11:10:33,729 | INFO     | churnguard.data.ingestion | load:78 | Loading data from csv:///tmp/empty_churn.csv
+2026-08-10 11:10:33,730 | ERROR    | churnguard.data.ingestion | load:85 | Data file /tmp/empty_churn.csv is empty
+2026-08-10 11:10:33,730 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Data file is empty: /tmp/empty_churn.csv
+2026-08-10 11:10:33,730 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:10:33,730 | INFO     | churnguard.demo | banner:31 | ### Ingestion: missing required columns -> DataIngestionError ###
+2026-08-10 11:10:33,730 | INFO     | churnguard.data.ingestion | load:111 | Using memory://missing-cols (5000 rows)
+2026-08-10 11:10:33,730 | ERROR    | churnguard.data.ingestion | load_raw:128 | Source memory://missing-cols is missing required columns: ['contract_type', 'internet_service']
+2026-08-10 11:10:33,730 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Missing required columns: ['contract_type', 'internet_service']
+2026-08-10 11:10:33,730 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:10:33,730 | INFO     | churnguard.demo | banner:31 | ### Ingestion: single-class target -> DataIngestionError ###
+2026-08-10 11:10:33,730 | ERROR    | churnguard.data.ingestion | split:142 | Target 'churn' has a single class -- cannot train
+2026-08-10 11:10:33,730 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Target column must contain at least two classes
+2026-08-10 11:10:33,731 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:10:33,731 | INFO     | churnguard.demo | banner:31 | ### Validation: schema/range/missing breach -> SchemaValidationError ###
+2026-08-10 11:10:33,731 | INFO     | churnguard.data.validation | validate:175 | Validating dataset: 5000 rows x 12 columns
+2026-08-10 11:10:33,731 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'contract_type' has unexpected levels ['Lifetime']
+2026-08-10 11:10:33,733 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'total_charges' is 9.06% null (limit 5%)
+2026-08-10 11:10:33,733 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:10:33,733 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' has 1 value(s) outside [0.0, 500.0]
+2026-08-10 11:10:33,733 | INFO     | churnguard.data.validation | validate:183 | Validation FAILED | 3 error(s), 1 warning(s)
+2026-08-10 11:10:33,734 | INFO     | churnguard.demo | run:39 | Caught SchemaValidationError: Data validation failed with 3 error(s)
+2026-08-10 11:10:33,734 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:10:33,734 | INFO     | churnguard.demo | banner:31 | ### Training: single-class target -> ModelTrainingError ###
+2026-08-10 11:10:33,734 | ERROR    | churnguard.models.trainer | train:78 | Training target contains a single class
+2026-08-10 11:10:33,734 | INFO     | churnguard.demo | run:39 | Caught ModelTrainingError: Training requires at least two target classes
+2026-08-10 11:10:33,734 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:10:33,734 | INFO     | churnguard.demo | banner:31 | ### Training: X/y row mismatch -> ModelTrainingError ###
+2026-08-10 11:10:33,734 | INFO     | churnguard.demo | run:39 | Caught ModelTrainingError: X has 50 rows but y has 30 -- refusing to train
+2026-08-10 11:10:33,734 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:10:33,734 | INFO     | churnguard.demo | banner:31 | ### Inference: artefact missing -> ModelNotLoadedError ###
+2026-08-10 11:10:33,734 | INFO     | churnguard.demo | run:39 | Caught ModelNotLoadedError: Model is not loaded. Call load() first.
+2026-08-10 11:10:33,735 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:10:33,735 | INFO     | churnguard.demo | banner:31 | ### Inference: payload missing features -> InferenceError ###
+2026-08-10 11:10:33,735 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 11:10:33,784 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-10T05:40:24+00:00)
+2026-08-10 11:10:33,784 | ERROR    | churnguard.models.predictor | predict_proba:110 | Inference payload missing features: ['monthly_charges', 'total_charges', 'support_tickets_6m', 'avg_monthly_gb', 'contract_type', 'internet_service', 'payment_method', 'tech_support', 'paperless_billing']
+2026-08-10 11:10:33,784 | INFO     | churnguard.demo | run:39 | Caught InferenceError: Missing required features: ['monthly_charges', 'total_charges', 'support_tickets_6m', 'avg_monthly_gb', 'contract_type', 'internet_service', 'payment_method', 'tech_support', 'paperless_billing']
+2026-08-10 11:10:33,785 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:10:33,785 | INFO     | churnguard.demo | banner:31 | ### Demo complete ###
+2026-08-10 11:15:53,704 | ERROR    | churnguard.models.predictor | load:80 | Model artefact not found at /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-9/test_predict_returns_503_when_0/absent.joblib
+2026-08-10 11:15:53,707 | ERROR    | churnguard.api.main | lifespan:44 | Startup completed WITHOUT a model: Model artefact not found: /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-9/test_predict_returns_503_when_0/absent.joblib
+2026-08-10 11:15:53,708 | ERROR    | churnguard.api.main | handle_model_not_loaded:78 | 503 on /v1/predict -- model unavailable: No model loaded
+2026-08-10 11:15:53,718 | ERROR    | churnguard.data.ingestion | load:80 | Data file not found: /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-9/test_missing_file_raises_domai0/nope.csv
+2026-08-10 11:15:53,719 | ERROR    | churnguard.data.ingestion | load:85 | Data file /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-9/test_empty_file_raises0/empty.csv is empty
+2026-08-10 11:15:53,720 | ERROR    | churnguard.data.ingestion | load:92 | Data file /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-9/test_header_only_file_raises0/header.csv parsed to zero rows
+2026-08-10 11:15:53,721 | ERROR    | churnguard.data.ingestion | load_raw:128 | Source memory://in-memory is missing required columns: ['contract_type']
+2026-08-10 11:15:53,722 | WARNING  | churnguard.data.ingestion | load_raw:133 | Dropping 10 duplicate customer_id rows
+2026-08-10 11:15:53,728 | ERROR    | churnguard.data.ingestion | split:142 | Target 'churn' has a single class -- cannot train
+2026-08-10 11:15:53,731 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:15:53,731 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:15:53,732 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Missing required column 'tenure_months'
+2026-08-10 11:15:53,734 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:15:53,734 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:15:53,735 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' must be numeric, got str
+2026-08-10 11:15:53,737 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:15:53,737 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:15:53,739 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'contract_type' has unexpected levels ['Lifetime']
+2026-08-10 11:15:53,740 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:15:53,740 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:15:53,742 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:15:53,742 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:15:53,745 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' is 24.00% null (limit 5%)
+2026-08-10 11:15:53,745 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:15:53,745 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:15:53,748 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:15:53,748 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:15:53,751 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:15:53,751 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:15:53,752 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' has 1 value(s) outside [0.0, 500.0]
+2026-08-10 11:15:53,754 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:15:53,754 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:15:53,755 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' has 2500 value(s) outside [0.0, 500.0]
+2026-08-10 11:15:53,761 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:15:53,761 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:15:53,763 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Feature 'tenure_months' drifted: PSI=9.029 > 0.20
+2026-08-10 11:15:53,767 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 0.96% nulls (imputed)
+2026-08-10 11:15:53,767 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.72% nulls (imputed)
+2026-08-10 11:15:53,769 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | boom
+2026-08-10 11:15:53,780 | ERROR    | churnguard.features.engineering | apply_derived_features:69 | Cannot compute 'avg_spend_per_month': missing input column 'total_charges'
+2026-08-10 11:15:57,287 | ERROR    | churnguard.models.predictor | predict_proba:110 | Inference payload missing features: ['contract_type']
+2026-08-10 11:15:57,468 | ERROR    | churnguard.models.trainer | train:78 | Training target contains a single class
+2026-08-10 11:16:40,506 | INFO     | churnguard.train | main:39 | ==============================================================================
+2026-08-10 11:16:40,506 | INFO     | churnguard.train | main:40 | ChurnGuard training run starting
+2026-08-10 11:16:40,506 | INFO     | churnguard.train | main:41 | ==============================================================================
+2026-08-10 11:16:40,506 | INFO     | churnguard.data.ingestion | load:78 | Loading data from csv:///Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/data/raw/telco_churn.csv
+2026-08-10 11:16:40,512 | INFO     | churnguard.data.ingestion | load:95 | Loaded 5000 rows x 12 columns
+2026-08-10 11:16:40,513 | INFO     | churnguard.data.validation | validate:175 | Validating dataset: 5000 rows x 12 columns
+2026-08-10 11:16:40,515 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:16:40,515 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:16:40,517 | INFO     | churnguard.data.validation | validate:183 | Validation PASSED | 0 error(s), 2 warning(s)
+2026-08-10 11:16:40,519 | INFO     | churnguard.data.ingestion | split:158 | Split complete: {'n_train': 4000, 'n_test': 1000, 'n_features': 10, 'train_churn_rate': 0.2665, 'test_churn_rate': 0.267}
+2026-08-10 11:16:40,521 | INFO     | churnguard.data.validation | write_reference_profile:201 | Reference profile with 5 features written to /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/reference_profile.json
+2026-08-10 11:16:40,521 | INFO     | churnguard.models.trainer | build_pipeline:63 | Pipeline built with steps: ['features', 'preprocess', 'classifier']
+2026-08-10 11:16:40,523 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 11:16:41,131 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 11:16:41,733 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 11:16:42,339 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 11:16:42,952 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 11:16:43,549 | INFO     | churnguard.models.trainer | cross_validate:104 | Cross-validation ROC-AUC = 0.7917 (+/- 0.0152) over 5 folds
+2026-08-10 11:16:43,550 | INFO     | churnguard.models.trainer | train:81 | Training on 4000 rows (churn rate 0.267)
+2026-08-10 11:16:43,550 | INFO     | churnguard.models.trainer | build_pipeline:63 | Pipeline built with steps: ['features', 'preprocess', 'classifier']
+2026-08-10 11:16:43,551 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 11:16:44,066 | INFO     | churnguard.models.trainer | train:88 | Training complete
+2026-08-10 11:16:44,150 | INFO     | churnguard.models.evaluation | evaluate:114 | Evaluation @thr=0.35 | AUC=0.7893 F1=0.5616 acc=0.7580 Brier=0.1518 ECE=0.0185
+2026-08-10 11:16:44,150 | INFO     | churnguard.train | main:72 | All model quality gates passed
+2026-08-10 11:16:44,214 | INFO     | churnguard.models.trainer | save:148 | Artefact saved to /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib (19281.0 KB)
+2026-08-10 11:16:44,215 | INFO     | churnguard.models.trainer | write_metrics_report:156 | Metrics report written to /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/reports/model_metrics.json
+2026-08-10 11:16:44,215 | INFO     | churnguard.train | main:82 | ------------------------------------------------------------------------------
+2026-08-10 11:16:44,215 | INFO     | churnguard.train | main:83 | DONE | ROC-AUC=0.7893  F1=0.5616  Accuracy=0.7580  Brier=0.1518  ECE=0.0185
+2026-08-10 11:16:44,215 | INFO     | churnguard.train | main:91 | ------------------------------------------------------------------------------
+2026-08-10 11:17:14,944 | INFO     | churnguard.train | main:39 | ==============================================================================
+2026-08-10 11:17:14,945 | INFO     | churnguard.train | main:40 | ChurnGuard training run starting
+2026-08-10 11:17:14,945 | INFO     | churnguard.train | main:41 | ==============================================================================
+2026-08-10 11:17:14,945 | INFO     | churnguard.data.ingestion | load:78 | Loading data from csv:///Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/data/raw/telco_churn.csv
+2026-08-10 11:17:14,948 | INFO     | churnguard.data.ingestion | load:95 | Loaded 5000 rows x 12 columns
+2026-08-10 11:17:14,949 | INFO     | churnguard.data.validation | validate:175 | Validating dataset: 5000 rows x 12 columns
+2026-08-10 11:17:14,950 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:17:14,950 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:17:14,953 | INFO     | churnguard.data.validation | validate:183 | Validation PASSED | 0 error(s), 2 warning(s)
+2026-08-10 11:17:14,954 | INFO     | churnguard.data.ingestion | split:158 | Split complete: {'n_train': 4000, 'n_test': 1000, 'n_features': 10, 'train_churn_rate': 0.2665, 'test_churn_rate': 0.267}
+2026-08-10 11:17:14,956 | INFO     | churnguard.data.validation | write_reference_profile:201 | Reference profile with 5 features written to /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/reference_profile.json
+2026-08-10 11:17:14,956 | INFO     | churnguard.models.trainer | build_pipeline:63 | Pipeline built with steps: ['features', 'preprocess', 'classifier']
+2026-08-10 11:17:14,958 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 11:17:15,566 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 11:17:16,170 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 11:17:16,771 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 11:17:17,388 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 11:17:17,979 | INFO     | churnguard.models.trainer | cross_validate:104 | Cross-validation ROC-AUC = 0.7917 (+/- 0.0152) over 5 folds
+2026-08-10 11:17:17,979 | INFO     | churnguard.models.trainer | train:81 | Training on 4000 rows (churn rate 0.267)
+2026-08-10 11:17:17,980 | INFO     | churnguard.models.trainer | build_pipeline:63 | Pipeline built with steps: ['features', 'preprocess', 'classifier']
+2026-08-10 11:17:17,980 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 11:17:18,517 | INFO     | churnguard.models.trainer | train:88 | Training complete
+2026-08-10 11:17:18,600 | INFO     | churnguard.models.evaluation | evaluate:114 | Evaluation @thr=0.35 | AUC=0.7893 F1=0.5616 acc=0.7580 Brier=0.1518 ECE=0.0185
+2026-08-10 11:17:18,600 | INFO     | churnguard.train | main:72 | All model quality gates passed
+2026-08-10 11:17:18,666 | INFO     | churnguard.models.trainer | save:148 | Artefact saved to /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib (19281.0 KB)
+2026-08-10 11:17:18,666 | INFO     | churnguard.models.trainer | write_metrics_report:156 | Metrics report written to /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/reports/model_metrics.json
+2026-08-10 11:17:18,666 | INFO     | churnguard.train | main:82 | ------------------------------------------------------------------------------
+2026-08-10 11:17:18,666 | INFO     | churnguard.train | main:83 | DONE | ROC-AUC=0.7893  F1=0.5616  Accuracy=0.7580  Brier=0.1518  ECE=0.0185
+2026-08-10 11:17:18,666 | INFO     | churnguard.train | main:91 | ------------------------------------------------------------------------------
+2026-08-10 11:18:51,299 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:18:51,299 | INFO     | churnguard.demo | banner:31 | ### Ingestion: file not found -> DataIngestionError ###
+2026-08-10 11:18:51,299 | INFO     | churnguard.data.ingestion | load:78 | Loading data from csv://data/raw/does_not_exist.csv
+2026-08-10 11:18:51,299 | ERROR    | churnguard.data.ingestion | load:80 | Data file not found: data/raw/does_not_exist.csv
+2026-08-10 11:18:51,299 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Data file not found: data/raw/does_not_exist.csv
+2026-08-10 11:18:51,299 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:18:51,299 | INFO     | churnguard.demo | banner:31 | ### Ingestion: empty file -> DataIngestionError ###
+2026-08-10 11:18:51,299 | INFO     | churnguard.data.ingestion | load:78 | Loading data from csv:///tmp/empty_churn.csv
+2026-08-10 11:18:51,299 | ERROR    | churnguard.data.ingestion | load:85 | Data file /tmp/empty_churn.csv is empty
+2026-08-10 11:18:51,299 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Data file is empty: /tmp/empty_churn.csv
+2026-08-10 11:18:51,299 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:18:51,299 | INFO     | churnguard.demo | banner:31 | ### Ingestion: missing required columns -> DataIngestionError ###
+2026-08-10 11:18:51,300 | INFO     | churnguard.data.ingestion | load:111 | Using memory://missing-cols (5000 rows)
+2026-08-10 11:18:51,300 | ERROR    | churnguard.data.ingestion | load_raw:128 | Source memory://missing-cols is missing required columns: ['contract_type', 'internet_service']
+2026-08-10 11:18:51,300 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Missing required columns: ['contract_type', 'internet_service']
+2026-08-10 11:18:51,300 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:18:51,300 | INFO     | churnguard.demo | banner:31 | ### Ingestion: single-class target -> DataIngestionError ###
+2026-08-10 11:18:51,300 | ERROR    | churnguard.data.ingestion | split:142 | Target 'churn' has a single class -- cannot train
+2026-08-10 11:18:51,300 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Target column must contain at least two classes
+2026-08-10 11:18:51,300 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:18:51,300 | INFO     | churnguard.demo | banner:31 | ### Validation: schema/range/missing breach -> SchemaValidationError ###
+2026-08-10 11:18:51,301 | INFO     | churnguard.data.validation | validate:175 | Validating dataset: 5000 rows x 12 columns
+2026-08-10 11:18:51,301 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'contract_type' has unexpected levels ['Lifetime']
+2026-08-10 11:18:51,302 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'total_charges' is 9.06% null (limit 5%)
+2026-08-10 11:18:51,302 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:18:51,303 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' has 1 value(s) outside [0.0, 500.0]
+2026-08-10 11:18:51,303 | INFO     | churnguard.data.validation | validate:183 | Validation FAILED | 3 error(s), 1 warning(s)
+2026-08-10 11:18:51,303 | INFO     | churnguard.demo | run:39 | Caught SchemaValidationError: Data validation failed with 3 error(s)
+2026-08-10 11:18:51,303 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:18:51,303 | INFO     | churnguard.demo | banner:31 | ### Training: single-class target -> ModelTrainingError ###
+2026-08-10 11:18:51,303 | ERROR    | churnguard.models.trainer | train:78 | Training target contains a single class
+2026-08-10 11:18:51,304 | INFO     | churnguard.demo | run:39 | Caught ModelTrainingError: Training requires at least two target classes
+2026-08-10 11:18:51,304 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:18:51,304 | INFO     | churnguard.demo | banner:31 | ### Training: X/y row mismatch -> ModelTrainingError ###
+2026-08-10 11:18:51,304 | INFO     | churnguard.demo | run:39 | Caught ModelTrainingError: X has 50 rows but y has 30 -- refusing to train
+2026-08-10 11:18:51,304 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:18:51,304 | INFO     | churnguard.demo | banner:31 | ### Inference: artefact missing -> ModelNotLoadedError ###
+2026-08-10 11:18:51,304 | INFO     | churnguard.demo | run:39 | Caught ModelNotLoadedError: Model is not loaded. Call load() first.
+2026-08-10 11:18:51,304 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:18:51,304 | INFO     | churnguard.demo | banner:31 | ### Inference: payload missing features -> InferenceError ###
+2026-08-10 11:18:51,304 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 11:18:51,356 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-10T05:47:18+00:00)
+2026-08-10 11:18:51,356 | ERROR    | churnguard.models.predictor | predict_proba:110 | Inference payload missing features: ['monthly_charges', 'total_charges', 'support_tickets_6m', 'avg_monthly_gb', 'contract_type', 'internet_service', 'payment_method', 'tech_support', 'paperless_billing']
+2026-08-10 11:18:51,356 | INFO     | churnguard.demo | run:39 | Caught InferenceError: Missing required features: ['monthly_charges', 'total_charges', 'support_tickets_6m', 'avg_monthly_gb', 'contract_type', 'internet_service', 'payment_method', 'tech_support', 'paperless_billing']
+2026-08-10 11:18:51,357 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:18:51,357 | INFO     | churnguard.demo | banner:31 | ### Demo complete ###
+2026-08-10 11:19:11,423 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:19:11,424 | INFO     | churnguard.demo | banner:31 | ### Ingestion: file not found -> DataIngestionError ###
+2026-08-10 11:19:11,424 | INFO     | churnguard.data.ingestion | load:78 | Loading data from csv://data/raw/does_not_exist.csv
+2026-08-10 11:19:11,424 | ERROR    | churnguard.data.ingestion | load:80 | Data file not found: data/raw/does_not_exist.csv
+2026-08-10 11:19:11,424 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Data file not found: data/raw/does_not_exist.csv
+2026-08-10 11:19:11,424 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:19:11,424 | INFO     | churnguard.demo | banner:31 | ### Ingestion: empty file -> DataIngestionError ###
+2026-08-10 11:19:11,424 | INFO     | churnguard.data.ingestion | load:78 | Loading data from csv:///tmp/empty_churn.csv
+2026-08-10 11:19:11,424 | ERROR    | churnguard.data.ingestion | load:85 | Data file /tmp/empty_churn.csv is empty
+2026-08-10 11:19:11,424 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Data file is empty: /tmp/empty_churn.csv
+2026-08-10 11:19:11,424 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:19:11,424 | INFO     | churnguard.demo | banner:31 | ### Ingestion: missing required columns -> DataIngestionError ###
+2026-08-10 11:19:11,424 | INFO     | churnguard.data.ingestion | load:111 | Using memory://missing-cols (5000 rows)
+2026-08-10 11:19:11,424 | ERROR    | churnguard.data.ingestion | load_raw:128 | Source memory://missing-cols is missing required columns: ['contract_type', 'internet_service']
+2026-08-10 11:19:11,424 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Missing required columns: ['contract_type', 'internet_service']
+2026-08-10 11:19:11,425 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:19:11,425 | INFO     | churnguard.demo | banner:31 | ### Ingestion: single-class target -> DataIngestionError ###
+2026-08-10 11:19:11,425 | ERROR    | churnguard.data.ingestion | split:142 | Target 'churn' has a single class -- cannot train
+2026-08-10 11:19:11,425 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Target column must contain at least two classes
+2026-08-10 11:19:11,425 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:19:11,425 | INFO     | churnguard.demo | banner:31 | ### Validation: schema/range/missing breach -> SchemaValidationError ###
+2026-08-10 11:19:11,425 | INFO     | churnguard.data.validation | validate:175 | Validating dataset: 5000 rows x 12 columns
+2026-08-10 11:19:11,426 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'contract_type' has unexpected levels ['Lifetime']
+2026-08-10 11:19:11,427 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'total_charges' is 9.06% null (limit 5%)
+2026-08-10 11:19:11,427 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:19:11,427 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' has 1 value(s) outside [0.0, 500.0]
+2026-08-10 11:19:11,428 | INFO     | churnguard.data.validation | validate:183 | Validation FAILED | 3 error(s), 1 warning(s)
+2026-08-10 11:19:11,428 | INFO     | churnguard.demo | run:39 | Caught SchemaValidationError: Data validation failed with 3 error(s)
+2026-08-10 11:19:11,428 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:19:11,428 | INFO     | churnguard.demo | banner:31 | ### Training: single-class target -> ModelTrainingError ###
+2026-08-10 11:19:11,428 | ERROR    | churnguard.models.trainer | train:78 | Training target contains a single class
+2026-08-10 11:19:11,428 | INFO     | churnguard.demo | run:39 | Caught ModelTrainingError: Training requires at least two target classes
+2026-08-10 11:19:11,428 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:19:11,428 | INFO     | churnguard.demo | banner:31 | ### Training: X/y row mismatch -> ModelTrainingError ###
+2026-08-10 11:19:11,428 | INFO     | churnguard.demo | run:39 | Caught ModelTrainingError: X has 50 rows but y has 30 -- refusing to train
+2026-08-10 11:19:11,428 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:19:11,428 | INFO     | churnguard.demo | banner:31 | ### Inference: artefact missing -> ModelNotLoadedError ###
+2026-08-10 11:19:11,429 | INFO     | churnguard.demo | run:39 | Caught ModelNotLoadedError: Model is not loaded. Call load() first.
+2026-08-10 11:19:11,429 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:19:11,429 | INFO     | churnguard.demo | banner:31 | ### Inference: payload missing features -> InferenceError ###
+2026-08-10 11:19:11,429 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 11:19:11,478 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-10T05:47:18+00:00)
+2026-08-10 11:19:11,478 | ERROR    | churnguard.models.predictor | predict_proba:110 | Inference payload missing features: ['monthly_charges', 'total_charges', 'support_tickets_6m', 'avg_monthly_gb', 'contract_type', 'internet_service', 'payment_method', 'tech_support', 'paperless_billing']
+2026-08-10 11:19:11,478 | INFO     | churnguard.demo | run:39 | Caught InferenceError: Missing required features: ['monthly_charges', 'total_charges', 'support_tickets_6m', 'avg_monthly_gb', 'contract_type', 'internet_service', 'payment_method', 'tech_support', 'paperless_billing']
+2026-08-10 11:19:11,479 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:19:11,479 | INFO     | churnguard.demo | banner:31 | ### Demo complete ###
+2026-08-10 11:19:23,531 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:19:23,531 | INFO     | churnguard.demo | banner:31 | ### Ingestion: file not found -> DataIngestionError ###
+2026-08-10 11:19:23,531 | INFO     | churnguard.data.ingestion | load:78 | Loading data from csv://data/raw/does_not_exist.csv
+2026-08-10 11:19:23,531 | ERROR    | churnguard.data.ingestion | load:80 | Data file not found: data/raw/does_not_exist.csv
+2026-08-10 11:19:23,531 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Data file not found: data/raw/does_not_exist.csv
+2026-08-10 11:19:23,531 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:19:23,531 | INFO     | churnguard.demo | banner:31 | ### Ingestion: empty file -> DataIngestionError ###
+2026-08-10 11:19:23,531 | INFO     | churnguard.data.ingestion | load:78 | Loading data from csv:///tmp/empty_churn.csv
+2026-08-10 11:19:23,531 | ERROR    | churnguard.data.ingestion | load:85 | Data file /tmp/empty_churn.csv is empty
+2026-08-10 11:19:23,531 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Data file is empty: /tmp/empty_churn.csv
+2026-08-10 11:19:23,531 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:19:23,531 | INFO     | churnguard.demo | banner:31 | ### Ingestion: missing required columns -> DataIngestionError ###
+2026-08-10 11:19:23,532 | INFO     | churnguard.data.ingestion | load:111 | Using memory://missing-cols (5000 rows)
+2026-08-10 11:19:23,532 | ERROR    | churnguard.data.ingestion | load_raw:128 | Source memory://missing-cols is missing required columns: ['contract_type', 'internet_service']
+2026-08-10 11:19:23,532 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Missing required columns: ['contract_type', 'internet_service']
+2026-08-10 11:19:23,532 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:19:23,532 | INFO     | churnguard.demo | banner:31 | ### Ingestion: single-class target -> DataIngestionError ###
+2026-08-10 11:19:23,532 | ERROR    | churnguard.data.ingestion | split:142 | Target 'churn' has a single class -- cannot train
+2026-08-10 11:19:23,532 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Target column must contain at least two classes
+2026-08-10 11:19:23,532 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:19:23,532 | INFO     | churnguard.demo | banner:31 | ### Validation: schema/range/missing breach -> SchemaValidationError ###
+2026-08-10 11:19:23,533 | INFO     | churnguard.data.validation | validate:175 | Validating dataset: 5000 rows x 12 columns
+2026-08-10 11:19:23,533 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'contract_type' has unexpected levels ['Lifetime']
+2026-08-10 11:19:23,534 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'total_charges' is 9.06% null (limit 5%)
+2026-08-10 11:19:23,535 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:19:23,535 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' has 1 value(s) outside [0.0, 500.0]
+2026-08-10 11:19:23,535 | INFO     | churnguard.data.validation | validate:183 | Validation FAILED | 3 error(s), 1 warning(s)
+2026-08-10 11:19:23,535 | INFO     | churnguard.demo | run:39 | Caught SchemaValidationError: Data validation failed with 3 error(s)
+2026-08-10 11:19:23,536 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:19:23,536 | INFO     | churnguard.demo | banner:31 | ### Training: single-class target -> ModelTrainingError ###
+2026-08-10 11:19:23,536 | ERROR    | churnguard.models.trainer | train:78 | Training target contains a single class
+2026-08-10 11:19:23,536 | INFO     | churnguard.demo | run:39 | Caught ModelTrainingError: Training requires at least two target classes
+2026-08-10 11:19:23,536 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:19:23,536 | INFO     | churnguard.demo | banner:31 | ### Training: X/y row mismatch -> ModelTrainingError ###
+2026-08-10 11:19:23,536 | INFO     | churnguard.demo | run:39 | Caught ModelTrainingError: X has 50 rows but y has 30 -- refusing to train
+2026-08-10 11:19:23,536 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:19:23,536 | INFO     | churnguard.demo | banner:31 | ### Inference: artefact missing -> ModelNotLoadedError ###
+2026-08-10 11:19:23,536 | INFO     | churnguard.demo | run:39 | Caught ModelNotLoadedError: Model is not loaded. Call load() first.
+2026-08-10 11:19:23,536 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:19:23,536 | INFO     | churnguard.demo | banner:31 | ### Inference: payload missing features -> InferenceError ###
+2026-08-10 11:19:23,536 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 11:19:23,590 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-10T05:47:18+00:00)
+2026-08-10 11:19:23,590 | ERROR    | churnguard.models.predictor | predict_proba:110 | Inference payload missing features: ['monthly_charges', 'total_charges', 'support_tickets_6m', 'avg_monthly_gb', 'contract_type', 'internet_service', 'payment_method', 'tech_support', 'paperless_billing']
+2026-08-10 11:19:23,590 | INFO     | churnguard.demo | run:39 | Caught InferenceError: Missing required features: ['monthly_charges', 'total_charges', 'support_tickets_6m', 'avg_monthly_gb', 'contract_type', 'internet_service', 'payment_method', 'tech_support', 'paperless_billing']
+2026-08-10 11:19:23,591 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:19:23,591 | INFO     | churnguard.demo | banner:31 | ### Demo complete ###
+2026-08-10 11:20:07,061 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:20:07,061 | INFO     | churnguard.demo | banner:31 | ### Ingestion: file not found -> DataIngestionError ###
+2026-08-10 11:20:07,061 | INFO     | churnguard.data.ingestion | load:78 | Loading data from csv://data/raw/does_not_exist.csv
+2026-08-10 11:20:07,061 | ERROR    | churnguard.data.ingestion | load:80 | Data file not found: data/raw/does_not_exist.csv
+2026-08-10 11:20:07,061 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Data file not found: data/raw/does_not_exist.csv
+2026-08-10 11:20:07,061 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:20:07,061 | INFO     | churnguard.demo | banner:31 | ### Ingestion: empty file -> DataIngestionError ###
+2026-08-10 11:20:07,061 | INFO     | churnguard.data.ingestion | load:78 | Loading data from csv:///tmp/empty_churn.csv
+2026-08-10 11:20:07,061 | ERROR    | churnguard.data.ingestion | load:85 | Data file /tmp/empty_churn.csv is empty
+2026-08-10 11:20:07,061 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Data file is empty: /tmp/empty_churn.csv
+2026-08-10 11:20:07,061 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:20:07,061 | INFO     | churnguard.demo | banner:31 | ### Ingestion: missing required columns -> DataIngestionError ###
+2026-08-10 11:20:07,063 | INFO     | churnguard.data.ingestion | load:111 | Using memory://missing-cols (5000 rows)
+2026-08-10 11:20:07,063 | ERROR    | churnguard.data.ingestion | load_raw:128 | Source memory://missing-cols is missing required columns: ['contract_type', 'internet_service']
+2026-08-10 11:20:07,063 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Missing required columns: ['contract_type', 'internet_service']
+2026-08-10 11:20:07,063 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:20:07,063 | INFO     | churnguard.demo | banner:31 | ### Ingestion: single-class target -> DataIngestionError ###
+2026-08-10 11:20:07,064 | ERROR    | churnguard.data.ingestion | split:142 | Target 'churn' has a single class -- cannot train
+2026-08-10 11:20:07,064 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Target column must contain at least two classes
+2026-08-10 11:20:07,064 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:20:07,064 | INFO     | churnguard.demo | banner:31 | ### Validation: schema/range/missing breach -> SchemaValidationError ###
+2026-08-10 11:20:07,064 | INFO     | churnguard.data.validation | validate:175 | Validating dataset: 5000 rows x 12 columns
+2026-08-10 11:20:07,065 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'contract_type' has unexpected levels ['Lifetime']
+2026-08-10 11:20:07,067 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'total_charges' is 9.06% null (limit 5%)
+2026-08-10 11:20:07,067 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:20:07,068 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' has 1 value(s) outside [0.0, 500.0]
+2026-08-10 11:20:07,068 | INFO     | churnguard.data.validation | validate:183 | Validation FAILED | 3 error(s), 1 warning(s)
+2026-08-10 11:20:07,068 | INFO     | churnguard.demo | run:39 | Caught SchemaValidationError: Data validation failed with 3 error(s)
+2026-08-10 11:20:07,068 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:20:07,068 | INFO     | churnguard.demo | banner:31 | ### Training: single-class target -> ModelTrainingError ###
+2026-08-10 11:20:07,068 | ERROR    | churnguard.models.trainer | train:78 | Training target contains a single class
+2026-08-10 11:20:07,068 | INFO     | churnguard.demo | run:39 | Caught ModelTrainingError: Training requires at least two target classes
+2026-08-10 11:20:07,068 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:20:07,068 | INFO     | churnguard.demo | banner:31 | ### Training: X/y row mismatch -> ModelTrainingError ###
+2026-08-10 11:20:07,069 | INFO     | churnguard.demo | run:39 | Caught ModelTrainingError: X has 50 rows but y has 30 -- refusing to train
+2026-08-10 11:20:07,069 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:20:07,069 | INFO     | churnguard.demo | banner:31 | ### Inference: artefact missing -> ModelNotLoadedError ###
+2026-08-10 11:20:07,069 | INFO     | churnguard.demo | run:39 | Caught ModelNotLoadedError: Model is not loaded. Call load() first.
+2026-08-10 11:20:07,069 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:20:07,069 | INFO     | churnguard.demo | banner:31 | ### Inference: payload missing features -> InferenceError ###
+2026-08-10 11:20:07,069 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 11:20:07,126 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-10T05:47:18+00:00)
+2026-08-10 11:20:07,126 | ERROR    | churnguard.models.predictor | predict_proba:110 | Inference payload missing features: ['monthly_charges', 'total_charges', 'support_tickets_6m', 'avg_monthly_gb', 'contract_type', 'internet_service', 'payment_method', 'tech_support', 'paperless_billing']
+2026-08-10 11:20:07,126 | INFO     | churnguard.demo | run:39 | Caught InferenceError: Missing required features: ['monthly_charges', 'total_charges', 'support_tickets_6m', 'avg_monthly_gb', 'contract_type', 'internet_service', 'payment_method', 'tech_support', 'paperless_billing']
+2026-08-10 11:20:07,127 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:20:07,127 | INFO     | churnguard.demo | banner:31 | ### Demo complete ###
+2026-08-10 11:20:20,215 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:20:20,215 | INFO     | churnguard.demo | banner:31 | ### Ingestion: file not found -> DataIngestionError ###
+2026-08-10 11:20:20,215 | INFO     | churnguard.data.ingestion | load:78 | Loading data from csv://data/raw/does_not_exist.csv
+2026-08-10 11:20:20,215 | ERROR    | churnguard.data.ingestion | load:80 | Data file not found: data/raw/does_not_exist.csv
+2026-08-10 11:20:20,216 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Data file not found: data/raw/does_not_exist.csv
+2026-08-10 11:20:20,216 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:20:20,216 | INFO     | churnguard.demo | banner:31 | ### Ingestion: empty file -> DataIngestionError ###
+2026-08-10 11:20:20,216 | INFO     | churnguard.data.ingestion | load:78 | Loading data from csv:///tmp/empty_churn.csv
+2026-08-10 11:20:20,216 | ERROR    | churnguard.data.ingestion | load:85 | Data file /tmp/empty_churn.csv is empty
+2026-08-10 11:20:20,216 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Data file is empty: /tmp/empty_churn.csv
+2026-08-10 11:20:20,216 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:20:20,216 | INFO     | churnguard.demo | banner:31 | ### Ingestion: missing required columns -> DataIngestionError ###
+2026-08-10 11:20:20,216 | INFO     | churnguard.data.ingestion | load:111 | Using memory://missing-cols (5000 rows)
+2026-08-10 11:20:20,216 | ERROR    | churnguard.data.ingestion | load_raw:128 | Source memory://missing-cols is missing required columns: ['contract_type', 'internet_service']
+2026-08-10 11:20:20,216 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Missing required columns: ['contract_type', 'internet_service']
+2026-08-10 11:20:20,216 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:20:20,216 | INFO     | churnguard.demo | banner:31 | ### Ingestion: single-class target -> DataIngestionError ###
+2026-08-10 11:20:20,217 | ERROR    | churnguard.data.ingestion | split:142 | Target 'churn' has a single class -- cannot train
+2026-08-10 11:20:20,217 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Target column must contain at least two classes
+2026-08-10 11:20:20,217 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:20:20,217 | INFO     | churnguard.demo | banner:31 | ### Validation: schema/range/missing breach -> SchemaValidationError ###
+2026-08-10 11:20:20,217 | INFO     | churnguard.data.validation | validate:175 | Validating dataset: 5000 rows x 12 columns
+2026-08-10 11:20:20,217 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'contract_type' has unexpected levels ['Lifetime']
+2026-08-10 11:20:20,219 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'total_charges' is 9.06% null (limit 5%)
+2026-08-10 11:20:20,219 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:20:20,219 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' has 1 value(s) outside [0.0, 500.0]
+2026-08-10 11:20:20,220 | INFO     | churnguard.data.validation | validate:183 | Validation FAILED | 3 error(s), 1 warning(s)
+2026-08-10 11:20:20,220 | INFO     | churnguard.demo | run:39 | Caught SchemaValidationError: Data validation failed with 3 error(s)
+2026-08-10 11:20:20,220 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:20:20,220 | INFO     | churnguard.demo | banner:31 | ### Training: single-class target -> ModelTrainingError ###
+2026-08-10 11:20:20,220 | ERROR    | churnguard.models.trainer | train:78 | Training target contains a single class
+2026-08-10 11:20:20,220 | INFO     | churnguard.demo | run:39 | Caught ModelTrainingError: Training requires at least two target classes
+2026-08-10 11:20:20,220 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:20:20,220 | INFO     | churnguard.demo | banner:31 | ### Training: X/y row mismatch -> ModelTrainingError ###
+2026-08-10 11:20:20,221 | INFO     | churnguard.demo | run:39 | Caught ModelTrainingError: X has 50 rows but y has 30 -- refusing to train
+2026-08-10 11:20:20,221 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:20:20,221 | INFO     | churnguard.demo | banner:31 | ### Inference: artefact missing -> ModelNotLoadedError ###
+2026-08-10 11:20:20,221 | INFO     | churnguard.demo | run:39 | Caught ModelNotLoadedError: Model is not loaded. Call load() first.
+2026-08-10 11:20:20,221 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:20:20,221 | INFO     | churnguard.demo | banner:31 | ### Inference: payload missing features -> InferenceError ###
+2026-08-10 11:20:20,221 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 11:20:20,269 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-10T05:47:18+00:00)
+2026-08-10 11:20:20,269 | ERROR    | churnguard.models.predictor | predict_proba:110 | Inference payload missing features: ['monthly_charges', 'total_charges', 'support_tickets_6m', 'avg_monthly_gb', 'contract_type', 'internet_service', 'payment_method', 'tech_support', 'paperless_billing']
+2026-08-10 11:20:20,269 | INFO     | churnguard.demo | run:39 | Caught InferenceError: Missing required features: ['monthly_charges', 'total_charges', 'support_tickets_6m', 'avg_monthly_gb', 'contract_type', 'internet_service', 'payment_method', 'tech_support', 'paperless_billing']
+2026-08-10 11:20:20,269 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:20:20,269 | INFO     | churnguard.demo | banner:31 | ### Demo complete ###
+2026-08-10 11:21:36,163 | INFO     | churnguard.api.main | lifespan:40 | API starting up -- loading model
+2026-08-10 11:21:36,163 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 11:21:36,723 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-10T05:47:18+00:00)
+2026-08-10 11:21:46,161 | INFO     | churnguard.api.main | add_timing_header:65 | GET / -> 404 in 0.33 ms
+2026-08-10 11:22:00,434 | INFO     | churnguard.api.main | add_timing_header:65 | GET /docs -> 200 in 0.41 ms
+2026-08-10 11:22:00,835 | INFO     | churnguard.api.main | add_timing_header:65 | GET /openapi.json -> 200 in 21.00 ms
+2026-08-10 11:23:56,823 | INFO     | churnguard.api.main | lifespan:40 | API starting up -- loading model
+2026-08-10 11:23:56,823 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 11:23:57,470 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-10T05:47:18+00:00)
+2026-08-10 11:23:57,473 | INFO     | churnguard.api.main | lifespan:46 | API shutting down
+2026-08-10 11:24:36,872 | INFO     | churnguard.api.main | add_timing_header:65 | GET /docs -> 200 in 0.18 ms
+2026-08-10 11:24:37,048 | INFO     | churnguard.api.main | add_timing_header:65 | GET /openapi.json -> 200 in 1.28 ms
+2026-08-10 11:27:46,787 | ERROR    | churnguard.models.predictor | load:80 | Model artefact not found at /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-10/test_predict_returns_503_when_0/absent.joblib
+2026-08-10 11:27:46,789 | ERROR    | churnguard.api.main | lifespan:44 | Startup completed WITHOUT a model: Model artefact not found: /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-10/test_predict_returns_503_when_0/absent.joblib
+2026-08-10 11:27:46,791 | ERROR    | churnguard.api.main | handle_model_not_loaded:78 | 503 on /v1/predict -- model unavailable: No model loaded
+2026-08-10 11:27:46,801 | ERROR    | churnguard.data.ingestion | load:80 | Data file not found: /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-10/test_missing_file_raises_domai0/nope.csv
+2026-08-10 11:27:46,802 | ERROR    | churnguard.data.ingestion | load:85 | Data file /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-10/test_empty_file_raises0/empty.csv is empty
+2026-08-10 11:27:46,803 | ERROR    | churnguard.data.ingestion | load:92 | Data file /private/var/folders/0j/p61n0lq51p313mznb82754bc0000gn/T/pytest-of-sumanth/pytest-10/test_header_only_file_raises0/header.csv parsed to zero rows
+2026-08-10 11:27:46,804 | ERROR    | churnguard.data.ingestion | load_raw:128 | Source memory://in-memory is missing required columns: ['contract_type']
+2026-08-10 11:27:46,805 | WARNING  | churnguard.data.ingestion | load_raw:133 | Dropping 10 duplicate customer_id rows
+2026-08-10 11:27:46,811 | ERROR    | churnguard.data.ingestion | split:142 | Target 'churn' has a single class -- cannot train
+2026-08-10 11:27:46,814 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:27:46,814 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:27:46,815 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Missing required column 'tenure_months'
+2026-08-10 11:27:46,817 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:27:46,817 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:27:46,819 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' must be numeric, got str
+2026-08-10 11:27:46,820 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:27:46,820 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:27:46,822 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'contract_type' has unexpected levels ['Lifetime']
+2026-08-10 11:27:46,823 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:27:46,823 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:27:46,826 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:27:46,826 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:27:46,829 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' is 24.00% null (limit 5%)
+2026-08-10 11:27:46,829 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:27:46,829 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:27:46,832 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:27:46,832 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:27:46,835 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:27:46,835 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:27:46,836 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' has 1 value(s) outside [0.0, 500.0]
+2026-08-10 11:27:46,838 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:27:46,838 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:27:46,839 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' has 2500 value(s) outside [0.0, 500.0]
+2026-08-10 11:27:46,846 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:27:46,846 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:27:46,847 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Feature 'tenure_months' drifted: PSI=9.029 > 0.20
+2026-08-10 11:27:46,851 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 0.96% nulls (imputed)
+2026-08-10 11:27:46,852 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.72% nulls (imputed)
+2026-08-10 11:27:46,854 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | boom
+2026-08-10 11:27:46,865 | ERROR    | churnguard.features.engineering | apply_derived_features:69 | Cannot compute 'avg_spend_per_month': missing input column 'total_charges'
+2026-08-10 11:27:50,368 | ERROR    | churnguard.models.predictor | predict_proba:110 | Inference payload missing features: ['contract_type']
+2026-08-10 11:27:50,546 | ERROR    | churnguard.models.trainer | train:78 | Training target contains a single class
+2026-08-10 11:27:57,602 | INFO     | churnguard.train | main:39 | ==============================================================================
+2026-08-10 11:27:57,602 | INFO     | churnguard.train | main:40 | ChurnGuard training run starting
+2026-08-10 11:27:57,602 | INFO     | churnguard.train | main:41 | ==============================================================================
+2026-08-10 11:27:57,602 | INFO     | churnguard.data.ingestion | load:78 | Loading data from csv:///Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/data/raw/telco_churn.csv
+2026-08-10 11:27:57,609 | INFO     | churnguard.data.ingestion | load:95 | Loaded 5000 rows x 12 columns
+2026-08-10 11:27:57,610 | INFO     | churnguard.data.validation | validate:175 | Validating dataset: 5000 rows x 12 columns
+2026-08-10 11:27:57,612 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+2026-08-10 11:27:57,612 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:27:57,614 | INFO     | churnguard.data.validation | validate:183 | Validation PASSED | 0 error(s), 2 warning(s)
+2026-08-10 11:27:57,616 | INFO     | churnguard.data.ingestion | split:158 | Split complete: {'n_train': 4000, 'n_test': 1000, 'n_features': 10, 'train_churn_rate': 0.2665, 'test_churn_rate': 0.267}
+2026-08-10 11:27:57,618 | INFO     | churnguard.data.validation | write_reference_profile:201 | Reference profile with 5 features written to /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/reference_profile.json
+2026-08-10 11:27:57,618 | INFO     | churnguard.models.trainer | build_pipeline:63 | Pipeline built with steps: ['features', 'preprocess', 'classifier']
+2026-08-10 11:27:57,621 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 11:27:58,239 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 11:27:58,833 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 11:27:59,428 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 11:28:00,066 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 11:28:00,670 | INFO     | churnguard.models.trainer | cross_validate:104 | Cross-validation ROC-AUC = 0.7917 (+/- 0.0152) over 5 folds
+2026-08-10 11:28:00,670 | INFO     | churnguard.models.trainer | train:81 | Training on 4000 rows (churn rate 0.267)
+2026-08-10 11:28:00,671 | INFO     | churnguard.models.trainer | build_pipeline:63 | Pipeline built with steps: ['features', 'preprocess', 'classifier']
+2026-08-10 11:28:00,671 | INFO     | churnguard.features.engineering | fit:89 | ChurnFeatureEngineer fitted: 10 in -> 15 out
+2026-08-10 11:28:01,216 | INFO     | churnguard.models.trainer | train:88 | Training complete
+2026-08-10 11:28:01,299 | INFO     | churnguard.models.evaluation | evaluate:114 | Evaluation @thr=0.35 | AUC=0.7893 F1=0.5616 acc=0.7580 Brier=0.1518 ECE=0.0185
+2026-08-10 11:28:01,299 | INFO     | churnguard.train | main:72 | All model quality gates passed
+2026-08-10 11:28:01,366 | INFO     | churnguard.models.trainer | save:148 | Artefact saved to /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib (19281.0 KB)
+2026-08-10 11:28:01,366 | INFO     | churnguard.models.trainer | write_metrics_report:156 | Metrics report written to /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/reports/model_metrics.json
+2026-08-10 11:28:01,366 | INFO     | churnguard.train | main:82 | ------------------------------------------------------------------------------
+2026-08-10 11:28:01,366 | INFO     | churnguard.train | main:83 | DONE | ROC-AUC=0.7893  F1=0.5616  Accuracy=0.7580  Brier=0.1518  ECE=0.0185
+2026-08-10 11:28:01,366 | INFO     | churnguard.train | main:91 | ------------------------------------------------------------------------------
+2026-08-10 11:28:06,866 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:28:06,867 | INFO     | churnguard.demo | banner:31 | ### Ingestion: file not found -> DataIngestionError ###
+2026-08-10 11:28:06,867 | INFO     | churnguard.data.ingestion | load:78 | Loading data from csv://data/raw/does_not_exist.csv
+2026-08-10 11:28:06,867 | ERROR    | churnguard.data.ingestion | load:80 | Data file not found: data/raw/does_not_exist.csv
+2026-08-10 11:28:06,867 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Data file not found: data/raw/does_not_exist.csv
+2026-08-10 11:28:06,867 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:28:06,867 | INFO     | churnguard.demo | banner:31 | ### Ingestion: empty file -> DataIngestionError ###
+2026-08-10 11:28:06,867 | INFO     | churnguard.data.ingestion | load:78 | Loading data from csv:///tmp/empty_churn.csv
+2026-08-10 11:28:06,867 | ERROR    | churnguard.data.ingestion | load:85 | Data file /tmp/empty_churn.csv is empty
+2026-08-10 11:28:06,867 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Data file is empty: /tmp/empty_churn.csv
+2026-08-10 11:28:06,867 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:28:06,867 | INFO     | churnguard.demo | banner:31 | ### Ingestion: missing required columns -> DataIngestionError ###
+2026-08-10 11:28:06,867 | INFO     | churnguard.data.ingestion | load:111 | Using memory://missing-cols (5000 rows)
+2026-08-10 11:28:06,868 | ERROR    | churnguard.data.ingestion | load_raw:128 | Source memory://missing-cols is missing required columns: ['contract_type', 'internet_service']
+2026-08-10 11:28:06,868 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Missing required columns: ['contract_type', 'internet_service']
+2026-08-10 11:28:06,868 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:28:06,868 | INFO     | churnguard.demo | banner:31 | ### Ingestion: single-class target -> DataIngestionError ###
+2026-08-10 11:28:06,868 | ERROR    | churnguard.data.ingestion | split:142 | Target 'churn' has a single class -- cannot train
+2026-08-10 11:28:06,868 | INFO     | churnguard.demo | run:39 | Caught DataIngestionError: Target column must contain at least two classes
+2026-08-10 11:28:06,868 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:28:06,868 | INFO     | churnguard.demo | banner:31 | ### Validation: schema/range/missing breach -> SchemaValidationError ###
+2026-08-10 11:28:06,869 | INFO     | churnguard.data.validation | validate:175 | Validating dataset: 5000 rows x 12 columns
+2026-08-10 11:28:06,869 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'contract_type' has unexpected levels ['Lifetime']
+2026-08-10 11:28:06,870 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'total_charges' is 9.06% null (limit 5%)
+2026-08-10 11:28:06,870 | WARNING  | churnguard.data.validation | add_warning:56 | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+2026-08-10 11:28:06,871 | ERROR    | churnguard.data.validation | add_error:52 | DATA-QUALITY FAIL | Column 'monthly_charges' has 1 value(s) outside [0.0, 500.0]
+2026-08-10 11:28:06,871 | INFO     | churnguard.data.validation | validate:183 | Validation FAILED | 3 error(s), 1 warning(s)
+2026-08-10 11:28:06,871 | INFO     | churnguard.demo | run:39 | Caught SchemaValidationError: Data validation failed with 3 error(s)
+2026-08-10 11:28:06,871 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:28:06,871 | INFO     | churnguard.demo | banner:31 | ### Training: single-class target -> ModelTrainingError ###
+2026-08-10 11:28:06,872 | ERROR    | churnguard.models.trainer | train:78 | Training target contains a single class
+2026-08-10 11:28:06,872 | INFO     | churnguard.demo | run:39 | Caught ModelTrainingError: Training requires at least two target classes
+2026-08-10 11:28:06,872 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:28:06,872 | INFO     | churnguard.demo | banner:31 | ### Training: X/y row mismatch -> ModelTrainingError ###
+2026-08-10 11:28:06,872 | INFO     | churnguard.demo | run:39 | Caught ModelTrainingError: X has 50 rows but y has 30 -- refusing to train
+2026-08-10 11:28:06,872 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:28:06,872 | INFO     | churnguard.demo | banner:31 | ### Inference: artefact missing -> ModelNotLoadedError ###
+2026-08-10 11:28:06,872 | INFO     | churnguard.demo | run:39 | Caught ModelNotLoadedError: Model is not loaded. Call load() first.
+2026-08-10 11:28:06,872 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:28:06,872 | INFO     | churnguard.demo | banner:31 | ### Inference: payload missing features -> InferenceError ###
+2026-08-10 11:28:06,872 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 11:28:06,936 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-10T05:58:01+00:00)
+2026-08-10 11:28:06,937 | ERROR    | churnguard.models.predictor | predict_proba:110 | Inference payload missing features: ['monthly_charges', 'total_charges', 'support_tickets_6m', 'avg_monthly_gb', 'contract_type', 'internet_service', 'payment_method', 'tech_support', 'paperless_billing']
+2026-08-10 11:28:06,937 | INFO     | churnguard.demo | run:39 | Caught InferenceError: Missing required features: ['monthly_charges', 'total_charges', 'support_tickets_6m', 'avg_monthly_gb', 'contract_type', 'internet_service', 'payment_method', 'tech_support', 'paperless_billing']
+2026-08-10 11:28:06,937 | INFO     | churnguard.demo | banner:30 | 
+2026-08-10 11:28:06,937 | INFO     | churnguard.demo | banner:31 | ### Demo complete ###
+2026-08-10 11:29:55,953 | INFO     | churnguard.api.main | lifespan:46 | API shutting down
+2026-08-10 11:29:56,232 | INFO     | churnguard.api.main | lifespan:40 | API starting up -- loading model
+2026-08-10 11:29:56,232 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 11:29:56,790 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-10T05:58:01+00:00)
+2026-08-10 11:36:14,564 | INFO     | churnguard.api.main | lifespan:46 | API shutting down
+2026-08-10 11:36:14,926 | INFO     | churnguard.api.main | lifespan:40 | API starting up -- loading model
+2026-08-10 11:36:14,926 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 11:36:15,645 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-10T05:58:01+00:00)
+2026-08-10 11:42:48,550 | INFO     | churnguard.api.main | lifespan:46 | API shutting down
+2026-08-10 11:42:48,930 | INFO     | churnguard.api.main | lifespan:40 | API starting up -- loading model
+2026-08-10 11:42:48,930 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 11:42:49,615 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-10T05:58:01+00:00)
+2026-08-10 11:43:00,933 | INFO     | churnguard.api.main | lifespan:46 | API shutting down
+2026-08-10 11:43:01,232 | INFO     | churnguard.api.main | lifespan:40 | API starting up -- loading model
+2026-08-10 11:43:01,232 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 11:43:01,790 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-10T05:58:01+00:00)
+2026-08-10 12:03:15,888 | INFO     | churnguard.api.main | lifespan:46 | API shutting down
+2026-08-10 12:03:16,305 | INFO     | churnguard.api.main | lifespan:40 | API starting up -- loading model
+2026-08-10 12:03:16,305 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 12:03:17,026 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-10T05:58:01+00:00)
+2026-08-10 12:05:25,827 | INFO     | churnguard.api.main | lifespan:46 | API shutting down
+2026-08-10 12:05:26,197 | INFO     | churnguard.api.main | lifespan:40 | API starting up -- loading model
+2026-08-10 12:05:26,197 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 12:05:26,864 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-10T05:58:01+00:00)
+2026-08-10 12:05:36,772 | INFO     | churnguard.api.main | lifespan:46 | API shutting down
+2026-08-10 12:05:37,029 | INFO     | churnguard.api.main | lifespan:40 | API starting up -- loading model
+2026-08-10 12:05:37,029 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 12:05:37,618 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-10T05:58:01+00:00)
+2026-08-10 12:06:00,545 | INFO     | churnguard.api.main | lifespan:46 | API shutting down
+2026-08-10 12:06:00,825 | INFO     | churnguard.api.main | lifespan:40 | API starting up -- loading model
+2026-08-10 12:06:00,825 | INFO     | churnguard.models.predictor | load:78 | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+2026-08-10 12:06:01,412 | INFO     | churnguard.models.predictor | load:91 | Model v1.0.0 loaded (trained 2026-08-10T05:58:01+00:00)
+2026-08-10 12:07:55,146 | INFO     | churnguard.api.main | lifespan:46 | API shutting down

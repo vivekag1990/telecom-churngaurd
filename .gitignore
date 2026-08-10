@@ -58,9 +58,7 @@ venv.bak/
 .DS_Store
 
 # Data, Artifacts, and Logs
-/data/
 /artifacts/
-/logs/
 /reports/*
 !/reports/lint_demo/
 *.csv
