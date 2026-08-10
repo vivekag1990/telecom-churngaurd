@@ -64,7 +64,7 @@ class ModelConfig:
     max_depth: int = 12
     min_samples_leaf: int = 8
     class_weight: str = "balanced"
-    # Selected from the holdout threshold sweep to favour recall at acceptable precision.
+    # Selected from training-only out-of-fold predictions to balance recall and precision.
     decision_threshold: float = _env_float("CHURN_DECISION_THRESHOLD", 0.35)
 
 

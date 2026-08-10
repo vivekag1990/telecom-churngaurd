@@ -25,12 +25,14 @@ from sklearn.metrics import (  # noqa: E402
     recall_score,
     roc_curve,
 )
+from sklearn.model_selection import StratifiedKFold, cross_val_predict  # noqa: E402
 
 from churnguard.config import SETTINGS  # noqa: E402
 from churnguard.data.ingestion import CsvDataSource, DataIngestor  # noqa: E402
 from churnguard.data.validation import population_stability_index  # noqa: E402
 from churnguard.models.evaluation import evaluate, reliability_curve  # noqa: E402
 from churnguard.models.predictor import ChurnPredictor  # noqa: E402
+from churnguard.models.trainer import ChurnModelTrainer  # noqa: E402
 
 logging.disable(logging.INFO)
 FIGURE_DIR = Path("reports/figures")
@@ -143,7 +145,7 @@ def _threshold_sweep(y_true: np.ndarray, probabilities: np.ndarray) -> pd.DataFr
     axis.axvline(SETTINGS.model.decision_threshold, color=INK, ls=":")
     axis.set_xlabel("Decision threshold")
     axis.set_ylabel("Score")
-    axis.set_title("Threshold selection: precision / recall trade-off")
+    axis.set_title("Threshold selection on training OOF predictions")
     axis.legend(frameon=False)
     axis.spines[["top", "right"]].set_visible(False)
     save(figure, "threshold_sweep.png")
@@ -195,7 +197,7 @@ def _risk_bands(predictor: ChurnPredictor, split) -> None:
 
 
 def main() -> None:
-    """Regenerate all report figures from the holdout set."""
+    """Regenerate the report figures from reproducible evaluation data."""
     plt.rcParams.update({"font.size": 10, "axes.edgecolor": "#8894a3"})
     split = DataIngestor(CsvDataSource(SETTINGS.paths.raw_data)).split()
     predictor = ChurnPredictor().load()
@@ -206,7 +208,20 @@ def main() -> None:
     _confusion_matrix(metrics)
     _roc_curve(y_true, probabilities, metrics)
     _calibration(y_true, probabilities, metrics)
-    sweep = _threshold_sweep(y_true, probabilities)
+    threshold_cv = StratifiedKFold(
+        n_splits=5,
+        shuffle=True,
+        random_state=SETTINGS.model.random_state,
+    )
+    oof_probabilities = cross_val_predict(
+        ChurnModelTrainer().build_pipeline(),
+        split.x_train,
+        split.y_train,
+        cv=threshold_cv,
+        method="predict_proba",
+        n_jobs=1,
+    )[:, 1]
+    sweep = _threshold_sweep(split.y_train.to_numpy(), oof_probabilities)
     stable_psi, drifted_psi = _drift_figure(split)
     _risk_bands(predictor, split)
     print(f"PSI stable={stable_psi:.4f} drifted={drifted_psi:.4f}")
