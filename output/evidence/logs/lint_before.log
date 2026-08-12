@@ -1,0 +1,68 @@
++zsh:4> .venv/bin/flake8 reports/lint_demo/retention_utils_before.py
+reports/lint_demo/retention_utils_before.py:1:1: F401 'json' imported but unused
+reports/lint_demo/retention_utils_before.py:1:1: F401 'os' imported but unused
+reports/lint_demo/retention_utils_before.py:1:12: E401 multiple imports on one line
+reports/lint_demo/retention_utils_before.py:1:12: E231 missing whitespace after ','
+reports/lint_demo/retention_utils_before.py:2:1: F401 'sys' imported but unused
+reports/lint_demo/retention_utils_before.py:3:1: F401 'churnguard.config.SETTINGS' imported but unused
+reports/lint_demo/retention_utils_before.py:4:1: F401 'pandas as pd' imported but unused
+reports/lint_demo/retention_utils_before.py:5:1: F401 'numpy as np' imported but unused
+reports/lint_demo/retention_utils_before.py:7:15: E225 missing whitespace around operator
+reports/lint_demo/retention_utils_before.py:7:22: E231 missing whitespace after ':'
+reports/lint_demo/retention_utils_before.py:7:24: E231 missing whitespace after ','
+reports/lint_demo/retention_utils_before.py:7:33: E231 missing whitespace after ':'
+reports/lint_demo/retention_utils_before.py:7:36: E231 missing whitespace after ','
+reports/lint_demo/retention_utils_before.py:7:43: E231 missing whitespace after ':'
+reports/lint_demo/retention_utils_before.py:7:46: E231 missing whitespace after ','
+reports/lint_demo/retention_utils_before.py:7:57: E231 missing whitespace after ':'
+reports/lint_demo/retention_utils_before.py:9:1: E302 expected 2 blank lines, found 1
+reports/lint_demo/retention_utils_before.py:9:22: E201 whitespace after '('
+reports/lint_demo/retention_utils_before.py:9:32: E231 missing whitespace after ','
+reports/lint_demo/retention_utils_before.py:9:42: E231 missing whitespace after ','
+reports/lint_demo/retention_utils_before.py:9:49: E251 unexpected spaces around keyword / parameter equals
+reports/lint_demo/retention_utils_before.py:9:51: E251 unexpected spaces around keyword / parameter equals
+reports/lint_demo/retention_utils_before.py:9:57: E231 missing whitespace after ','
+reports/lint_demo/retention_utils_before.py:9:71: E202 whitespace before ')'
+reports/lint_demo/retention_utils_before.py:11:15: E201 whitespace after '['
+reports/lint_demo/retention_utils_before.py:12:10: E225 missing whitespace around operator
+reports/lint_demo/retention_utils_before.py:13:20: E201 whitespace after '('
+reports/lint_demo/retention_utils_before.py:13:35: E202 whitespace before ')'
+reports/lint_demo/retention_utils_before.py:14:12: E225 missing whitespace around operator
+reports/lint_demo/retention_utils_before.py:15:38: E201 whitespace after '('
+reports/lint_demo/retention_utils_before.py:15:71: E202 whitespace before ')'
+reports/lint_demo/retention_utils_before.py:16:26: E225 missing whitespace around operator
+reports/lint_demo/retention_utils_before.py:18:17: E225 missing whitespace around operator
+reports/lint_demo/retention_utils_before.py:18:33: E201 whitespace after '['
+reports/lint_demo/retention_utils_before.py:18:48: E202 whitespace before ']'
+reports/lint_demo/retention_utils_before.py:20:22: E225 missing whitespace around operator
+reports/lint_demo/retention_utils_before.py:22:20: E712 comparison to True should be 'if cond is True:' or 'if cond:'
+reports/lint_demo/retention_utils_before.py:23:19: E201 whitespace after '('
+reports/lint_demo/retention_utils_before.py:23:30: E231 missing whitespace after ','
+reports/lint_demo/retention_utils_before.py:23:47: E231 missing whitespace after ','
+reports/lint_demo/retention_utils_before.py:23:58: E231 missing whitespace after ','
+reports/lint_demo/retention_utils_before.py:23:67: E202 whitespace before ')'
+reports/lint_demo/retention_utils_before.py:24:28: E231 missing whitespace after ':'
+reports/lint_demo/retention_utils_before.py:24:45: E231 missing whitespace after ','
+reports/lint_demo/retention_utils_before.py:24:52: E231 missing whitespace after ':'
+reports/lint_demo/retention_utils_before.py:24:67: E231 missing whitespace after ','
+reports/lint_demo/retention_utils_before.py:24:78: E231 missing whitespace after ':'
+reports/lint_demo/retention_utils_before.py:24:87: E231 missing whitespace after ','
+reports/lint_demo/retention_utils_before.py:24:94: E231 missing whitespace after ':'
+reports/lint_demo/retention_utils_before.py:25:14: E225 missing whitespace around operator
+reports/lint_demo/retention_utils_before.py:28:1: E302 expected 2 blank lines, found 1
+reports/lint_demo/retention_utils_before.py:28:28: E231 missing whitespace after ','
+reports/lint_demo/retention_utils_before.py:28:44: E251 unexpected spaces around keyword / parameter equals
+reports/lint_demo/retention_utils_before.py:28:46: E251 unexpected spaces around keyword / parameter equals
+reports/lint_demo/retention_utils_before.py:29:5: F841 local variable 'ids' is assigned to but never used
+reports/lint_demo/retention_utils_before.py:29:8: E225 missing whitespace around operator
+reports/lint_demo/retention_utils_before.py:29:34: E702 multiple statements on one line (semicolon)
+reports/lint_demo/retention_utils_before.py:29:34: E231 missing whitespace after ';'
+reports/lint_demo/retention_utils_before.py:29:40: E225 missing whitespace around operator
+reports/lint_demo/retention_utils_before.py:30:23: E231 missing whitespace after ':'
+reports/lint_demo/retention_utils_before.py:30:35: E231 missing whitespace after ','
+reports/lint_demo/retention_utils_before.py:30:48: E231 missing whitespace after ':'
+reports/lint_demo/retention_utils_before.py:32:24: E225 missing whitespace around operator
++zsh:5> rc=1 
++zsh:6> set +x
+
+Expected non-zero lint status for the intentionally unformatted BEFORE example: 1

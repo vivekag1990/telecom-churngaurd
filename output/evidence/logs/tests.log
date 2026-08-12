@@ -1,0 +1,132 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.11.15, pytest-9.1.1, pluggy-1.6.0 -- /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd
+configfile: pytest.ini
+testpaths: tests
+plugins: cov-6.0.0, anyio-4.14.2
+collecting ... collected 98 items
+
+tests/test_api_integration.py::TestOperationalEndpoints::test_health_reports_a_loaded_model PASSED [  1%]
+tests/test_api_integration.py::TestOperationalEndpoints::test_model_info_exposes_the_model_card PASSED [  2%]
+tests/test_api_integration.py::TestOperationalEndpoints::test_latency_header_is_present PASSED [  3%]
+tests/test_api_integration.py::TestOperationalEndpoints::test_openapi_schema_is_served PASSED [  4%]
+tests/test_api_integration.py::TestPredictEndpoint::test_happy_path_returns_200_and_full_body PASSED [  5%]
+tests/test_api_integration.py::TestPredictEndpoint::test_high_risk_profile_is_flagged PASSED [  6%]
+tests/test_api_integration.py::TestPredictEndpoint::test_low_risk_profile_is_not_flagged PASSED [  7%]
+tests/test_api_integration.py::TestPredictEndpoint::test_missing_required_field_returns_422 PASSED [  8%]
+tests/test_api_integration.py::TestPredictEndpoint::test_out_of_range_value_returns_422 PASSED [  9%]
+tests/test_api_integration.py::TestPredictEndpoint::test_invalid_category_returns_422 PASSED [ 10%]
+tests/test_api_integration.py::TestPredictEndpoint::test_wrong_type_returns_422 PASSED [ 11%]
+tests/test_api_integration.py::TestPredictEndpoint::test_unknown_extra_field_is_rejected PASSED [ 12%]
+tests/test_api_integration.py::TestPredictEndpoint::test_wrong_http_method_returns_405 PASSED [ 13%]
+tests/test_api_integration.py::TestPredictEndpoint::test_unknown_route_returns_404 PASSED [ 14%]
+tests/test_api_integration.py::TestBatchEndpoint::test_batch_returns_one_prediction_per_customer PASSED [ 15%]
+tests/test_api_integration.py::TestBatchEndpoint::test_batch_agrees_with_single_endpoint PASSED [ 16%]
+tests/test_api_integration.py::TestBatchEndpoint::test_empty_batch_returns_422 PASSED [ 17%]
+tests/test_api_integration.py::TestBatchEndpoint::test_oversized_batch_returns_422 PASSED [ 18%]
+tests/test_api_integration.py::TestDegradedMode::test_predict_returns_503_when_no_model_is_loaded PASSED [ 19%]
+tests/test_data_ingestion.py::TestCsvDataSource::test_reads_a_valid_csv PASSED [ 20%]
+tests/test_data_ingestion.py::TestCsvDataSource::test_missing_file_raises_domain_error PASSED [ 21%]
+tests/test_data_ingestion.py::TestCsvDataSource::test_empty_file_raises PASSED [ 22%]
+tests/test_data_ingestion.py::TestCsvDataSource::test_header_only_file_raises PASSED [ 23%]
+tests/test_data_ingestion.py::TestCsvDataSource::test_name_is_traceable PASSED [ 24%]
+tests/test_data_ingestion.py::TestDataIngestor::test_rejects_frame_missing_required_columns PASSED [ 25%]
+tests/test_data_ingestion.py::TestDataIngestor::test_drops_duplicate_customer_ids PASSED [ 26%]
+tests/test_data_ingestion.py::TestDataIngestor::test_split_sizes_respect_test_size PASSED [ 27%]
+tests/test_data_ingestion.py::TestDataIngestor::test_split_is_stratified PASSED [ 28%]
+tests/test_data_ingestion.py::TestDataIngestor::test_no_row_leaks_between_train_and_test PASSED [ 29%]
+tests/test_data_ingestion.py::TestDataIngestor::test_split_is_reproducible PASSED [ 30%]
+tests/test_data_ingestion.py::TestDataIngestor::test_single_class_target_is_rejected PASSED [ 31%]
+tests/test_data_ingestion.py::TestDataIngestor::test_summary_reports_expected_keys PASSED [ 32%]
+tests/test_data_validation.py::TestSchemaContract::test_clean_training_data_passes PASSED [ 33%]
+tests/test_data_validation.py::TestSchemaContract::test_renamed_column_is_caught PASSED [ 34%]
+tests/test_data_validation.py::TestSchemaContract::test_wrong_dtype_is_caught PASSED [ 35%]
+tests/test_data_validation.py::TestSchemaContract::test_unexpected_category_level_is_caught PASSED [ 36%]
+tests/test_data_validation.py::TestMissingValues::test_low_missingness_is_only_a_warning PASSED [ 37%]
+tests/test_data_validation.py::TestMissingValues::test_missing_flood_fails_the_gate PASSED [ 38%]
+tests/test_data_validation.py::TestMissingValues::test_per_column_missing_metric_is_recorded PASSED [ 39%]
+tests/test_data_validation.py::TestRangeChecks::test_negative_charges_are_rejected PASSED [ 40%]
+tests/test_data_validation.py::TestRangeChecks::test_unit_change_dollars_to_cents_is_rejected PASSED [ 41%]
+tests/test_data_validation.py::TestDriftDetection::test_psi_of_identical_distributions_is_near_zero PASSED [ 42%]
+tests/test_data_validation.py::TestDriftDetection::test_psi_grows_with_a_mean_shift PASSED [ 43%]
+tests/test_data_validation.py::TestDriftDetection::test_drifted_traffic_fails_validation PASSED [ 44%]
+tests/test_data_validation.py::TestDriftDetection::test_stable_traffic_passes_drift_check PASSED [ 45%]
+tests/test_data_validation.py::TestReportBehaviour::test_raise_for_status_raises_on_failure PASSED [ 46%]
+tests/test_data_validation.py::TestReportBehaviour::test_raise_for_status_is_silent_on_success PASSED [ 47%]
+tests/test_features.py::TestPureFeatureFunctions::test_avg_spend_per_month_is_arithmetically_correct PASSED [ 48%]
+tests/test_features.py::TestPureFeatureFunctions::test_avg_spend_per_month_never_divides_by_zero PASSED [ 50%]
+tests/test_features.py::TestPureFeatureFunctions::test_tickets_per_year_annualises PASSED [ 51%]
+tests/test_features.py::TestPureFeatureFunctions::test_is_new_customer_boundary_at_six_months PASSED [ 52%]
+tests/test_features.py::TestPureFeatureFunctions::test_charge_to_usage_ratio_handles_null_usage PASSED [ 53%]
+tests/test_features.py::TestPureFeatureFunctions::test_functions_are_pure_and_do_not_mutate_input PASSED [ 54%]
+tests/test_features.py::TestApplyDerivedFeatures::test_all_registered_features_are_produced PASSED [ 55%]
+tests/test_features.py::TestApplyDerivedFeatures::test_row_count_is_preserved PASSED [ 56%]
+tests/test_features.py::TestApplyDerivedFeatures::test_missing_input_column_raises_domain_error PASSED [ 57%]
+tests/test_features.py::TestChurnFeatureEngineer::test_fit_transform_shape PASSED [ 58%]
+tests/test_features.py::TestChurnFeatureEngineer::test_transform_before_fit_raises PASSED [ 59%]
+tests/test_features.py::TestChurnFeatureEngineer::test_column_order_is_stable_under_shuffled_input PASSED [ 60%]
+tests/test_features.py::TestChurnFeatureEngineer::test_non_dataframe_input_is_rejected PASSED [ 61%]
+tests/test_model_inference.py::TestMinimumFunctionality::test_output_shape_matches_input PASSED [ 62%]
+tests/test_model_inference.py::TestMinimumFunctionality::test_probabilities_are_in_the_unit_interval PASSED [ 63%]
+tests/test_model_inference.py::TestMinimumFunctionality::test_no_nan_or_inf_in_output PASSED [ 64%]
+tests/test_model_inference.py::TestMinimumFunctionality::test_single_record_returns_a_complete_prediction PASSED [ 65%]
+tests/test_model_inference.py::TestMinimumFunctionality::test_prediction_is_consistent_with_threshold PASSED [ 66%]
+tests/test_model_inference.py::TestInvariance::test_row_order_does_not_change_individual_predictions PASSED [ 67%]
+tests/test_model_inference.py::TestInvariance::test_batching_matches_one_by_one_scoring PASSED [ 68%]
+tests/test_model_inference.py::TestInvariance::test_customer_id_does_not_influence_the_score PASSED [ 69%]
+tests/test_model_inference.py::TestInvariance::test_column_order_is_irrelevant PASSED [ 70%]
+tests/test_model_inference.py::TestDirectionalExpectations::test_more_support_tickets_increases_risk PASSED [ 71%]
+tests/test_model_inference.py::TestDirectionalExpectations::test_longer_tenure_decreases_risk PASSED [ 72%]
+tests/test_model_inference.py::TestDirectionalExpectations::test_two_year_contract_is_safer_than_month_to_month PASSED [ 73%]
+tests/test_model_inference.py::TestDirectionalExpectations::test_tech_support_reduces_risk PASSED [ 74%]
+tests/test_model_inference.py::TestRobustnessAndErrors::test_unloaded_predictor_raises PASSED [ 75%]
+tests/test_model_inference.py::TestRobustnessAndErrors::test_missing_feature_raises_inference_error PASSED [ 76%]
+tests/test_model_inference.py::TestRobustnessAndErrors::test_empty_batch_is_rejected PASSED [ 77%]
+tests/test_model_inference.py::TestRobustnessAndErrors::test_unseen_category_degrades_gracefully PASSED [ 78%]
+tests/test_model_inference.py::TestRobustnessAndErrors::test_null_optional_features_are_imputed_not_fatal PASSED [ 79%]
+tests/test_model_inference.py::TestRiskBands::test_band_boundaries[0.05-LOW] PASSED [ 80%]
+tests/test_model_inference.py::TestRiskBands::test_band_boundaries[0.29-LOW] PASSED [ 81%]
+tests/test_model_inference.py::TestRiskBands::test_band_boundaries[0.3-MEDIUM] PASSED [ 82%]
+tests/test_model_inference.py::TestRiskBands::test_band_boundaries[0.59-MEDIUM] PASSED [ 83%]
+tests/test_model_inference.py::TestRiskBands::test_band_boundaries[0.6-HIGH] PASSED [ 84%]
+tests/test_model_inference.py::TestRiskBands::test_band_boundaries[0.84-HIGH] PASSED [ 85%]
+tests/test_model_inference.py::TestRiskBands::test_band_boundaries[0.85-CRITICAL] PASSED [ 86%]
+tests/test_model_inference.py::TestRiskBands::test_band_boundaries[0.99-CRITICAL] PASSED [ 87%]
+tests/test_model_inference.py::TestRiskBands::test_bands_are_monotonic_in_probability PASSED [ 88%]
+tests/test_model_training.py::TestTrainingContract::test_pipeline_has_the_expected_three_stages PASSED [ 89%]
+tests/test_model_training.py::TestTrainingContract::test_mismatched_x_and_y_lengths_are_rejected PASSED [ 90%]
+tests/test_model_training.py::TestTrainingContract::test_single_class_target_is_rejected PASSED [ 91%]
+tests/test_model_training.py::TestTrainingContract::test_evaluate_before_train_is_rejected PASSED [ 92%]
+tests/test_model_training.py::TestLearningActuallyHappens::test_model_overfits_a_small_batch PASSED [ 93%]
+tests/test_model_training.py::TestLearningActuallyHappens::test_training_loss_decreases_with_model_capacity PASSED [ 94%]
+tests/test_model_training.py::TestLearningActuallyHappens::test_model_beats_the_majority_class_baseline PASSED [ 95%]
+tests/test_model_training.py::TestLearningActuallyHappens::test_model_learns_signal_not_noise PASSED [ 96%]
+tests/test_model_training.py::TestReproducibilityAndGates::test_same_seed_gives_identical_predictions PASSED [ 97%]
+tests/test_model_training.py::TestReproducibilityAndGates::test_trained_model_clears_release_gates PASSED [ 98%]
+tests/test_model_training.py::TestReproducibilityAndGates::test_artifact_round_trips_with_metadata PASSED [100%]
+
+--------- coverage: platform darwin, python 3.11.15-final-0 ----------
+Name                                     Stmts   Miss  Cover   Missing
+----------------------------------------------------------------------
+src/churnguard/__init__.py                   2      0   100%
+src/churnguard/api/__init__.py               0      0   100%
+src/churnguard/api/main.py                  71      8    89%   90-91, 101-102, 110-111, 139, 189
+src/churnguard/api/schemas.py               60      1    98%   59
+src/churnguard/config.py                    51      2    96%   25-26
+src/churnguard/data/__init__.py              0      0   100%
+src/churnguard/data/ingestion.py            89      4    96%   87-89, 148
+src/churnguard/data/validation.py          117     10    91%   59, 82, 87, 118, 162, 168, 207-210
+src/churnguard/exceptions.py                11      0   100%
+src/churnguard/features/__init__.py          0      0   100%
+src/churnguard/features/engineering.py      63      6    90%   71-73, 100, 103, 107
+src/churnguard/logging_config.py            31      4    87%   41-42, 59-61
+src/churnguard/models/__init__.py            0      0   100%
+src/churnguard/models/evaluation.py         67     17    75%   47, 49, 51, 74-86, 97
+src/churnguard/models/predictor.py          94      9    90%   47, 84-86, 115-117, 120-121
+src/churnguard/models/trainer.py            79     16    80%   75, 85-87, 93-110, 118, 126, 154-156
+----------------------------------------------------------------------
+TOTAL                                      735     77    90%
+
+
+============================= 98 passed in 10.76s ==============================

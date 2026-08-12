@@ -1,0 +1,5 @@
++zsh:4> .venv/bin/isort --check-only --diff src tests scripts
++zsh:5> .venv/bin/black --check src tests scripts
+All done! ✨ 🍰 ✨
+28 files would be left unchanged.
++zsh:6> .venv/bin/flake8 src tests scripts

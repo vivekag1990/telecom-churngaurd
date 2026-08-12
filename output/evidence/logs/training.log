@@ -1,0 +1,29 @@
+12:29:29 | INFO     | churnguard.train                       | ==============================================================================
+12:29:29 | INFO     | churnguard.train                       | ChurnGuard training run starting
+12:29:29 | INFO     | churnguard.train                       | ==============================================================================
+12:29:29 | INFO     | churnguard.data.ingestion              | Loading data from csv:///Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/data/raw/telco_churn.csv
+12:29:29 | INFO     | churnguard.data.ingestion              | Loaded 5000 rows x 12 columns
+12:29:29 | INFO     | churnguard.data.validation             | Validating dataset: 5000 rows x 12 columns
+12:29:29 | WARNING  | churnguard.data.validation             | DATA-QUALITY WARN | Column 'total_charges' has 1.20% nulls (imputed)
+12:29:29 | WARNING  | churnguard.data.validation             | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+12:29:29 | INFO     | churnguard.data.validation             | Validation PASSED | 0 error(s), 2 warning(s)
+12:29:29 | INFO     | churnguard.data.ingestion              | Split complete: {'n_train': 4000, 'n_test': 1000, 'n_features': 10, 'train_churn_rate': 0.2665, 'test_churn_rate': 0.267}
+12:29:29 | INFO     | churnguard.data.validation             | Reference profile with 5 features written to /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/reference_profile.json
+12:29:29 | INFO     | churnguard.models.trainer              | Pipeline built with steps: ['features', 'preprocess', 'classifier']
+12:29:29 | INFO     | churnguard.features.engineering        | ChurnFeatureEngineer fitted: 10 in -> 15 out
+12:29:30 | INFO     | churnguard.features.engineering        | ChurnFeatureEngineer fitted: 10 in -> 15 out
+12:29:31 | INFO     | churnguard.features.engineering        | ChurnFeatureEngineer fitted: 10 in -> 15 out
+12:29:31 | INFO     | churnguard.features.engineering        | ChurnFeatureEngineer fitted: 10 in -> 15 out
+12:29:32 | INFO     | churnguard.features.engineering        | ChurnFeatureEngineer fitted: 10 in -> 15 out
+12:29:32 | INFO     | churnguard.models.trainer              | Cross-validation ROC-AUC = 0.7917 (+/- 0.0152) over 5 folds
+12:29:33 | INFO     | churnguard.models.trainer              | Training on 4000 rows (churn rate 0.267)
+12:29:33 | INFO     | churnguard.models.trainer              | Pipeline built with steps: ['features', 'preprocess', 'classifier']
+12:29:33 | INFO     | churnguard.features.engineering        | ChurnFeatureEngineer fitted: 10 in -> 15 out
+12:29:33 | INFO     | churnguard.models.trainer              | Training complete
+12:29:33 | INFO     | churnguard.models.evaluation           | Evaluation @thr=0.35 | AUC=0.7893 F1=0.5616 acc=0.7580 Brier=0.1518 ECE=0.0185
+12:29:33 | INFO     | churnguard.train                       | All model quality gates passed
+12:29:33 | INFO     | churnguard.models.trainer              | Artefact saved to /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib (19281.0 KB)
+12:29:33 | INFO     | churnguard.models.trainer              | Metrics report written to /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/reports/model_metrics.json
+12:29:33 | INFO     | churnguard.train                       | ------------------------------------------------------------------------------
+12:29:33 | INFO     | churnguard.train                       | DONE | ROC-AUC=0.7893  F1=0.5616  Accuracy=0.7580  Brier=0.1518  ECE=0.0185
+12:29:33 | INFO     | churnguard.train                       | ------------------------------------------------------------------------------

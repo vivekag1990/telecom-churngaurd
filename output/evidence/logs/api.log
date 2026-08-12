@@ -1,0 +1,174 @@
+====================================================================================
+$ curl -X GET http://localhost:8000/health
+# Liveness + readiness probe
+------------------------------------------------------------------------------------
+HTTP/1.1 200 OK
+X-Process-Time-Ms: 1.76
+{
+  "status": "ok",
+  "model_loaded": true,
+  "model_version": "1.0.0",
+  "api_version": "v1"
+}
+
+====================================================================================
+$ curl -X GET http://localhost:8000/v1/model/info
+# Model card
+------------------------------------------------------------------------------------
+HTTP/1.1 200 OK
+X-Process-Time-Ms: 0.71
+{
+  "model_version": "1.0.0",
+  "trained_at_utc": "2026-08-12T06:59:33+00:00",
+  "decision_threshold": 0.35,
+  "input_features": [
+    "tenure_months",
+    "monthly_charges",
+    "total_charges",
+    "support_tickets_6m",
+    "avg_monthly_gb",
+    "contract_type",
+    "internet_service",
+    "payment_method",
+    "tech_support",
+    "paperless_billing"
+  ],
+  "hyperparameters": {
+    "n_estimators": 300,
+    "max_depth": 12,
+    "min_samples_leaf": 8,
+    "class_weight": "balanced",
+    "calibration": "isotonic"
+  },
+  "test_metrics": {
+    "accuracy": 0.758,
+    "precision": 0.543859649122807,
+    "recall": 0.5805243445692884,
+    "f1": 0.5615942028985508,
+    "roc_auc": 0.789322010515505,
+    "brier": 0.15179812518061284,
+    "ece": 0.018503914047969215,
+    "threshold": 0.35
+  }
+}
+
+====================================================================================
+$ curl -X POST http://localhost:8000/v1/predict
+  -H 'Content-Type: application/json'
+  -d '{"customer_id": "CUST-004821", "tenure_months": 2, "monthly_charges": 94.35, "total_charges": 188.7, "support_tickets_6m...'
+# High-risk case
+------------------------------------------------------------------------------------
+HTTP/1.1 200 OK
+X-Process-Time-Ms: 87.54
+{
+  "customer_id": "CUST-004821",
+  "churn_probability": 0.8619,
+  "churn_prediction": 1,
+  "risk_band": "CRITICAL",
+  "recommended_action": "Immediate outreach with targeted discount offer",
+  "threshold_used": 0.35,
+  "model_version": "1.0.0"
+}
+
+====================================================================================
+$ curl -X POST http://localhost:8000/v1/predict
+  -H 'Content-Type: application/json'
+  -d '{"customer_id": "CUST-000117", "tenure_months": 66, "monthly_charges": 54.1, "total_charges": 3570.6, "support_tickets_6...'
+# Low-risk case
+------------------------------------------------------------------------------------
+HTTP/1.1 200 OK
+X-Process-Time-Ms: 43.57
+{
+  "customer_id": "CUST-000117",
+  "churn_probability": 0.0113,
+  "churn_prediction": 0,
+  "risk_band": "LOW",
+  "recommended_action": "No action - monitor quarterly",
+  "threshold_used": 0.35,
+  "model_version": "1.0.0"
+}
+
+====================================================================================
+$ curl -X POST http://localhost:8000/v1/predict/batch
+  -H 'Content-Type: application/json'
+  -d '{"customers": [{"customer_id": "CUST-004821", "tenure_months": 2, "monthly_charges": 94.35, "total_charges": 188.7, "sup...'
+# Batch scoring
+------------------------------------------------------------------------------------
+HTTP/1.1 200 OK
+X-Process-Time-Ms: 43.26
+{
+  "predictions": [
+    {
+      "customer_id": "CUST-004821",
+      "churn_probability": 0.8619,
+      "churn_prediction": 1,
+      "risk_band": "CRITICAL",
+      "recommended_action": "Immediate outreach with targeted discount offer",
+      "threshold_used": 0.35,
+      "model_version": "1.0.0"
+    },
+    {
+      "customer_id": "CUST-000117",
+      "churn_probability": 0.0113,
+      "churn_prediction": 0,
+      "risk_band": "LOW",
+      "recommended_action": "No action - monitor quarterly",
+      "threshold_used": 0.35,
+      "model_version": "1.0.0"
+    }
+  ],
+  "count": 2,
+  "flagged_count": 1,
+  "mean_churn_probability": 0.4366
+}
+
+====================================================================================
+$ curl -X POST http://localhost:8000/v1/predict
+  -H 'Content-Type: application/json'
+  -d '{"customer_id": "CUST-004821", "tenure_months": -4, "monthly_charges": 94.35, "total_charges": 188.7, "support_tickets_6...'
+# Out-of-range value -> 422
+------------------------------------------------------------------------------------
+HTTP/1.1 422 Unprocessable Content
+X-Process-Time-Ms: 0.31
+{
+  "detail": [
+    {
+      "type": "greater_than_equal",
+      "loc": [
+        "body",
+        "tenure_months"
+      ],
+      "msg": "Input should be greater than or equal to 0",
+      "input": -4,
+      "ctx": {
+        "ge": 0
+      }
+    }
+  ]
+}
+
+====================================================================================
+$ curl -X POST http://localhost:8000/v1/predict
+  -H 'Content-Type: application/json'
+  -d '{"customer_id": "CUST-004821", "tenure_months": 2, "monthly_charges": 94.35, "total_charges": 188.7, "support_tickets_6m...'
+# Unknown category -> 422
+------------------------------------------------------------------------------------
+HTTP/1.1 422 Unprocessable Content
+X-Process-Time-Ms: 0.27
+{
+  "detail": [
+    {
+      "type": "literal_error",
+      "loc": [
+        "body",
+        "contract_type"
+      ],
+      "msg": "Input should be 'Month-to-month', 'One year' or 'Two year'",
+      "input": "Lifetime",
+      "ctx": {
+        "expected": "'Month-to-month', 'One year' or 'Two year'"
+      }
+    }
+  ]
+}
+

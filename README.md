@@ -153,8 +153,8 @@ therefore use the same fitted transformations.
 
 ## Assignment evidence
 
-- `notebooks/49.ipynb` contains the research comparison and production evaluation.
-- `output/docx/49.docx` is the final Group 49 assignment report.
+- `output/Group49.ipynb` is the executed research comparison and production evaluation notebook.
+- `output/Group49.docx` is the final Group 49 assignment report.
 - `reports/lint_demo/` contains the linting before/after example.
 - `scripts/demo_failure_paths.py` exercises logged failure paths.
 - `scripts/api_demo.py` prints successful and rejected API requests.

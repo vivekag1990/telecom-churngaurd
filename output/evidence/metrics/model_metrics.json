@@ -1,0 +1,51 @@
+{
+  "accuracy": 0.758,
+  "precision": 0.543859649122807,
+  "recall": 0.5805243445692884,
+  "f1": 0.5615942028985508,
+  "roc_auc": 0.789322010515505,
+  "brier": 0.15179812518061284,
+  "ece": 0.018503914047969215,
+  "threshold": 0.35,
+  "n_samples": 1000,
+  "confusion": [
+    [
+      603,
+      130
+    ],
+    [
+      112,
+      155
+    ]
+  ],
+  "cv_folds": 5,
+  "cv_roc_auc_mean": 0.7916549605907935,
+  "cv_roc_auc_std": 0.015197246106693466,
+  "data_quality": {
+    "passed": true,
+    "errors": [],
+    "warnings": [
+      "Column 'total_charges' has 1.20% nulls (imputed)",
+      "Column 'avg_monthly_gb' has 0.60% nulls (imputed)"
+    ],
+    "metrics": {
+      "n_rows": 5000,
+      "missing_fraction_overall": 0.0018,
+      "missing_fraction__tenure_months": 0.0,
+      "missing_fraction__monthly_charges": 0.0,
+      "missing_fraction__total_charges": 0.012,
+      "missing_fraction__support_tickets_6m": 0.0,
+      "missing_fraction__avg_monthly_gb": 0.006,
+      "missing_fraction__contract_type": 0.0,
+      "missing_fraction__internet_service": 0.0,
+      "missing_fraction__payment_method": 0.0,
+      "missing_fraction__tech_support": 0.0,
+      "missing_fraction__paperless_billing": 0.0,
+      "psi__tenure_months": 0.0005,
+      "psi__monthly_charges": 0.0003,
+      "psi__total_charges": 0.0004,
+      "psi__support_tickets_6m": 0.0001,
+      "psi__avg_monthly_gb": 0.0003
+    }
+  }
+}

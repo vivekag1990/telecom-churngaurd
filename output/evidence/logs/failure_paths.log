@@ -1,0 +1,46 @@
+12:29:46 | INFO     | churnguard.demo                        | 
+12:29:46 | INFO     | churnguard.demo                        | ### Ingestion: file not found -> DataIngestionError ###
+12:29:46 | INFO     | churnguard.data.ingestion              | Loading data from csv://data/raw/does_not_exist.csv
+12:29:46 | ERROR    | churnguard.data.ingestion              | Data file not found: data/raw/does_not_exist.csv
+12:29:46 | INFO     | churnguard.demo                        | Caught DataIngestionError: Data file not found: data/raw/does_not_exist.csv
+12:29:46 | INFO     | churnguard.demo                        | 
+12:29:46 | INFO     | churnguard.demo                        | ### Ingestion: empty file -> DataIngestionError ###
+12:29:46 | INFO     | churnguard.data.ingestion              | Loading data from csv:///tmp/empty_churn.csv
+12:29:46 | ERROR    | churnguard.data.ingestion              | Data file /tmp/empty_churn.csv is empty
+12:29:46 | INFO     | churnguard.demo                        | Caught DataIngestionError: Data file is empty: /tmp/empty_churn.csv
+12:29:46 | INFO     | churnguard.demo                        | 
+12:29:46 | INFO     | churnguard.demo                        | ### Ingestion: missing required columns -> DataIngestionError ###
+12:29:46 | INFO     | churnguard.data.ingestion              | Using memory://missing-cols (5000 rows)
+12:29:46 | ERROR    | churnguard.data.ingestion              | Source memory://missing-cols is missing required columns: ['contract_type', 'internet_service']
+12:29:46 | INFO     | churnguard.demo                        | Caught DataIngestionError: Missing required columns: ['contract_type', 'internet_service']
+12:29:46 | INFO     | churnguard.demo                        | 
+12:29:46 | INFO     | churnguard.demo                        | ### Ingestion: single-class target -> DataIngestionError ###
+12:29:46 | ERROR    | churnguard.data.ingestion              | Target 'churn' has a single class -- cannot train
+12:29:46 | INFO     | churnguard.demo                        | Caught DataIngestionError: Target column must contain at least two classes
+12:29:46 | INFO     | churnguard.demo                        | 
+12:29:46 | INFO     | churnguard.demo                        | ### Validation: schema/range/missing breach -> SchemaValidationError ###
+12:29:46 | INFO     | churnguard.data.validation             | Validating dataset: 5000 rows x 12 columns
+12:29:46 | ERROR    | churnguard.data.validation             | DATA-QUALITY FAIL | Column 'contract_type' has unexpected levels ['Lifetime']
+12:29:46 | ERROR    | churnguard.data.validation             | DATA-QUALITY FAIL | Column 'total_charges' is 9.06% null (limit 5%)
+12:29:46 | WARNING  | churnguard.data.validation             | DATA-QUALITY WARN | Column 'avg_monthly_gb' has 0.60% nulls (imputed)
+12:29:46 | ERROR    | churnguard.data.validation             | DATA-QUALITY FAIL | Column 'monthly_charges' has 1 value(s) outside [0.0, 500.0]
+12:29:46 | INFO     | churnguard.data.validation             | Validation FAILED | 3 error(s), 1 warning(s)
+12:29:46 | INFO     | churnguard.demo                        | Caught SchemaValidationError: Data validation failed with 3 error(s)
+12:29:46 | INFO     | churnguard.demo                        | 
+12:29:46 | INFO     | churnguard.demo                        | ### Training: single-class target -> ModelTrainingError ###
+12:29:46 | ERROR    | churnguard.models.trainer              | Training target contains a single class
+12:29:46 | INFO     | churnguard.demo                        | Caught ModelTrainingError: Training requires at least two target classes
+12:29:46 | INFO     | churnguard.demo                        | 
+12:29:46 | INFO     | churnguard.demo                        | ### Training: X/y row mismatch -> ModelTrainingError ###
+12:29:46 | INFO     | churnguard.demo                        | Caught ModelTrainingError: X has 50 rows but y has 30 -- refusing to train
+12:29:46 | INFO     | churnguard.demo                        | 
+12:29:46 | INFO     | churnguard.demo                        | ### Inference: artefact missing -> ModelNotLoadedError ###
+12:29:46 | INFO     | churnguard.demo                        | Caught ModelNotLoadedError: Model is not loaded. Call load() first.
+12:29:46 | INFO     | churnguard.demo                        | 
+12:29:46 | INFO     | churnguard.demo                        | ### Inference: payload missing features -> InferenceError ###
+12:29:46 | INFO     | churnguard.models.predictor            | Loading model artefact from /Users/sumanth/Content/Project/BITS/SEML/telecom-churngaurd/artifacts/churn_model.joblib
+12:29:46 | INFO     | churnguard.models.predictor            | Model v1.0.0 loaded (trained 2026-08-12T06:59:33+00:00)
+12:29:46 | ERROR    | churnguard.models.predictor            | Inference payload missing features: ['monthly_charges', 'total_charges', 'support_tickets_6m', 'avg_monthly_gb', 'contract_type', 'internet_service', 'payment_method', 'tech_support', 'paperless_billing']
+12:29:46 | INFO     | churnguard.demo                        | Caught InferenceError: Missing required features: ['monthly_charges', 'total_charges', 'support_tickets_6m', 'avg_monthly_gb', 'contract_type', 'internet_service', 'payment_method', 'tech_support', 'paperless_billing']
+12:29:46 | INFO     | churnguard.demo                        | 
+12:29:46 | INFO     | churnguard.demo                        | ### Demo complete ###

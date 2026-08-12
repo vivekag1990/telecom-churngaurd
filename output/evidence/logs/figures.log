@@ -1,0 +1,8 @@
+Wrote reports/figures/confusion_matrix.png
+Wrote reports/figures/roc_curve.png
+Wrote reports/figures/calibration_curve.png
+Wrote reports/figures/threshold_sweep.png
+Wrote reports/figures/drift_psi.png
+Wrote reports/figures/risk_bands.png
+PSI stable=0.0118 drifted=7.7190
+Best F1 threshold=0.31
